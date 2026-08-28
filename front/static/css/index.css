@@ -1,0 +1,44 @@
+@media screen and (min-width: 1024px) {
+  .navbar-menu {
+    justify-content: center;
+  }
+}
+
+#logo{
+    /* font-size:3em; */
+    text-decoration: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(135deg, #63ABCF, #8B5A9B);
+    line-height: .8;
+    font-weight:800;
+}
+
+.navbar-item {
+    border-radius: 1pt;
+}
+
+.navbar-item:hover {
+    background-color: #63ABCF;
+    color: white;
+}
+
+#cards .column {
+    color: white;
+    border: 1px solid blue;
+    border-radius: 12pt;
+}
+
+#cards {
+    margin: 0;
+    gap: 1rem;
+}
+
+#cards .columns {
+    margin: 0;
+    gap: 1rem;
+}
+
+#cards .columns > .column {
+    padding: 0;
+}

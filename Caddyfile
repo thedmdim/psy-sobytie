@@ -1,0 +1,10 @@
+example.com {
+    handle /api/* {
+        reverse_proxy back:8080
+    }
+
+    handle {
+        root * /srv
+        file_server
+    }
+}

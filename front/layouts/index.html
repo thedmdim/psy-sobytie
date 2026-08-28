@@ -1,0 +1,106 @@
+{{ define "css" }}
+<link rel="stylesheet" href="/css/index.css">
+{{ end }}
+
+{{ define "main" }}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.querySelector('.navbar-burger');
+    const menu = document.getElementById(burger.dataset.target);
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-active');
+      menu.classList.toggle('is-active');
+    });
+  });
+</script>
+
+
+<nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/" id="logo">
+            {{ .Site.Title }}
+        </a>
+    </div>
+    <div id="mainNavbar" class="navbar-menu is-active">
+        <a class="navbar-item" href="#vzroslye/">Взрослые</a>
+        <a class="navbar-item" href="#deti/">Дети</a>
+        <a class="navbar-item" href="#podrostki/">Подростки</a>
+        <a class="navbar-item" href="#spetsialistam/">Специалисты</a>
+        <a class="navbar-item" href="#shkolam/">Школам</a>
+        <a class="navbar-item" href="#organizatsiyam/">Организациям</a>     
+    </div>
+</nav>
+
+<section class="section has-background-info-light">
+    {{ with index .Params.sections 0 }}
+    {{ with index .groups 0 }}
+    {{ if ge (len .cards) 5 }}
+    <div id="cards-grid" class="columns is-variable is-4">
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    {{ with index $.Params.sections 0 }}{{ with index .groups 0 }}{{ with index .cards 0 }}
+                    <a class="card is-block" href="{{ .url | relURL }}">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">{{ .title }}</div>
+                        </div>
+                    </a>
+                    {{ end }}{{ end }}{{ end }}
+                </div>
+                <div class="column is-full">
+                    <div class="columns is-mobile is-variable is-2">
+                        <div class="column">
+                            {{ with index $.Params.sections 0 }}{{ with index .groups 0 }}{{ with index .cards 1 }}
+                            <a class="card is-block" href="{{ .url | relURL }}">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">{{ .title }}</div>
+                                </div>
+                            </a>
+                            {{ end }}{{ end }}{{ end }}
+                        </div>
+                        <div class="column">
+                            {{ with index $.Params.sections 0 }}{{ with index .groups 0 }}{{ with index .cards 2 }}
+                            <a class="card is-block" href="{{ .url | relURL }}">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">{{ .title }}</div>
+                                </div>
+                            </a>
+                            {{ end }}{{ end }}{{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    {{ with index $.Params.sections 0 }}{{ with index .groups 0 }}{{ with index .cards 3 }}
+                    <a class="card is-block" href="{{ .url | relURL }}">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">{{ .title }}</div>
+                        </div>
+                    </a>
+                    {{ end }}{{ end }}{{ end }}
+                </div>
+                <div class="column is-full">
+                    {{ with index $.Params.sections 0 }}{{ with index .groups 0 }}{{ with index .cards 4 }}
+                    <a class="card is-block" href="{{ .url | relURL }}">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">{{ .title }}</div>
+                        </div>
+                    </a>
+                    {{ end }}{{ end }}{{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+
+
+    <div class="container">
+        {{ .Content }}
+    </div>
+</section>
+{{ end }}

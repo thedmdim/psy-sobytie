@@ -1,0 +1,17 @@
+services:
+  front:
+    build:
+      context: ./front
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy_data:/data
+      - ./caddy_config:/config
+    depends_on:
+      - back
+
+  back:
+    build:
+      context: ./back
