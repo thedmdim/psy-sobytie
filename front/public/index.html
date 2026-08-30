@@ -7,6 +7,7 @@
 <title>СО-БЫТИЕ</title>
 <link rel="stylesheet" href="/css/bulma.css">
   
+<link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/index.css">
 
 </head>
@@ -16,12 +17,34 @@
     
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const burger = document.querySelector('.navbar-burger');
-    const menu = document.getElementById(burger.dataset.target);
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('is-active');
-      menu.classList.toggle('is-active');
+    const navItems = Array.from(document.querySelectorAll('#mainNavbar .navbar-item'));
+    const cardGroups = Array.from(document.querySelectorAll('section.section > .columns[id]'));
+
+    const showGroup = (slug) => {
+      cardGroups.forEach((group) => {
+        group.classList.toggle('is-hidden', group.id !== slug);
+      });
+
+      navItems.forEach((item) => {
+        item.classList.toggle('is-active', item.id === slug);
+      });
+    };
+
+    navItems.forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.preventDefault();
+        const slug = item.id;
+        if (slug) {
+          showGroup(slug);
+          window.location.hash = slug;
+        }
+      });
     });
+
+    const initialSlug = window.location.hash.replace('#', '') || (navItems[0] && navItems[0].id);
+    if (initialSlug) {
+      showGroup(initialSlug);
+    }
   });
 </script>
 
@@ -33,20 +56,25 @@
         </a>
     </div>
     <div id="mainNavbar" class="navbar-menu is-active">
-        <a class="navbar-item" href="#vzroslye/">Взрослые</a>
-        <a class="navbar-item" href="#deti/">Дети</a>
-        <a class="navbar-item" href="#podrostki/">Подростки</a>
-        <a class="navbar-item" href="#spetsialistam/">Специалисты</a>
-        <a class="navbar-item" href="#shkolam/">Школам</a>
-        <a class="navbar-item" href="#organizatsiyam/">Организациям</a>     
+        
+        <div class="navbar-item " id="adults" href="#adults">Взрослые</div>
+        
+        <div class="navbar-item " id="children" href="#children">Дети</div>
+        
+        <div class="navbar-item " id="teens" href="#teens">Подростки</div>
+        
+        <div class="navbar-item " id="specialists" href="#specialists">Специалистам</div>
+        
+        <div class="navbar-item " id="schools" href="#schools">Школам</div>
+        
+        <div class="navbar-item " id="organizations" href="#organizations">Организациям</div>
+        
     </div>
 </nav>
 
-<section class="section has-background-info-light">
+<section class="section">
     
-    
-    
-    <div id="cards-grid" class="columns is-variable is-4">
+    <div id="adults" class="columns is-variable is-4">
         <div class="column">
             <div class="columns is-multiline is-mobile is-variable is-2">
                 <div class="column is-full">
@@ -106,14 +134,539 @@
         </div>
     </div>
     
+    <div id="children" class="columns is-variable is-4 is-hidden">
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/children/beautiful-childhood/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Красивое детство</div>
+                        </div>
+                    </a>
+                    
+                </div>
+                <div class="column is-full">
+                    <div class="columns is-mobile is-variable is-2">
+                        <div class="column">
+                            
+                            <a class="card is-block" href="/children/diagnostics-klim-temp/">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">Диагностика КЛИМ и ТЕМП</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                        <div class="column">
+                            
+                            <a class="card is-block" href="/children/camps/">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">Лагеря</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/forms/signup/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Записаться</div>
+                        </div>
+                    </a>
+                    
+                </div>
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/children/choose-psychologist/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Выбрать психолога</div>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     
+    <div id="teens" class="columns is-variable is-4 is-hidden">
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/teens/beautiful-growing-up/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Красивое взросление</div>
+                        </div>
+                    </a>
+                    
+                </div>
+                <div class="column is-full">
+                    <div class="columns is-mobile is-variable is-2">
+                        <div class="column">
+                            
+                            <a class="card is-block" href="/teens/diagnostics-klim-temp/">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">Диагностика КЛИМ и ТЕМП</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                        <div class="column">
+                            
+                            <a class="card is-block" href="/teens/camps/">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">Лагеря</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/forms/signup/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Записаться</div>
+                        </div>
+                    </a>
+                    
+                </div>
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/teens/choose-psychologist/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Выбрать психолога</div>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     
+    <div id="specialists" class="columns is-variable is-4 is-hidden">
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/specialists/room-rental/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Аренда кабинета</div>
+                        </div>
+                    </a>
+                    
+                </div>
+                <div class="column is-full">
+                    <div class="columns is-mobile is-variable is-2">
+                        <div class="column">
+                            
+                            <a class="card is-block" href="/specialists/become-partner/">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">Стать партнёром</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                        <div class="column">
+                            
+                            <a class="card is-block" href="/specialists/training/">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">Повышение квалификации</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/specialists/supervision/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Супервизия</div>
+                        </div>
+                    </a>
+                    
+                </div>
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/specialists/retraining/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Переподготовка</div>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="schools" class="columns is-variable is-4 is-hidden">
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/schools/free-lectures/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Бесплатные лекции</div>
+                        </div>
+                    </a>
+                    
+                </div>
+                <div class="column is-full">
+                    <div class="columns is-mobile is-variable is-2">
+                        <div class="column">
+                            
+                            <a class="card is-block" href="/schools/klim-temp/">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">Клим и ТЕМП</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                        <div class="column">
+                            
+                            <a class="card is-block" href="/schools/dispute-resolution/">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">Решение споров</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/forms/request/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Оставить заявку</div>
+                        </div>
+                    </a>
+                    
+                </div>
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/schools/programs/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Школьные программы</div>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="organizations" class="columns is-variable is-4 is-hidden">
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/organizations/integration/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Интеграция психологии</div>
+                        </div>
+                    </a>
+                    
+                </div>
+                <div class="column is-full">
+                    <div class="columns is-mobile is-variable is-2">
+                        <div class="column">
+                            
+                            <a class="card is-block" href="/forms/request/">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">Оставить заявку</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                        <div class="column">
+                            
+                            <a class="card is-block" href="/organizations/for-leaders/">
+                                <div class="card-content has-background-link has-text-white">
+                                    <div class="content">Для руководителей</div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="columns is-multiline is-mobile is-variable is-2">
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/organizations/for-employees/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Для сотрудников</div>
+                        </div>
+                    </a>
+                    
+                </div>
+                <div class="column is-full">
+                    
+                    <a class="card is-block" href="/organizations/gov-projects/">
+                        <div class="card-content has-background-link has-text-white">
+                            <div class="content">Госпроекты</div>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
 
-
-    <div class="container">
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/" id="logo">
+            Выбирайте спокойствие
+        </a>
+    </div>
+    <div id="mainNavbar" class="navbar-menu is-active">
+        
+        <div class="navbar-item " id="psychotherapy" href="#psychotherapy">Психотерапия</div>
+        
+        <div class="navbar-item " id="parents" href="#parents">Родителям</div>
+        
+        <div class="navbar-item " id="business" href="#business">Бизнесу</div>
+        
+        <div class="navbar-item " id="psychologists" href="#psychologists">Психологам</div>
         
     </div>
+</nav>
+
+<section class="section">
+  
+    <div id="psychotherapy" class="columns is-variable is-4">
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/services">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Индивидуальная консультация</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/couples">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Семейная терапия</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/first">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Психолог для ребёнка</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/teenager">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Подростковый психолог</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/groups">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Взрослая терапевтическая группа</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/education">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Просвещение и обучение</div>
+            </div>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div id="parents" class="columns is-variable is-4">
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/neverland">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Красивое детство</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/beautyage">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Красивое взросление</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/parents">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Родительская группа</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/camp">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Летний выездной лагерь</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/school">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Пригласить нас в школу</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/career">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Профориентация</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/family_education">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Просвещение и образование</div>
+            </div>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div id="business" class="columns is-variable is-4">
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/business">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Взаимодействие с коллективом</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/mediation">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Медиация</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/business">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Консультация руководителей</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/psychohygiene">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Интеграция психогигиены</div>
+            </div>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div id="psychologists" class="columns is-variable is-4">
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/supervision">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Супервизия</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/education">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Образование</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/education">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Повышение квалификации</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/intervision">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Группы интервизии</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/partnership">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Стать партнёром</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/personal-therapy">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Личная психотерапия для психологов</div>
+            </div>
+          </a>
+        </div>
+      
+        <div class="column is-full">
+          <a class="card is-block" href="/profprojects">
+            <div class="card-content has-background-link has-text-white">
+              <div class="content">Ассоциация</div>
+            </div>
+          </a>
+        </div>
+      
+    </div>
+  
 </section>
+
 
   </main>
 
