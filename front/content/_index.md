@@ -6,7 +6,7 @@ sections:
         slug: "adults"
         cards:
           - title: "Родительская группа"
-            url: "/adults/parents"
+            url: "/programs#adults"
           - title: "Проекты"
             url: "/adults/"
           - title: "Стать психологом"
@@ -28,7 +28,7 @@ sections:
           - title: "Записаться"
             url: "/forms/signup/"
           - title: "Выбрать психолога"
-            url: "/children/choose-psychologist/"
+            url: "/specialists"
 
       - nav_label: "Подростки"
         slug: "teens"
@@ -42,7 +42,7 @@ sections:
           - title: "Записаться"
             url: "/forms/signup/"
           - title: "Выбрать психолога"
-            url: "/teens/choose-psychologist/"
+            url: "/specialists"
 
       - nav_label: "Специалистам"
         slug: "specialists"
