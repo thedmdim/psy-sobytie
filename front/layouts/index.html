@@ -7,7 +7,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const navItems = Array.from(document.querySelectorAll('#mainNavbar .navbar-item'));
-    const cardGroups = Array.from(document.querySelectorAll('section.section > .columns[id]'));
+    const cardGroups = Array.from(document.querySelectorAll('#primary-nav-section > .columns[id]'));
 
     const showGroup = (slug) => {
       cardGroups.forEach((group) => {
@@ -30,9 +30,12 @@
       });
     });
 
-    const initialSlug = window.location.hash.replace('#', '') || (navItems[0] && navItems[0].id);
-    if (initialSlug) {
-      showGroup(initialSlug);
+    const initialSlug = window.location.hash.replace('#', '');
+    const hasInitialSlug = navItems.some((item) => item.id === initialSlug);
+    const fallbackSlug = navItems[0] && navItems[0].id;
+    const targetSlug = hasInitialSlug ? initialSlug : fallbackSlug;
+    if (targetSlug) {
+      showGroup(targetSlug);
     }
   });
 </script>
@@ -51,7 +54,7 @@
     </div>
 </nav>
 
-<section class="section">
+<section id="primary-nav-section" class="section">
     {{ range $groupIndex, $group := .Params.sections.nav }}
     <div id="{{ .slug }}" class="columns is-variable is-4{{ if ne $groupIndex 0 }} is-hidden{{ end }}">
         <div class="column">
@@ -115,27 +118,66 @@
     {{ end }}
 </section>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navItems = Array.from(document.querySelectorAll('#projectsNavbar .navbar-item'));
+    const cardGroups = Array.from(document.querySelectorAll('#projects-section > .columns[id]'));
+
+    const showGroup = (slug) => {
+      cardGroups.forEach((group) => {
+        group.classList.toggle('is-hidden', group.id !== slug);
+      });
+
+      navItems.forEach((item) => {
+        item.classList.toggle('is-active', item.id === slug);
+      });
+    };
+
+    navItems.forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.preventDefault();
+        const slug = item.id;
+        if (slug) {
+          showGroup(slug);
+          window.location.hash = slug;
+        }
+      });
+    });
+
+    const initialSlug = window.location.hash.replace('#', '');
+    const hasInitialSlug = navItems.some((item) => item.id === initialSlug);
+    const fallbackSlug = navItems[0] && navItems[0].id;
+    const targetSlug = hasInitialSlug ? initialSlug : fallbackSlug;
+    if (targetSlug) {
+      showGroup(targetSlug);
+    }
+  });
+</script>
+
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/" id="logo">
             {{ .Params.sections.delim1 }}
         </a>
     </div>
-    <div id="mainNavbar" class="navbar-menu is-active">
+    <div id="projectsNavbar" class="navbar-menu is-active">
         {{ range .Params.sections.projects }}
-        <div class="navbar-item " id="{{ .slug }}" href="#{{ .slug }}">{{ .nav_label }}</div>
+        <div class="navbar-item" id="{{ .slug }}" href="#{{ .slug }}">{{ .nav_label }}</div>
         {{ end }}
     </div>
 </nav>
 
-<section class="section">
+<section id="projects-section" class="section">
   {{ range $_, $group := .Params.sections.projects }}
-    <div id="{{ $group.slug }}" class="columns is-variable is-4">
+    <div id="{{ $group.slug }}" class="columns is-multiline is-variable is-4{{ if ne $_ 0 }} is-hidden{{ end }}">
       {{ range $card := $group.cards }}
-        <div class="column is-full">
+        <div class="column is-full-mobile is-half-tablet is-one-third-desktop is-one-quarter-widescreen">
           <a class="card is-block" href="{{ $card.url | relURL }}">
             <div class="card-content has-background-link has-text-white">
-              <div class="content">{{ $card.title }}</div>
+              <p class="title is-6 has-text-white">{{ $card.title }}</p>
+              {{ with $card.description }}
+              <p class="content">{{ . }}</p>
+              {{ end }}
             </div>
           </a>
         </div>

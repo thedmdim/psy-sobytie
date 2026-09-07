@@ -1,0 +1,45 @@
+{{ define "css" }}
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/specialists.css">
+{{ end }}
+
+{{ define "main" }}
+
+<section class="hero is-info is-light">
+    <div class="hero-body">
+        <div class="block">
+            <figure class="image">
+                <img class="is-rounded" src="{{ .Params.photo }}" />
+            </figure>
+        </div>
+        
+        <div class="tags">
+            <span class="tag">C {{ .Params.since }} года</span>
+        </div>
+        
+        <div class="block">
+            {{ delimit .Params.specialties ", " }}
+        </div>
+        
+        <p class="title">{{ .Title }}</p>
+    </div>
+</section>
+
+
+<div class="section is-medium">
+    <h2 class="title">О специалисте</h2>
+    <h2 class="subtitle">{{ .Params.description }}</h2>
+    {{ if .Params.focus }}
+    <h2 class="subtitle content">
+        <ul>
+            {{ range .Params.focus }}
+                <li>{{ . }}</li>
+            {{ end }}
+        </ul>
+    </h2>
+        
+    {{ end }}
+    
+</div>
+
+{{ end }}

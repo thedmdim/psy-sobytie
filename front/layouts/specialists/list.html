@@ -1,0 +1,30 @@
+{{ define "css" }}
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/specialists.css">
+{{ end }}
+
+{{ define "main" }}
+
+<section class="section">
+  <div class="columns is-multiline">
+    {{ range .Params.sections.specialists }}
+      <div id="{{ .slug }}" class="column is-one-third-desktop is-half-tablet">
+        <a class="card is-block" href="{{ .slug }}">
+          <div class="card-image">
+            <figure class="image is-1by1">
+              <img src="{{ .slug }}/{{ .photo }}" alt="">
+            </figure>
+          </div>
+          <div class="card-content has-background-link has-text-white">
+            <p class="title is-6 has-text-white">{{ .name }}</p>
+            {{ range .specialties }}
+            <p class="content">{{ . }}</p>
+            {{ end }}
+          </div>
+        </a>
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

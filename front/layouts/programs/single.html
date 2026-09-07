@@ -1,0 +1,306 @@
+{{ define "css" }}
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/programs.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="program-page has-background-white-ter">
+
+  {{/* HERO */}}
+  <section class="hero has-background-white program-hero">
+    <div class="hero-body">
+      <div class="container">
+        {{ with .Params.status }}<span class="tag is-medium has-background-info-soft has-text-info-dark">{{ . }}</span>{{ end }}
+        <h1 class="title is-1">{{ .Title }}</h1>
+        {{ with .Params.subtitle }}<p class="subtitle has-text-grey-dark">{{ . }}</p>{{ end }}
+        <div class="buttons">
+          {{ with .Params.cta_text }}
+            <a class="button is-info" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
+          {{ end }}
+          {{ with .Params.ask_question_text }}
+            <a class="button is-text has-text-info" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* WHY EFFECTIVE */}}
+  {{ with .Params.why_effective }}
+  <section class="section has-background-white">
+    <div class="container">
+      <h2 class="title is-3">{{ .title }}</h2>
+      <div class="columns is-multiline">
+        {{ range .points }}
+        <div class="column is-half">
+          <p class="program-point has-text-grey">{{ . }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* TOPICS */}}
+  {{ with .Params.topics }}
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3">{{ .title }}</h2>
+      <div class="columns is-multiline">
+        {{ range .items }}
+        <div class="column is-half">
+          <h3 class="title is-5">{{ .name }}</h3>
+          {{ with .description }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* RESULTS */}}
+  {{ with .Params.results }}
+  <section class="section has-background-white">
+    <div class="container">
+      <h2 class="title is-3">{{ .title }}</h2>
+      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+      {{ with .images }}
+      <div class="program-carousel" data-carousel>
+        <button class="program-carousel__nav program-carousel__nav--prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
+        <div class="program-carousel__track" data-carousel-track>
+          {{ range . }}
+          <figure class="program-carousel__slide">
+            <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
+            {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+          </figure>
+          {{ end }}
+        </div>
+        <button class="program-carousel__nav program-carousel__nav--next" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* SELLING PHRASE */}}
+  {{ with .Params.selling_phrase }}
+  <section class="section has-background-info">
+    <div class="container">
+      <p class="program-quote__text has-text-white">{{ . }}</p>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* PARENTS FEEDBACK */}}
+  {{ with .Params.parents_feedback }}
+  <section class="section has-background-white">
+    <div class="container">
+      <h2 class="title is-3">{{ .title }}</h2>
+      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+
+      {{ with .points }}
+      <div class="columns is-multiline">
+        {{ range . }}
+        <div class="column is-half">
+          <h3 class="title is-6">{{ .title }}</h3>
+          <p class="has-text-grey">{{ .text }}</p>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ with .gallery }}
+      <div class="program-gallery">
+        {{ range . }}
+        <figure>
+          <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
+          {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+        </figure>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* SCHEDULE */}}
+  {{ with .Params.schedule }}
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3">{{ .title }}</h2>
+      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+      {{ with .address }}<p class="has-text-weight-bold">{{ . }}</p>{{ end }}
+
+      {{ with .groups }}
+        {{ range . }}
+        <div class="box">
+          <div class="level is-mobile">
+            <div class="level-left">
+              <div class="level-item has-text-weight-bold">{{ .name }}</div>
+            </div>
+            <div class="level-right">
+              <div class="level-item has-text-grey">{{ .age }}</div>
+              <div class="level-item has-text-grey">{{ .time }}</div>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      {{ end }}
+
+      {{ with .notes }}
+      <ul class="has-text-grey ml-4">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ul>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ROADMAP */}}
+  {{ with .Params.roadmap }}
+  <section class="section has-background-white">
+    <div class="container">
+      <h2 class="title is-3">{{ .title }}</h2>
+      <ol class="program-roadmap__list">
+        {{ range $i, $step := .steps }}
+        <li class="program-roadmap__step">
+          <span class="program-roadmap__index">{{ add $i 1 }}</span>
+          <div class="program-roadmap__body">
+            <h3 class="title is-6">{{ $step.title }}</h3>
+            {{ with $step.text }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+          </div>
+        </li>
+        {{ end }}
+      </ol>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* SPECIALISTS */}}
+  {{ with .Params.specialists }}
+  {{ $specialists := where $.Site.RegularPages "Section" "specialists" }}
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3">{{ .title }}</h2>
+      <div class="columns is-multiline">
+        {{ range $specialists }}
+        <div class="column is-one-third-desktop is-half-tablet">
+          <a class="card program-specialist-card" href="{{ .RelPermalink }}">
+            <div class="card-image">
+              <figure class="image is-4by5">
+                <img src="{{ .RelPermalink }}{{ .Params.photo }}" alt="{{ .Params.name }}" loading="lazy">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-6">{{ .Params.name }}</p>
+              {{ with .Params.specialties }}<p class="has-text-grey">{{ delimit . ", " }}</p>{{ end }}
+            </div>
+          </a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* REVIEWS */}}
+  {{ with .Params.reviews }}
+  <section class="section has-background-white">
+    <div class="container">
+      <h2 class="title is-3">{{ .title }}</h2>
+      <div class="program-carousel" data-carousel>
+        <button class="program-carousel__nav program-carousel__nav--prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
+        <div class="program-carousel__track" data-carousel-track>
+          {{ range .items }}
+          <blockquote class="box program-review-card">
+            <p class="has-text-grey">{{ .text }}</p>
+            <cite>{{ .author }}</cite>
+          </blockquote>
+          {{ end }}
+        </div>
+        <button class="program-carousel__nav program-carousel__nav--next" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* PRICING */}}
+  {{ with .Params.pricing }}
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3">{{ .title }}</h2>
+      <div class="columns is-multiline">
+        {{ range .plans }}
+        <div class="column is-half">
+          <div class="box">
+            <h3 class="title is-4">{{ .name }}</h3>
+            <p class="program-pricing__price">{{ .price }}</p>
+            {{ with .group_size }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+            {{ with .features }}
+            <ul>
+              {{ range . }}<li>{{ . }}</li>{{ end }}
+            </ul>
+            {{ end }}
+            {{ with $.Params.cta_text }}
+            <a class="button is-info is-outlined is-fullwidth" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* SIGNUP */}}
+  <section class="section has-background-info-light" id="signup">
+    <div class="container">
+      <h2 class="title is-3">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
+      <form class="program-signup__form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
+        <div class="field">
+          <label class="label" for="name">Имя</label>
+          <div class="control">
+            <input class="input" type="text" id="name" name="name" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="phone">Телефон</label>
+          <div class="control">
+            <input class="input" type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="age">Возраст подростка</label>
+          <div class="control">
+            <input class="input" type="number" id="age" name="age" min="10" max="18">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="comment">Комментарий</label>
+          <div class="control">
+            <textarea class="textarea" id="comment" name="comment" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="control">
+          <button type="submit" class="button is-info">Отправить заявку</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+    var track = carousel.querySelector('[data-carousel-track]');
+    var prev = carousel.querySelector('[data-carousel-prev]');
+    var next = carousel.querySelector('[data-carousel-next]');
+    if (!track) return;
+    function scrollByAmount(dir) {
+      track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: 'smooth' });
+    }
+    if (prev) prev.addEventListener('click', function () { scrollByAmount(-1); });
+    if (next) next.addEventListener('click', function () { scrollByAmount(1); });
+  });
+</script>
+{{ end }}

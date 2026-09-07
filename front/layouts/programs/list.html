@@ -1,0 +1,32 @@
+{{ define "css" }}
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/programs.css">
+{{ end }}
+
+{{ define "main" }}
+
+<section class="section">
+    <h2 class="title is-1">{{ .Title }}</h1>
+    {{ range .Params.groups }}
+      <h2 class="title is-3">{{ .name }}</h2>
+      <div class="columns is-multiline">
+        {{ range .sections }}
+          <div id="{{ .url }}" class="column is-one-third-desktop is-half-tablet">
+            <a class="card is-block" href="{{ .url }}">
+              <!-- <div class="card-image">
+                <figure class="image is-1by1">
+                  <img src="{{ .url }}/{{ .photo }}" alt="">
+                </figure>
+              </div> -->
+              <div class="card-content has-background-link has-text-white">
+                <p class="title is-6 has-text-white">{{ .name }}</p>
+              </div>
+            </a>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  
+</section>
+
+{{ end }}
