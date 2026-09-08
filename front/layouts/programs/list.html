@@ -13,11 +13,11 @@
         {{ range .sections }}
           <div id="{{ .url }}" class="column is-one-third-desktop is-half-tablet">
             <a class="card is-block" href="{{ .url }}">
-              <!-- <div class="card-image">
+              <div class="card-image">
                 <figure class="image is-1by1">
-                  <img src="{{ .url }}/{{ .photo }}" alt="">
+                  <img src="{{ .url }}/{{ .photo }}" alt="{{ .name }}">
                 </figure>
-              </div> -->
+              </div>
               <div class="card-content has-background-link has-text-white">
                 <p class="title is-6 has-text-white">{{ .name }}</p>
               </div>

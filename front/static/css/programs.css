@@ -64,7 +64,8 @@
   justify-content: center;
 }
 
-/* specialist card */
+/* card images */
+.card-image .image img { object-fit: cover; width: 100%; height: 100%; }
 .program-specialist-card .card-image img { object-fit: cover; }
 
 /* review card */
