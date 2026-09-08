@@ -42,7 +42,6 @@ groups:
         photo: "goodbad.jpg"
       - name: "Родительская группа"
         url: "parents-group"
-        photo: "goodbad.jpg"
 
   - name: "Специалистам"
     sections:
