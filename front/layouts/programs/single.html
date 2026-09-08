@@ -4,6 +4,12 @@
 {{ end }}
 
 {{ define "main" }}
+{{ $pointPhoto := "" }}
+{{ with .Resources.ByType "image" }}
+  {{ with index . 0 }}
+    {{ $pointPhoto = .RelPermalink }}
+  {{ end }}
+{{ end }}
 <div class="program-page has-background-white-ter">
 
   {{/* HERO */}}
@@ -33,7 +39,12 @@
       <div class="columns is-multiline">
         {{ range .points }}
         <div class="column is-half">
-          <p class="program-point has-text-grey">{{ . }}</p>
+          <div class="program-point">
+            {{ with $pointPhoto }}
+            <img class="program-point__photo" src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+            {{ end }}
+            <p class="has-text-grey">{{ . }}</p>
+          </div>
         </div>
         {{ end }}
       </div>

@@ -4,7 +4,24 @@
 
 .program-hero { border-bottom: 1px solid var(--bulma-border); }
 
-.program-point { border-left: 3px solid var(--bulma-info); padding-left: 1rem; }
+.program-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.program-point__photo {
+  flex: 0 0 3.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.6rem;
+  object-fit: cover;
+  margin-top: 0.2rem;
+}
+
+.program-point p {
+  margin: 0;
+}
 
 .program-quote__text {
   font-family: 'Lora', 'PT Serif', serif;
@@ -77,4 +94,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .program-page * { scroll-behavior: auto !important; transition: none !important; }
+}
+
+@media (max-width: 640px) {
+  .program-point__photo {
+    flex-basis: 3rem;
+    width: 3rem;
+    height: 3rem;
+  }
 }
