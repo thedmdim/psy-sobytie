@@ -1,6 +1,11 @@
 ---
 title: "Все проекты"
 draft: false
+nav:
+  - label: "Пункт 1"
+    url: ""
+  - label: "Пункт 2"
+    url: ""
 groups:
   - name: "Дети"
     sections:

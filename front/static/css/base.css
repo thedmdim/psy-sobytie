@@ -2,3 +2,28 @@
   --accent-primary: #63ABCF;
   --accent-secondary: #8B5A9B;
 }
+
+@media screen and (min-width: 1024px) {
+  .navbar-menu {
+    justify-content: center;
+  }
+}
+
+#logo{
+    /* font-size:3em; */
+    text-decoration: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    line-height: .8;
+    font-weight:800;
+}
+
+.navbar-item:hover , .navbar-item.is-active {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+.navbar-item {
+    border-radius: 20pt;
+}
