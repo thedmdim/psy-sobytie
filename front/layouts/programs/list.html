@@ -5,6 +5,19 @@
 
 {{ define "main" }}
 
+<nav class="navbar has-shadow" role="navigation" aria-label="specialists navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/" id="logo">
+      {{ .Site.Title }}
+    </a>
+  </div>
+  <div class="navbar-menu is-active">
+  {{ range .Params.nav }}
+    <a class="navbar-item" href="{{ .url }}">{{ .label }}</a>
+  {{ end }}
+  </div>
+</nav>
+
 <section class="section">
     <h2 class="title is-1">{{ .Title }}</h1>
     {{ range .Params.groups }}

@@ -5,9 +5,22 @@
 
 {{ define "main" }}
 
+<nav class="navbar has-shadow" role="navigation" aria-label="specialists navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/" id="logo">
+      {{ .Site.Title }}
+    </a>
+  </div>
+  <div class="navbar-menu is-active">
+  {{ range .Params.nav }}
+    <a class="navbar-item" href="{{ .url }}">{{ .label }}</a>
+  {{ end }}
+  </div>
+</nav>
+
 <section class="section">
   <div class="columns is-multiline">
-    {{ range .Params.sections.specialists }}
+    {{ range .Params.specialists }}
       <div id="{{ .slug }}" class="column is-one-third-desktop is-half-tablet">
         <a class="card is-block" href="{{ .slug }}">
           <div class="card-image">
