@@ -6,30 +6,40 @@ groups:
     sections:
       - name: "Психолог для ребенка"
         url: "child-psychologist"
+        photo: "goodbad.jpg"
       - name: "Красивое детство"
         url: "beautiful-childhood"
+        photo: "goodbad.jpg"
       - name: "Летний выездной лагерь"
         url: "summer-camp"
+        photo: "goodbad.jpg"
 
   - name: "Подростки"
     sections:
       - name: "Подростковый психолог"
         url: "teen-psychologist"
+        photo: "goodbad.jpg"
       - name: "Красивое взросление"
         url: "beautiful-growing-up"
+        photo: "goodbad.jpg"
       - name: "Профориентация"
         url: "career-guidance"
+        photo: "goodbad.jpg"
 
   - name: "Взрослые"
     sections:
       - name: "Индивидуальная терапия"
         url: "individual-therapy"
+        photo: "goodbad.jpg"
       - name: "Семейная консультация"
         url: "family-consultation"
+        photo: "goodbad.jpg"
       - name: "Взрослая терапевтическая группа"
         url: "adult-therapy-group"
+        photo: "goodbad.jpg"
       - name: "Просвещение и обучение"
         url: "education-and-learning"
+        photo: "goodbad.jpg"
       - name: "Родительская группа"
         url: "parents-group"
 
@@ -52,6 +62,7 @@ groups:
     sections:
       - name: "Пригласить нас в школу"
         url: "invite-us-to-school"
+        photo: "goodbad.jpg"
       - name: "Взаимодействие с коллективом"
         url: "team-engagement"
       - name: "Медиация"
