@@ -55,6 +55,7 @@
 </nav>
 
 <section id="primary-nav-section" class="section">
+    {{ $home := . }}
     {{ range $groupIndex, $group := .Params.sections.nav }}
     <div id="{{ .slug }}" class="columns is-variable is-4{{ if ne $groupIndex 0 }} is-hidden{{ end }}">
         <div class="column">
@@ -62,6 +63,16 @@
                 <div class="column is-full">
                     {{ with index .cards 0 }}
                     <a class="card is-block" href="{{ .url | relURL }}">
+                        {{ $card := . }}
+                        {{ with $card.photo }}
+                        {{ with $home.Resources.GetMatch . }}
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="{{ .RelPermalink }}" alt="{{ $card.title }}">
+                            </figure>
+                        </div>
+                        {{ end }}
+                        {{ end }}
                         <div class="card-content has-background-link has-text-white">
                             <div class="content">{{ .title }}</div>
                         </div>
@@ -73,6 +84,16 @@
                         <div class="column">
                             {{ with index .cards 1 }}
                             <a class="card is-block" href="{{ .url | relURL }}">
+                                {{ $card := . }}
+                                {{ with $card.photo }}
+                                {{ with $home.Resources.GetMatch . }}
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="{{ .RelPermalink }}" alt="{{ $card.title }}">
+                                    </figure>
+                                </div>
+                                {{ end }}
+                                {{ end }}
                                 <div class="card-content has-background-link has-text-white">
                                     <div class="content">{{ .title }}</div>
                                 </div>
@@ -82,6 +103,16 @@
                         <div class="column">
                             {{ with index .cards 2 }}
                             <a class="card is-block" href="{{ .url | relURL }}">
+                                {{ $card := . }}
+                                {{ with $card.photo }}
+                                {{ with $home.Resources.GetMatch . }}
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="{{ .RelPermalink }}" alt="{{ $card.title }}">
+                                    </figure>
+                                </div>
+                                {{ end }}
+                                {{ end }}
                                 <div class="card-content has-background-link has-text-white">
                                     <div class="content">{{ .title }}</div>
                                 </div>
@@ -97,6 +128,16 @@
                 <div class="column is-full">
                     {{ with index .cards 3 }}
                     <a class="card is-block" href="{{ .url | relURL }}">
+                        {{ $card := . }}
+                        {{ with $card.photo }}
+                        {{ with $home.Resources.GetMatch . }}
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="{{ .RelPermalink }}" alt="{{ $card.title }}">
+                            </figure>
+                        </div>
+                        {{ end }}
+                        {{ end }}
                         <div class="card-content has-background-link has-text-white">
                             <div class="content">{{ .title }}</div>
                         </div>
@@ -106,6 +147,16 @@
                 <div class="column is-full">
                     {{ with index .cards 4 }}
                     <a class="card is-block" href="{{ .url | relURL }}">
+                        {{ $card := . }}
+                        {{ with $card.photo }}
+                        {{ with $home.Resources.GetMatch . }}
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="{{ .RelPermalink }}" alt="{{ $card.title }}">
+                            </figure>
+                        </div>
+                        {{ end }}
+                        {{ end }}
                         <div class="card-content has-background-link has-text-white">
                             <div class="content">{{ .title }}</div>
                         </div>
