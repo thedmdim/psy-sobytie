@@ -1,7 +1,7 @@
 ---
 title: "Красивое взросление"
 draft: false
-status: "Открыт набор"
+status: "Открыт набор в психологические подростковые группы"
 subtitle: >
   Безопасное пространство, где подростки вместе с психологом учатся понимать
   свои чувства, выстраивать отношения со сверстниками, справляться с
@@ -10,6 +10,7 @@ cta_text: "Записаться"
 cta_link: "#signup"
 ask_question_text: "Задать вопрос"
 ask_question_link: "#signup"
+nav_bar: [{ label: "про группы", href: "#about-groups" }, { label: "программа", href: "#program" }, { label: "результаты", href: "#results" }, { label: "расписание", href: "#schedule" }, { label: "стоимость", href: "#pricing" }, { label: "специалисты", href: "#specialists" }, { label: "отзывы", href: "#reviews" }, { label: "контакты", href: "#contacts" }, { label: "вопросы", href: "#faq" }]
  
 why_effective:
   title: "Почему эффективно"
@@ -45,14 +46,25 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется за время группы — в наблюдениях психологов и в словах самих подростков."
   images:
-    - image: "/images/programs/results-1.jpg"
-      caption: "Стало проще начинать разговор первым"
-    - image: "/images/programs/results-2.jpg"
+    - image: "kubok.gif"
+      caption: "Становится проще начинать разговор первым"
+    - image: "kubok.gif"
       caption: "Появились слова для своих чувств"
-    - image: "/images/programs/results-3.jpg"
-      caption: "Легче договариваться в конфликте"
-    - image: "/images/programs/results-4.jpg"
+    - image: "kubok.gif"
+      caption: "Легче договариваться в конфликте и выдерживать его"
+    - image: "kubok.gif"
       caption: "Меньше страха показаться «не таким»"
+    - image: "kubok.gif"
+      caption: "Появляется возможность выбирать окружение»"
+    - image: "kubok.gif"
+      caption: "Устанавливаются адекватные границы с окружающими»"
+    - image: "kubok.gif"
+      caption: "Появляется спосоность проживать расставания»"
+    - image: "kubok.gif"
+      caption: "Начинает понимать свои ценности и ставить цели»"
+    - image: "kubok.gif"
+      caption: "Представлять будущее и делать шаги к нему»"
+ 
  
 parents_feedback:
   title: "Обратная связь для родителей и результаты"
@@ -62,18 +74,11 @@ parents_feedback:
     отдельные встречи для родителей — участвовать могут оба родителя ребёнка.
   points:
     - title: "На старте"
+    - image: "kubok.gif"
       text: "Обсуждаем ваши вопросы, запросы и тревоги перед началом группы."
     - title: "В конце"
+    - image: "kubok.gif"
       text: "Подводим итоги: какие были процессы, что важно понимать и как поддержать результат дома."
-  gallery:
-    - image: "/images/programs/parents-1.jpg"
-      caption: "До группы — тревога перед общением со сверстниками"
-    - image: "/images/programs/parents-2.jpg"
-      caption: "Первые занятия — пробует высказывать своё мнение вслух"
-    - image: "/images/programs/parents-3.jpg"
-      caption: "Середина курса — сам предлагает, как решить спор"
-    - image: "/images/programs/parents-4.jpg"
-      caption: "К финалу — увереннее держится в компании"
  
 schedule:
   title: "Расписание"

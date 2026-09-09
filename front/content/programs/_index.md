@@ -9,7 +9,7 @@ groups:
         photo: "yes473.jpg"
       - name: "Красивое детство"
         url: "beautiful-childhood"
-        photo: "kids.jpg"
+        photo: "kids2.jpg"
       - name: "Летний выездной лагерь"
         url: "summer-camp"
         photo: "camp1.jpg"

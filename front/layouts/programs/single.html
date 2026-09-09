@@ -31,9 +31,21 @@
     </div>
   </section>
 
+  {{ with .Params.nav_bar }}
+  <section class="program-nav-wrap has-background-white">
+    <div class="container">
+      <nav class="program-nav" aria-label="Навигация по странице">
+        {{ range . }}
+        <a class="program-nav__link" href="{{ .href }}">{{ .label }}</a>
+        {{ end }}
+      </nav>
+    </div>
+  </section>
+  {{ end }}
+
   {{/* WHY EFFECTIVE */}}
   {{ with .Params.why_effective }}
-  <section class="section has-background-white">
+  <section class="section has-background-white" id="about-groups">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
@@ -54,15 +66,18 @@
 
   {{/* TOPICS */}}
   {{ with .Params.topics }}
-  <section class="section">
+  <section class="section" id="program">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <div class="columns is-multiline">
+      <div class="program-topics">
         {{ range .items }}
-        <div class="column is-half">
-          <h3 class="title is-5">{{ .name }}</h3>
-          {{ with .description }}<p class="has-text-grey">{{ . }}</p>{{ end }}
-        </div>
+        <details class="program-topic">
+          <summary class="program-topic__summary">
+            <span>{{ .name }}</span>
+            <span class="program-topic__icon" aria-hidden="true">+</span>
+          </summary>
+          {{ with .description }}<p class="program-topic__description has-text-grey">{{ . }}</p>{{ end }}
+        </details>
         {{ end }}
       </div>
     </div>
@@ -71,17 +86,25 @@
 
   {{/* RESULTS */}}
   {{ with .Params.results }}
-  <section class="section has-background-white">
+  <section class="section has-background-white" id="results">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
       {{ with .images }}
-      <div class="program-carousel" data-carousel>
+      <div class="program-carousel program-results-carousel" data-carousel>
         <button class="program-carousel__nav program-carousel__nav--prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
         <div class="program-carousel__track" data-carousel-track>
           {{ range . }}
+          {{ $imageSrc := .image }}
+          {{ with $.Resources.GetMatch .image }}
+            {{ $imageSrc = .RelPermalink }}
+          {{ else }}
+            {{ with $.Resources.GetMatch (replaceRE "^/" "" .image) }}
+              {{ $imageSrc = .RelPermalink }}
+            {{ end }}
+          {{ end }}
           <figure class="program-carousel__slide">
-            <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
+            <img src="{{ $imageSrc }}" alt="{{ .caption | default "" }}" loading="lazy">
             {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
           </figure>
           {{ end }}
@@ -123,8 +146,16 @@
       {{ with .gallery }}
       <div class="program-gallery">
         {{ range . }}
+        {{ $imageSrc := .image }}
+        {{ with $.Resources.GetMatch .image }}
+          {{ $imageSrc = .RelPermalink }}
+        {{ else }}
+          {{ with $.Resources.GetMatch (replaceRE "^/" "" .image) }}
+            {{ $imageSrc = .RelPermalink }}
+          {{ end }}
+        {{ end }}
         <figure>
-          <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
+          <img src="{{ $imageSrc }}" alt="{{ .caption | default "" }}" loading="lazy">
           {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
         </figure>
         {{ end }}
@@ -136,7 +167,7 @@
 
   {{/* SCHEDULE */}}
   {{ with .Params.schedule }}
-  <section class="section">
+  <section class="section" id="schedule">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
@@ -190,7 +221,7 @@
   {{/* SPECIALISTS */}}
   {{ with .Params.specialists }}
   {{ $specialists := where $.Site.RegularPages "Section" "specialists" }}
-  <section class="section">
+  <section class="section" id="specialists">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
@@ -216,7 +247,7 @@
 
   {{/* REVIEWS */}}
   {{ with .Params.reviews }}
-  <section class="section has-background-white">
+  <section class="section has-background-white" id="reviews">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="program-carousel" data-carousel>
@@ -237,7 +268,7 @@
 
   {{/* PRICING */}}
   {{ with .Params.pricing }}
-  <section class="section">
+  <section class="section" id="pricing">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
@@ -262,6 +293,9 @@
     </div>
   </section>
   {{ end }}
+
+  <div class="program-anchor" id="contacts"></div>
+  <div class="program-anchor" id="faq"></div>
 
   {{/* SIGNUP */}}
   <section class="section has-background-info-light" id="signup">

@@ -4,6 +4,34 @@
 
 .program-hero { border-bottom: 1px solid var(--bulma-border); }
 
+.program-nav-wrap {
+  border-bottom: 1px solid var(--bulma-border);
+}
+
+.program-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.25rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0.8rem 0;
+}
+
+.program-nav__link {
+  color: var(--bulma-text-strong);
+  font-weight: 600;
+}
+
+.program-nav__link:hover {
+  color: var(--bulma-info);
+}
+
+.program-anchor {
+  position: relative;
+  top: -7rem;
+  visibility: hidden;
+}
+
 .program-point {
   display: flex;
   align-items: flex-start;
@@ -21,6 +49,50 @@
 
 .program-point p {
   margin: 0;
+}
+
+.program-topics {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.program-topic {
+  border: 1px solid var(--bulma-border);
+  border-radius: 0.75rem;
+  background: var(--bulma-white);
+}
+
+.program-topic__summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+  font-family: 'Lora', 'PT Serif', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.program-topic__summary::-webkit-details-marker {
+  display: none;
+}
+
+.program-topic__icon {
+  color: var(--bulma-info);
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.program-topic[open] .program-topic__icon {
+  transform: rotate(45deg);
+}
+
+.program-topic__description {
+  margin: 0;
+  padding: 0 1.1rem 1rem;
 }
 
 .program-quote__text {
@@ -58,6 +130,25 @@
 .program-carousel__nav:hover { border-color: var(--bulma-info); color: var(--bulma-info); }
 .program-carousel__slide { width: 16rem; }
 .program-carousel__slide figcaption { margin-top: 0.6rem; font-size: 0.9rem; color: var(--bulma-text); }
+
+.program-results-carousel .program-carousel__slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  max-width: 16rem;
+}
+
+.program-results-carousel .program-carousel__slide img {
+  width: 4rem;
+  height: auto;
+  object-fit: contain;
+}
+
+.program-results-carousel .program-carousel__slide figcaption {
+  max-width: 16rem;
+  text-align: center;
+}
 @media (min-width: 641px) { .program-carousel__nav { display: block; } }
 
 /* gallery */
