@@ -50,6 +50,37 @@
 
 .program-signup__form { max-width: 32rem; }
 
+/* accordion */
+.program-accordion { max-width: 42rem; }
+.program-accordion__item {
+  border-bottom: 1px solid var(--bulma-border);
+}
+.program-accordion__item:first-child { border-top: 1px solid var(--bulma-border); }
+.program-accordion__trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.program-accordion__trigger::-webkit-details-marker { display: none; }
+.program-accordion__icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s;
+}
+.program-accordion__item[open] .program-accordion__icon { transform: rotate(90deg); }
+.program-accordion__content {
+  padding: 0 0 1rem 2.25rem;
+  margin: 0;
+  line-height: 1.55;
+}
+
 /* carousel */
 .program-carousel { display: flex; align-items: center; gap: 0.75rem; }
 .program-carousel__track {
