@@ -51,7 +51,15 @@
 .program-signup__form { max-width: 32rem; }
 
 /* accordion */
-.program-accordion { max-width: 42rem; }
+.program-accordion-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.program-accordion {
+  flex: 1 1 50%;
+  min-width: 0;
+}
 .program-accordion__item {
   border-bottom: 1px solid var(--bulma-border);
 }
@@ -79,6 +87,18 @@
   padding: 0 0 1rem 2.25rem;
   margin: 0;
   line-height: 1.55;
+}
+.program-accordion__image {
+  flex: 1 1 50%;
+  min-width: 0;
+  border-radius: var(--bulma-radius, 0.5rem);
+  overflow: hidden;
+}
+.program-accordion__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* carousel */

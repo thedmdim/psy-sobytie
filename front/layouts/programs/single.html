@@ -63,18 +63,23 @@
   <section class="section has-background-white" id="groups">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <div class="program-accordion box">
-        {{ range .items }}
-        <details class="program-accordion__item">
-          <summary class="program-accordion__trigger">
-            <span class="program-accordion__icon">
-              <img src="{{ .icon }}" alt="" width="20" height="20" aria-hidden="true">
-            </span>
-            <span class="program-accordion__label">{{ .name }}</span>
-          </summary>
-          {{ with .description }}<p class="program-accordion__content has-text-grey">{{ . }}</p>{{ end }}
-        </details>
-        {{ end }}
+      <div class="program-accordion-row">
+        <div class="program-accordion box">
+          {{ range .items }}
+          <details class="program-accordion__item">
+            <summary class="program-accordion__trigger">
+              <span class="program-accordion__icon">
+                <img src="{{ .icon }}" alt="" width="20" height="20" aria-hidden="true">
+              </span>
+              <span class="program-accordion__label">{{ .name }}</span>
+            </summary>
+            {{ with .description }}<p class="program-accordion__content has-text-grey">{{ . }}</p>{{ end }}
+          </details>
+          {{ end }}
+        </div>
+        <div class="program-accordion__image">
+          <img src="/images/yes426.jpg" alt="">
+        </div>
       </div>
     </div>
   </section>
