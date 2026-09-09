@@ -6,6 +6,23 @@
 {{ define "main" }}
 <div class="program-page has-background-white-ter">
 
+  {{/* NAVBAR */}}
+  <nav class="program-navbar is-sticky">
+    <div class="container">
+      <ul class="program-navbar__list">
+        <li><a href="#groups">Про группы</a></li>
+        <li><a href="#program">Программа</a></li>
+        <li><a href="#results">Результаты</a></li>
+        <li><a href="#schedule">Расписание</a></li>
+        <li><a href="#pricing">Стоимость</a></li>
+        <li><a href="#specialists">Специалисты</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#signup">Контакты</a></li>
+        <li><a href="#signup">Вопросы</a></li>
+      </ul>
+    </div>
+  </nav>
+
   {{/* HERO */}}
   <section class="hero has-background-white program-hero">
     <div class="hero-body">
@@ -43,7 +60,7 @@
 
   {{/* TOPICS */}}
   {{ with .Params.topics }}
-  <section class="section">
+  <section class="section" id="groups">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
@@ -60,7 +77,7 @@
 
   {{/* RESULTS */}}
   {{ with .Params.results }}
-  <section class="section has-background-white">
+  <section class="section has-background-white" id="results">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
@@ -125,7 +142,7 @@
 
   {{/* SCHEDULE */}}
   {{ with .Params.schedule }}
-  <section class="section">
+  <section class="section" id="schedule">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
@@ -158,7 +175,7 @@
 
   {{/* ROADMAP */}}
   {{ with .Params.roadmap }}
-  <section class="section has-background-white">
+  <section class="section has-background-white" id="program">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <ol class="program-roadmap__list">
@@ -179,7 +196,7 @@
   {{/* SPECIALISTS */}}
   {{ with .Params.specialists }}
   {{ $specialists := where $.Site.RegularPages "Section" "specialists" }}
-  <section class="section">
+  <section class="section" id="specialists">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
@@ -205,7 +222,7 @@
 
   {{/* REVIEWS */}}
   {{ with .Params.reviews }}
-  <section class="section has-background-white">
+  <section class="section has-background-white" id="reviews">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="program-carousel" data-carousel>
@@ -226,7 +243,7 @@
 
   {{/* PRICING */}}
   {{ with .Params.pricing }}
-  <section class="section">
+  <section class="section" id="pricing">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
