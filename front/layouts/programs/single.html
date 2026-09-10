@@ -27,16 +27,23 @@
   <section class="hero has-background-white program-hero">
     <div class="hero-body">
       <div class="container">
-        {{ with .Params.status }}<span class="tag is-medium has-background-info-soft has-text-info-dark">{{ . }}</span>{{ end }}
-        <h1 class="title is-1">{{ .Title }}</h1>
-        {{ with .Params.subtitle }}<p class="subtitle has-text-grey-dark">{{ . }}</p>{{ end }}
-        <div class="buttons">
-          {{ with .Params.cta_text }}
-            <a class="button is-info" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
-          {{ end }}
-          {{ with .Params.ask_question_text }}
-            <a class="button is-text has-text-info" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
-          {{ end }}
+        <div class="program-hero__row">
+          <div class="program-hero__content">
+            {{ with .Params.status }}<span class="program-hero__tag">{{ . }}</span>{{ end }}
+            <h1 class="program-hero__title">{{ .Title }}</h1>
+            {{ with .Params.subtitle }}<p class="subtitle has-text-grey-dark">{{ . }}</p>{{ end }}
+            <div class="buttons">
+              {{ with .Params.cta_text }}
+               <a class="program-hero__cta" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
+              {{ end }}
+              {{ with .Params.ask_question_text }}
+               <a class="button is-text has-text-info" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
+              {{ end }}
+            </div>
+          </div>
+          <div class="program-hero__image">
+            <img src="/images/yes132.jpg" alt="">
+          </div>
         </div>
       </div>
     </div>
@@ -44,13 +51,19 @@
 
   {{/* WHY EFFECTIVE */}}
   {{ with .Params.why_effective }}
+  {{ $icons := slice "connection.png" "point.png" "Star.png" "check.png" "lighthouse.png" "iteam.png" }}
   <section class="section has-background-white">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
-        {{ range .points }}
+        {{ range $i, $p := .points }}
         <div class="column is-half">
-          <p class="program-point has-text-grey">{{ . }}</p>
+          <div class="program-point">
+            <span class="program-point__icon">
+              <img src="/icons2/{{ index $icons $i }}" alt="" width="24" height="24" aria-hidden="true">
+            </span>
+            <p class="has-text-grey">{{ $p }}</p>
+          </div>
         </div>
         {{ end }}
       </div>
@@ -60,16 +73,26 @@
 
   {{/* TOPICS */}}
   {{ with .Params.topics }}
-  <section class="section" id="groups">
+  <section class="section has-background-white" id="groups">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <div class="columns is-multiline">
-        {{ range .items }}
-        <div class="column is-half">
-          <h3 class="title is-5">{{ .name }}</h3>
-          {{ with .description }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+      <div class="program-accordion-row">
+        <div class="program-accordion box">
+          {{ range .items }}
+          <details class="program-accordion__item">
+            <summary class="program-accordion__trigger">
+              <span class="program-accordion__icon">
+                <img src="{{ .icon }}" alt="" width="20" height="20" aria-hidden="true">
+              </span>
+              <span class="program-accordion__label">{{ .name }}</span>
+            </summary>
+            {{ with .description }}<p class="program-accordion__content has-text-grey">{{ . }}</p>{{ end }}
+          </details>
+          {{ end }}
         </div>
-        {{ end }}
+        <div class="program-accordion__image">
+          <img src="/images/yes426.jpg" alt="">
+        </div>
       </div>
     </div>
   </section>
