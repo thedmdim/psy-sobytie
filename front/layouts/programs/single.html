@@ -9,7 +9,7 @@
   {{/* NAVBAR */}}
   <nav class="program-navbar is-sticky">
     <div class="container">
-      <ul class="program-navbar__list">
+      <ul class="program-navbar-list">
         <li><a href="#groups">Про группы</a></li>
         <li><a href="#program">Программа</a></li>
         <li><a href="#results">Результаты</a></li>
@@ -27,21 +27,21 @@
   <section class="hero has-background-white program-hero">
     <div class="hero-body">
       <div class="container">
-        <div class="program-hero__row">
-          <div class="program-hero__content">
-            {{ with .Params.status }}<span class="program-hero__tag">{{ . }}</span>{{ end }}
-            <h1 class="program-hero__title">{{ .Title }}</h1>
+        <div class="program-hero-row">
+          <div class="program-hero-content">
+            {{ with .Params.status }}<span class="program-hero-tag">{{ . }}</span>{{ end }}
+            <h1 class="program-hero-title">{{ .Title }}</h1>
             {{ with .Params.subtitle }}<p class="subtitle has-text-grey-dark">{{ . }}</p>{{ end }}
             <div class="buttons">
               {{ with .Params.cta_text }}
-               <a class="program-hero__cta" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
+               <a class="program-hero-cta" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
               {{ end }}
               {{ with .Params.ask_question_text }}
                <a class="button is-text has-text-info" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
               {{ end }}
             </div>
           </div>
-          <div class="program-hero__image">
+          <div class="program-hero-image">
             <img src="/images/yes132.jpg" alt="">
           </div>
         </div>
@@ -59,7 +59,7 @@
         {{ range $i, $p := .points }}
         <div class="column is-half">
           <div class="program-point">
-            <span class="program-point__icon">
+            <span class="program-point-icon">
               <img src="/icons2/{{ index $icons $i }}" alt="" width="24" height="24" aria-hidden="true">
             </span>
             <p class="has-text-grey">{{ $p }}</p>
@@ -79,18 +79,18 @@
       <div class="program-accordion-row">
         <div class="program-accordion box">
           {{ range .items }}
-          <details class="program-accordion__item">
-            <summary class="program-accordion__trigger">
-              <span class="program-accordion__icon">
+          <details class="program-accordion-item">
+            <summary class="program-accordion-trigger">
+              <span class="program-accordion-icon">
                 <img src="{{ .icon }}" alt="" width="20" height="20" aria-hidden="true">
               </span>
-              <span class="program-accordion__label">{{ .name }}</span>
+              <span class="program-accordion-label">{{ .name }}</span>
             </summary>
-            {{ with .description }}<p class="program-accordion__content has-text-grey">{{ . }}</p>{{ end }}
+            {{ with .description }}<p class="program-accordion-content has-text-grey">{{ . }}</p>{{ end }}
           </details>
           {{ end }}
         </div>
-        <div class="program-accordion__image">
+        <div class="program-accordion-image">
           <img src="/images/yes426.jpg" alt="">
         </div>
       </div>
@@ -106,16 +106,16 @@
       {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
       {{ with .images }}
       <div class="program-carousel" data-carousel>
-        <button class="program-carousel__nav program-carousel__nav--prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
-        <div class="program-carousel__track" data-carousel-track>
+        <button class="program-carousel-nav program-carousel-nav-prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
+        <div class="program-carousel-track" data-carousel-track>
           {{ range . }}
-          <figure class="program-carousel__slide">
+          <figure class="program-carousel-slide">
             <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
             {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
           </figure>
           {{ end }}
         </div>
-        <button class="program-carousel__nav program-carousel__nav--next" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
+        <button class="program-carousel-nav program-carousel-nav-next" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
       </div>
       {{ end }}
     </div>
@@ -126,7 +126,7 @@
   {{ with .Params.selling_phrase }}
   <section class="section has-background-info">
     <div class="container">
-      <p class="program-quote__text has-text-white">{{ . }}</p>
+      <p class="program-quote-text has-text-white">{{ . }}</p>
     </div>
   </section>
   {{ end }}
@@ -201,11 +201,11 @@
   <section class="section has-background-white" id="program">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <ol class="program-roadmap__list">
+      <ol class="program-roadmap-list">
         {{ range $i, $step := .steps }}
-        <li class="program-roadmap__step">
-          <span class="program-roadmap__index">{{ add $i 1 }}</span>
-          <div class="program-roadmap__body">
+        <li class="program-roadmap-step">
+          <span class="program-roadmap-index">{{ add $i 1 }}</span>
+          <div class="program-roadmap-body">
             <h3 class="title is-6">{{ $step.title }}</h3>
             {{ with $step.text }}<p class="has-text-grey">{{ . }}</p>{{ end }}
           </div>
@@ -249,8 +249,8 @@
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="program-carousel" data-carousel>
-        <button class="program-carousel__nav program-carousel__nav--prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
-        <div class="program-carousel__track" data-carousel-track>
+        <button class="program-carousel-nav program-carousel-nav-prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
+        <div class="program-carousel-track" data-carousel-track>
           {{ range .items }}
           <blockquote class="box program-review-card">
             <p class="has-text-grey">{{ .text }}</p>
@@ -258,7 +258,7 @@
           </blockquote>
           {{ end }}
         </div>
-        <button class="program-carousel__nav program-carousel__nav--next" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
+        <button class="program-carousel-nav program-carousel-nav-next" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
       </div>
     </div>
   </section>
@@ -274,7 +274,7 @@
         <div class="column is-half">
           <div class="box">
             <h3 class="title is-4">{{ .name }}</h3>
-            <p class="program-pricing__price">{{ .price }}</p>
+            <p class="program-pricing-price">{{ .price }}</p>
             {{ with .group_size }}<p class="has-text-grey">{{ . }}</p>{{ end }}
             {{ with .features }}
             <ul>
@@ -296,7 +296,7 @@
   <section class="section has-background-info-light" id="signup">
     <div class="container">
       <h2 class="title is-3">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
-      <form class="program-signup__form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
+      <form class="program-signup-form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
         <div class="field">
           <label class="label" for="name">Имя</label>
           <div class="control">
