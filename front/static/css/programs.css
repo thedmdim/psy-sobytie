@@ -244,6 +244,53 @@
 }
 .program-parents-intro { margin-bottom: 2rem; }
 
+/* schedule */
+.program-schedule-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 54rem;
+  max-width: 100%;
+  background: #2B4181;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.program-schedule-age,
+.program-schedule-time {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+.program-schedule-time { margin-right: auto; }
+.program-schedule-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+.program-schedule-name--1 {
+  background: linear-gradient(135deg, #fff, #4fc3f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.program-schedule-name--2 {
+  background: linear-gradient(135deg, #4fc3f7, #b39ddb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.program-schedule-name--3 {
+  background: linear-gradient(135deg, #b39ddb, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.program-schedule-intro { margin-bottom: 0.5rem; }
+.program-schedule-address { margin-top: 1.5rem; margin-bottom: 2rem; }
+.program-schedule-notes { list-style: none; padding: 0; margin: 0; }
+
 /* roadmap */
 .program-roadmap-list { list-style: none; padding: 0; max-width: 42rem; }
 .program-roadmap-step { display: flex; gap: 1.25rem; padding: 1.1rem 0; border-bottom: 1px solid var(--bulma-border); }

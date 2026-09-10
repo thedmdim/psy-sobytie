@@ -170,27 +170,21 @@
   <section class="section" id="schedule">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
-      {{ with .address }}<p class="has-text-weight-bold">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="program-schedule-intro has-text-grey">{{ . }}</p>{{ end }}
+      {{ with .address }}<p class="program-schedule-address has-text-weight-bold">{{ . }}</p>{{ end }}
 
       {{ with .groups }}
-        {{ range . }}
-        <div class="box">
-          <div class="level is-mobile">
-            <div class="level-left">
-              <div class="level-item has-text-weight-bold">{{ .name }}</div>
-            </div>
-            <div class="level-right">
-              <div class="level-item has-text-grey">{{ .age }}</div>
-              <div class="level-item has-text-grey">{{ .time }}</div>
-            </div>
+        {{ range $i, $g := . }}
+        <div class="program-schedule-item">
+            <span class="program-schedule-age">{{ $g.age }}</span>
+            <span class="program-schedule-time">{{ $g.time }}</span>
+            <span class="program-schedule-name program-schedule-name--{{ add $i 1 }}">{{ $g.name }}</span>
           </div>
-        </div>
         {{ end }}
       {{ end }}
 
       {{ with .notes }}
-      <ul class="has-text-grey ml-4">
+      <ul class="program-schedule-notes has-text-grey">
         {{ range . }}<li>{{ . }}</li>{{ end }}
       </ul>
       {{ end }}
