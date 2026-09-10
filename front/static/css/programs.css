@@ -292,20 +292,92 @@
 .program-schedule-notes { list-style: none; padding: 0; margin: 0; }
 
 /* roadmap */
-.program-roadmap-list { list-style: none; padding: 0; max-width: 42rem; }
-.program-roadmap-step { display: flex; gap: 1.25rem; padding: 1.1rem 0; border-bottom: 1px solid var(--bulma-border); }
+.program-roadmap-list {
+  list-style: none;
+  padding: 0;
+  max-width: 42rem;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.program-roadmap-step {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--bulma-border);
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(.2,.7,.2,1),
+              border-color 0.3s ease;
+  will-change: transform;
+}
+
 .program-roadmap-step:last-child { border-bottom: none; }
+
+.program-roadmap-step:hover {
+  transform: translateZ(24px) rotateX(-2deg) rotateY(-3deg);
+  border-bottom-color: #4fc3f7;
+}
+
 .program-roadmap-index {
+  position: relative;
   flex: 0 0 auto;
   width: 2.1rem;
   height: 2.1rem;
   border-radius: 50%;
-  background: var(--bulma-info);
-  color: var(--bulma-info-invert);
+  background: linear-gradient(135deg, #4fc3f7, #b39ddb);
+  color: #fff;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateZ(30px);
+  transition: transform 0.45s cubic-bezier(.2,.7,.2,1),
+              box-shadow 0.45s ease;
+  z-index: 1;
+}
+
+.program-roadmap-step:hover .program-roadmap-index {
+  transform: translateZ(50px) scale(1.08);
+  box-shadow: 0 8px 24px rgba(79, 195, 247, 0.45);
+}
+
+.program-roadmap-index::before {
+  content: '';
+  position: absolute;
+  inset: -0.55rem;
+  padding: 0.15rem;
+  border-radius: 50%;
+  color: #4fc3f7;
+  background: radial-gradient(circle, currentColor 0%, transparent 70%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.55;
+  transform: translateZ(-8px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.program-roadmap-step:hover .program-roadmap-index::before {
+  opacity: 1;
+  transform: translateZ(-8px) scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .program-roadmap-step,
+  .program-roadmap-index,
+  .program-roadmap-index::before { transition: none !important; }
+  .program-roadmap-step:hover { transform: none; }
+}
+
+@media (max-width: 640px) {
+  .program-roadmap-list { perspective: none; }
+  .program-roadmap-step:hover,
+  .program-roadmap-step:hover .program-roadmap-index,
+  .program-roadmap-step:hover .program-roadmap-index::before { transform: none; }
 }
 
 /* card images */
