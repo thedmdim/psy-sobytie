@@ -1,6 +1,7 @@
 :root {
   --accent-primary: #63ABCF;
   --accent-secondary: #8B5A9B;
+  color-scheme: light;
 }
 
 @media screen and (min-width: 1024px) {

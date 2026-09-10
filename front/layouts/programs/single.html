@@ -258,13 +258,17 @@
   <section class="section has-background-white" id="reviews">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <div class="program-carousel" data-carousel>
+      <div class="program-reviews-carousel" data-carousel>
         <button class="program-carousel-nav program-carousel-nav-prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
-        <div class="program-carousel-track" data-carousel-track>
+        <div class="program-reviews-track" data-carousel-track>
           {{ range .items }}
-          <blockquote class="box program-review-card">
-            <p class="has-text-grey">{{ .text }}</p>
-            <cite>{{ .author }}</cite>
+          <blockquote class="program-review-card">
+            <div class="program-review-header">
+              {{ with .image }}<img class="program-review-author-img" src="{{ . }}" alt="" loading="lazy">{{ end }}
+              <cite>{{ .author }}</cite>
+            </div>
+            <p class="program-review-text" data-review-text>{{ .text }}</p>
+            <button class="program-review-toggle" data-review-toggle type="button">читать</button>
           </blockquote>
           {{ end }}
         </div>
@@ -346,11 +350,21 @@
     var prev = carousel.querySelector('[data-carousel-prev]');
     var next = carousel.querySelector('[data-carousel-next]');
     if (!track) return;
+    var isReviews = track.classList.contains('program-reviews-track');
     function scrollByAmount(dir) {
-      track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: 'smooth' });
+      var amount = isReviews ? (track.querySelector('.program-review-card').offsetWidth + parseFloat(getComputedStyle(track).gap || 0)) : track.clientWidth * 0.8;
+      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
     }
     if (prev) prev.addEventListener('click', function () { scrollByAmount(-1); });
     if (next) next.addEventListener('click', function () { scrollByAmount(1); });
+  });
+
+  document.querySelectorAll('[data-review-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.previousElementSibling;
+      var isExpanded = text.classList.toggle('expanded');
+      btn.textContent = isExpanded ? 'свернуть' : 'читать';
+    });
   });
 
   (function () {
