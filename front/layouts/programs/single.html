@@ -214,26 +214,40 @@
 
   {{/* SPECIALISTS */}}
   {{ with .Params.specialists }}
-  {{ $specialists := where $.Site.RegularPages "Section" "specialists" }}
+  {{ $specialistsPage := $.Site.GetPage "/specialists" }}
+  {{ $specialistsData := $specialistsPage.Params.specialists }}
   <section class="section" id="specialists">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <div class="columns is-multiline">
-        {{ range $specialists }}
-        <div class="column is-one-third-desktop is-half-tablet">
-          <a class="card program-specialist-card" href="{{ .RelPermalink }}">
-            <div class="card-image">
-              <figure class="image is-4by5">
-                <img src="{{ .RelPermalink }}{{ .Params.photo }}" alt="{{ .Params.name }}" loading="lazy">
-              </figure>
+
+      <div class="program-specialists-revolver" id="specialistsApp">
+        <p class="program-specialists-label">Выбери специалиста</p>
+
+        <div class="program-specialists-scene" id="specialistsScene">
+          <div class="program-specialists-drum" id="specialistsDrum">
+            {{ range $specialistsData }}
+            <div class="program-specialists-card"
+                 data-name="{{ .name }}"
+                 data-since="{{ .since }}"
+                 data-photo="{{ .photo }}"
+                 data-specialties="{{ delimit .specialties "|" }}">
+              <div class="program-specialists-avatar">
+                <img src="/specialists/{{ .slug }}/{{ .photo }}" alt="{{ .name }}">
+              </div>
+              <div class="program-specialists-name">{{ .name }}</div>
+              <div class="program-specialists-since">с {{ .since }} года</div>
+              <div class="program-specialists-roles">{{ delimit .specialties ", " }}</div>
             </div>
-            <div class="card-content">
-              <p class="title is-6">{{ .Params.name }}</p>
-              {{ with .Params.specialties }}<p class="has-text-grey">{{ delimit . ", " }}</p>{{ end }}
-            </div>
-          </a>
+            {{ end }}
+          </div>
         </div>
-        {{ end }}
+
+        <div class="program-specialists-controls">
+          <button id="specialistsPrev" aria-label="Предыдущий специалист">←</button>
+          <button id="specialistsNext" aria-label="Следующий специалист">→</button>
+        </div>
+
+        <p id="specialistsLive" class="sr-only" aria-live="polite"></p>
       </div>
     </div>
   </section>
@@ -338,5 +352,93 @@
     if (prev) prev.addEventListener('click', function () { scrollByAmount(-1); });
     if (next) next.addEventListener('click', function () { scrollByAmount(1); });
   });
+
+  (function () {
+    var drum = document.getElementById('specialistsDrum');
+    if (!drum) return;
+
+    var cards = Array.from(drum.querySelectorAll('.program-specialists-card'));
+    var TOTAL = cards.length;
+    if (TOTAL === 0) return;
+
+    var STEP = 360 / TOTAL;
+    var RADIUS = 200;
+    var TILT = 58;
+    var FRONT = 180;
+    var sceneEl = document.getElementById('specialistsScene');
+    var live = document.getElementById('specialistsLive');
+    var current = 0;
+    var spin = FRONT;
+
+    function render() {
+      cards.forEach(function (card, i) {
+        var theta = -i * STEP;
+        var phi = theta + spin;
+        card.style.transform =
+          'rotateZ(' + phi + 'deg) translateY(' + (-RADIUS) + 'px) ' +
+          'rotateZ(' + (-phi) + 'deg) rotateX(' + (-TILT) + 'deg)';
+        card.classList.toggle('active', i === current);
+      });
+      if (live) {
+        var card = cards[current];
+        live.textContent = (card.dataset.name || '') + ' — ' + (card.dataset.specialties || '').replace(/\|/g, ', ');
+      }
+    }
+
+    function go(delta) {
+      current = (current + delta + TOTAL) % TOTAL;
+      spin += delta * STEP;
+      cards.forEach(function (c) { c.classList.remove('revealed'); });
+      render();
+    }
+
+    document.getElementById('specialistsNext').addEventListener('click', function () { go(1); });
+    document.getElementById('specialistsPrev').addEventListener('click', function () { go(-1); });
+
+    drum.addEventListener('click', function (e) {
+      var card = e.target.closest('.program-specialists-card');
+      if (!card) return;
+      var idx = cards.indexOf(card);
+      if (idx === current) {
+        card.classList.toggle('revealed');
+      }
+    });
+
+    window.addEventListener('keydown', function (e) {
+      if (!document.getElementById('specialists').contains(document.activeElement) && document.activeElement !== document.body) return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); go(1); }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(-1); }
+    });
+
+    var wheelLock = false;
+    if (sceneEl) {
+      sceneEl.addEventListener('wheel', function (e) {
+        if (wheelLock) return;
+        var d = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+        if (Math.abs(d) < 8) return;
+        wheelLock = true;
+        go(d > 0 ? 1 : -1);
+        setTimeout(function () { wheelLock = false; }, 400);
+      }, { passive: true });
+    }
+
+    var startX = null, startY = null;
+    if (sceneEl) {
+      sceneEl.addEventListener('touchstart', function (e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+
+      sceneEl.addEventListener('touchend', function (e) {
+        if (startX === null) return;
+        var dx = e.changedTouches[0].clientX - startX;
+        var dy = e.changedTouches[0].clientY - startY;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1);
+        startX = null;
+      }, { passive: true });
+    }
+
+    render();
+  })();
 </script>
 {{ end }}

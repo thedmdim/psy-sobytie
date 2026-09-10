@@ -380,9 +380,166 @@
   .program-roadmap-step:hover .program-roadmap-index::before { transform: none; }
 }
 
-/* card images */
-.card-image .image img { object-fit: cover; width: 100%; height: 100%; }
-.program-specialist-card .card-image img { object-fit: cover; }
+/* specialists revolver */
+.program-specialists-revolver {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  --card-w: 160px;
+  --card-h: 240px;
+  --radius: 200px;
+  --tilt: 58deg;
+  --spin-dur: .75s;
+  --spin-ease: cubic-bezier(.34, .01, .2, 1);
+  transform: scale(var(--scale, 1));
+  transform-origin: center center;
+}
+
+.program-specialists-label {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--bulma-text);
+  opacity: .55;
+  margin-bottom: 4px;
+}
+
+.program-specialists-scene {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px;
+  perspective-origin: 50% 50%;
+  touch-action: pan-y;
+}
+
+.program-specialists-drum {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transform: translateY(-22px) rotateX(var(--tilt));
+}
+
+.program-specialists-card {
+  position: absolute;
+  left: calc(var(--card-w) / -2);
+  top: calc(var(--card-h) / -2);
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: 14px;
+  background: linear-gradient(150deg, #eef2f9, #dce3f5);
+  border: 1px solid rgba(0, 0, 0, .08);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 10px;
+  text-align: center;
+  backface-visibility: hidden;
+  transform-origin: 50% 50%;
+  opacity: .42;
+  transition:
+    transform var(--spin-dur) var(--spin-ease),
+    opacity .45s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.program-specialists-card.active {
+  opacity: 1;
+  border-color: #6c5ce7;
+  box-shadow:
+    0 0 34px rgba(108, 92, 231, .45),
+    0 14px 30px rgba(0, 0, 0, .15);
+}
+
+.program-specialists-avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.program-specialists-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.program-specialists-name {
+  font-size: .88rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--bulma-text-strong);
+}
+
+.program-specialists-since {
+  font-size: .7rem;
+  opacity: .55;
+  color: var(--bulma-text);
+}
+
+.program-specialists-roles {
+  font-size: .65rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  color: var(--bulma-text);
+  line-height: 1.3;
+  transition: opacity 0.3s, max-height 0.3s;
+}
+.program-specialists-card.revealed .program-specialists-roles {
+  opacity: .5;
+  max-height: 4rem;
+}
+
+.program-specialists-controls {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.program-specialists-controls button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--bulma-border);
+  background: var(--bulma-white);
+  color: var(--bulma-text-strong);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.program-specialists-controls button:hover {
+  background: #6c5ce7;
+  color: #fff;
+  border-color: #6c5ce7;
+}
+.program-specialists-controls button:focus-visible {
+  outline: 2px solid #a29bfe;
+  outline-offset: 3px;
+}
+
+@media (max-height: 780px) { .program-specialists-revolver { --scale: .88; } }
+@media (max-height: 660px) { .program-specialists-revolver { --scale: .74; } }
+@media (max-height: 560px) { .program-specialists-revolver { --scale: .6; } }
+@media (max-width: 780px)  { .program-specialists-revolver { --scale: .85; } }
+@media (max-width: 560px)  { .program-specialists-revolver { --scale: .68; } }
+@media (max-width: 400px)  { .program-specialists-revolver { --scale: .55; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .program-specialists-card { transition-duration: .01ms; }
+}
 
 /* review card */
 .program-review-card { width: 20rem; margin: 0; border-left: 3px solid var(--bulma-info); }
@@ -393,4 +550,15 @@
 
 @media (prefers-reduced-motion: reduce) {
   .program-page * { scroll-behavior: auto !important; transition: none !important; }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
