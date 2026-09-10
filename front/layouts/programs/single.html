@@ -280,24 +280,28 @@
 
   {{/* PRICING */}}
   {{ with .Params.pricing }}
-  <section class="section" id="pricing">
+  <section class="section program-pricing-section" id="pricing">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
-        {{ range .plans }}
+        {{ range $i, $plan := .plans }}
         <div class="column is-half">
-          <div class="box">
-            <h3 class="title is-4">{{ .name }}</h3>
-            <p class="program-pricing-price">{{ .price }}</p>
-            {{ with .group_size }}<p class="has-text-grey">{{ . }}</p>{{ end }}
-            {{ with .features }}
-            <ul>
-              {{ range . }}<li>{{ . }}</li>{{ end }}
-            </ul>
-            {{ end }}
-            {{ with $.Params.cta_text }}
-            <a class="button is-info is-outlined is-fullwidth" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
-            {{ end }}
+          <div class="program-pricing-card program-pricing-card--{{ add $i 1 }}">
+            <div class="program-pricing-card-inner">
+              <div class="program-pricing-header">
+                <h3 class="title is-4">{{ $plan.name }}</h3>
+                <p class="program-pricing-price program-pricing-price--{{ add $i 1 }}">{{ $plan.price }}</p>
+              </div>
+              {{ with $plan.group_size }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+              {{ with $plan.features }}
+              <ul>
+                {{ range . }}<li>{{ . }}</li>{{ end }}
+              </ul>
+              {{ end }}
+              {{ with $.Params.cta_text }}
+              <a class="button is-fullwidth program-pricing-cta program-pricing-cta--{{ add $i 1 }}" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
+              {{ end }}
+            </div>
           </div>
         </div>
         {{ end }}

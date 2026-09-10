@@ -610,7 +610,62 @@
 }
 
 /* pricing */
-.program-pricing-price { font-size: 1.8rem; font-weight: 600; color: var(--bulma-info-dark); }
+.program-pricing-section { margin-bottom: 4rem; }
+
+.program-pricing-card {
+  border-radius: 16px;
+  padding: 3px;
+}
+.program-pricing-card--1 {
+  background: linear-gradient(135deg, #2B4181, #5B9BD5, #A78BFA);
+}
+.program-pricing-card--2 {
+  background: linear-gradient(135deg, #81D4FA, #E1F5FE, #FFFFFF);
+}
+
+.program-pricing-card-inner {
+  background: #fff;
+  border-radius: 13px;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.program-pricing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.program-pricing-header .title { margin-bottom: 0; }
+
+.program-pricing-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.program-pricing-price--1 {
+  background: linear-gradient(135deg, #2B4181, #A78BFA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.program-pricing-price--2 {
+  background: linear-gradient(135deg, #81D4FA, #5B9BD5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.program-pricing-cta {
+  margin-top: 1rem;
+  color: #fff !important;
+  border: none;
+}
+.program-pricing-cta--1 {
+  background: linear-gradient(135deg, #2B4181, #A78BFA);
+}
+.program-pricing-cta--2 {
+  background: linear-gradient(135deg, #81D4FA, #5B9BD5);
+}
 
 @media (prefers-reduced-motion: reduce) {
   .program-page * { scroll-behavior: auto !important; transition: none !important; }
