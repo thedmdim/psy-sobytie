@@ -56,14 +56,20 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется за время группы — в наблюдениях психологов и в словах самих подростков."
   images:
-    - image: "/images/programs/results-1.jpg"
+    - image: "/images/elef1.png"
       caption: "Стало проще начинать разговор первым"
-    - image: "/images/programs/results-2.jpg"
+    - image: "/images/elef2.png"
       caption: "Появились слова для своих чувств"
-    - image: "/images/programs/results-3.jpg"
+    - image: "/images/elef3.png"
       caption: "Легче договариваться в конфликте"
-    - image: "/images/programs/results-4.jpg"
+    - image: "/images/elef4.png"
       caption: "Меньше страха показаться «не таким»"
+    - image: "/images/elef5.png"
+      caption: "Появилась возможность выбирать окружение"
+    - image: "/images/elef1.png"
+      caption: "Пришло понимание своих ценностей, целей и приоритетов"
+    - image: "/images/elef3.png"
+      caption: "Появилость понимание будущего и мотивация действовать"
  
 parents_feedback:
   title: "Обратная связь для родителей и результаты"
@@ -73,18 +79,17 @@ parents_feedback:
     отдельные встречи для родителей — участвовать могут оба родителя ребёнка.
   points:
     - title: "На старте"
+      image: "/icons2/rocket.png"
       text: "Обсуждаем ваши вопросы, запросы и тревоги перед началом группы."
     - title: "В конце"
+      image: "/icons2/point.png"
       text: "Подводим итоги: какие были процессы, что важно понимать и как поддержать результат дома."
   gallery:
     - image: "/images/programs/parents-1.jpg"
       caption: "До группы — тревога перед общением со сверстниками"
     - image: "/images/programs/parents-2.jpg"
       caption: "Первые занятия — пробует высказывать своё мнение вслух"
-    - image: "/images/programs/parents-3.jpg"
-      caption: "Середина курса — сам предлагает, как решить спор"
-    - image: "/images/programs/parents-4.jpg"
-      caption: "К финалу — увереннее держится в компании"
+    
  
 schedule:
   title: "Расписание"

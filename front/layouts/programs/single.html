@@ -24,20 +24,20 @@
   </nav>
 
   {{/* HERO */}}
-  <section class="hero has-background-white program-hero">
+  <section class="hero program-hero" style="background-color: #2B4181;">
     <div class="hero-body">
       <div class="container">
         <div class="program-hero-row">
           <div class="program-hero-content">
             {{ with .Params.status }}<span class="program-hero-tag">{{ . }}</span>{{ end }}
             <h1 class="program-hero-title">{{ .Title }}</h1>
-            {{ with .Params.subtitle }}<p class="subtitle has-text-grey-dark">{{ . }}</p>{{ end }}
+            {{ with .Params.subtitle }}<p class="program-hero-subtitle">{{ . }}</p>{{ end }}
             <div class="buttons">
               {{ with .Params.cta_text }}
                <a class="program-hero-cta" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
               {{ end }}
               {{ with .Params.ask_question_text }}
-               <a class="button is-text has-text-info" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
+               <a class="has-text-white" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
               {{ end }}
             </div>
           </div>
@@ -52,7 +52,7 @@
   {{/* WHY EFFECTIVE */}}
   {{ with .Params.why_effective }}
   {{ $icons := slice "connection.png" "point.png" "Star.png" "check.png" "lighthouse.png" "iteam.png" }}
-  <section class="section has-background-white">
+  <section class="section has-background-white" style="position: relative; z-index: 1;">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
@@ -103,13 +103,13 @@
   <section class="section has-background-white" id="results">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="program-results-intro has-text-grey">{{ . }}</p>{{ end }}
       {{ with .images }}
       <div class="program-carousel" data-carousel>
         <button class="program-carousel-nav program-carousel-nav-prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
         <div class="program-carousel-track" data-carousel-track>
           {{ range . }}
-          <figure class="program-carousel-slide">
+          <figure class="program-carousel-slide has-text-centered">
             <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
             {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
           </figure>
@@ -124,9 +124,9 @@
 
   {{/* SELLING PHRASE */}}
   {{ with .Params.selling_phrase }}
-  <section class="section has-background-info">
+  <section class="section program-selling">
     <div class="container">
-      <p class="program-quote-text has-text-white">{{ . }}</p>
+      <p class="program-selling-text">{{ . }}</p>
     </div>
   </section>
   {{ end }}
@@ -136,14 +136,17 @@
   <section class="section has-background-white">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="program-parents-intro has-text-grey">{{ . }}</p>{{ end }}
 
       {{ with .points }}
       <div class="columns is-multiline">
         {{ range . }}
         <div class="column is-half">
+          <div class="program-parents-point has-text-centered">
           <h3 class="title is-6">{{ .title }}</h3>
+          {{ with .image }}<img class="program-parents-point-image" src="{{ . }}" alt="" loading="lazy">{{ end }}
           <p class="has-text-grey">{{ .text }}</p>
+          </div>
         </div>
         {{ end }}
       </div>
@@ -153,8 +156,7 @@
       <div class="program-gallery">
         {{ range . }}
         <figure>
-          <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
-          {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+          <img src="{{ .image }}" alt="" loading="lazy">
         </figure>
         {{ end }}
       </div>
