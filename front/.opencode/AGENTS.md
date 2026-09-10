@@ -25,3 +25,4 @@
 6. In Hugo templates, avoid excessive temporary variables for straightforward paths. Prefer direct access like `.Params.sections.nav` unless it prevents context bugs.
 7. Avoid speculative defensive code that has no matching markup or runtime path in current template (for example, element handlers without element itself). Keep JS/CSS minimal, purpose-driven, and tied to actual rendered elements.
 8. When user asks to change smth it almost always about changing style and template
+9. CSS class naming: flat kebab-case only. No BEM delimiters (`__`, `--`). Example: `program-carousel-nav`, not `program-carousel__nav` or `program-carousel__nav--prev`.
