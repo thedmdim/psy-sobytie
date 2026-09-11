@@ -11,6 +11,9 @@ cta_link: "#signup"
 ask_question_text: "Задать вопрос"
 ask_question_link: "#signup"
  
+hero_image: "yes132.jpg"
+topics_image: "yes426.jpg"
+
 why_effective:
   title: "Почему эффективно"
   points:
