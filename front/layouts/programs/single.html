@@ -24,25 +24,29 @@
   </nav>
 
   {{/* HERO */}}
-  <section class="hero has-background-white program-hero">
-    <div class="hero-body">
+  <section class="hero is-medium program-hero">
+    <div class="hero-body py-3">
       <div class="container">
-        <div class="program-hero-row">
-          <div class="program-hero-content">
-            {{ with .Params.status }}<span class="program-hero-tag">{{ . }}</span>{{ end }}
-            <h1 class="program-hero-title">{{ .Title }}</h1>
-            {{ with .Params.subtitle }}<p class="subtitle has-text-grey-dark">{{ . }}</p>{{ end }}
-            <div class="buttons">
+        <div class="columns is-vcentered">
+          <div class="column">
+            {{ with .Params.status }}<span class="tag is-warning is-medium mb-4">{{ . }}</span>{{ end }}
+            <h1 class="title is-1 has-text-white">{{ .Title }}</h1>
+            {{ with .Params.subtitle }}<p class="subtitle is-4 has-text-white">{{ . }}</p>{{ end }}
+            <div class="buttons mt-5">
               {{ with .Params.cta_text }}
-               <a class="program-hero-cta" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
+               <a class="button is-rounded program-hero-cta" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
               {{ end }}
               {{ with .Params.ask_question_text }}
-               <a class="button is-text has-text-info" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
+               <a class="button is-ghost has-text-white" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
               {{ end }}
             </div>
           </div>
-          <div class="program-hero-image">
-            <img src="/images/yes132.jpg" alt="">
+          <div class="column">
+            {{ with .Params.hero_image }}
+            <figure class="image">
+              <img src="{{ $.RelPermalink }}{{ . }}" alt="">
+            </figure>
+            {{ end }}
           </div>
         </div>
       </div>
@@ -52,7 +56,7 @@
   {{/* WHY EFFECTIVE */}}
   {{ with .Params.why_effective }}
   {{ $icons := slice "connection.png" "point.png" "Star.png" "check.png" "lighthouse.png" "iteam.png" }}
-  <section class="section has-background-white">
+  <section class="section has-background-white program-section-stack">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
@@ -91,7 +95,9 @@
           {{ end }}
         </div>
         <div class="program-accordion-image">
-          <img src="/images/yes426.jpg" alt="">
+          {{ with $.Params.topics_image }}
+          <img src="{{ $.RelPermalink }}{{ . }}" alt="">
+          {{ end }}
         </div>
       </div>
     </div>
@@ -103,13 +109,13 @@
   <section class="section has-background-white" id="results">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="has-text-grey mb-5">{{ . }}</p>{{ end }}
       {{ with .images }}
       <div class="program-carousel" data-carousel>
         <button class="program-carousel-nav program-carousel-nav-prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
         <div class="program-carousel-track" data-carousel-track>
           {{ range . }}
-          <figure class="program-carousel-slide">
+          <figure class="program-carousel-slide has-text-centered">
             <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
             {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
           </figure>
@@ -124,9 +130,9 @@
 
   {{/* SELLING PHRASE */}}
   {{ with .Params.selling_phrase }}
-  <section class="section has-background-info">
+  <section class="section program-selling">
     <div class="container">
-      <p class="program-quote-text has-text-white">{{ . }}</p>
+      <p class="program-selling-text">{{ . }}</p>
     </div>
   </section>
   {{ end }}
@@ -136,14 +142,17 @@
   <section class="section has-background-white">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="has-text-grey mb-5">{{ . }}</p>{{ end }}
 
       {{ with .points }}
       <div class="columns is-multiline">
         {{ range . }}
         <div class="column is-half">
+          <div class="program-parents-point has-text-centered">
           <h3 class="title is-6">{{ .title }}</h3>
+          {{ with .image }}<img class="program-parents-point-image" src="{{ . }}" alt="" loading="lazy">{{ end }}
           <p class="has-text-grey">{{ .text }}</p>
+          </div>
         </div>
         {{ end }}
       </div>
@@ -153,8 +162,7 @@
       <div class="program-gallery">
         {{ range . }}
         <figure>
-          <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
-          {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+          <img src="{{ .image }}" alt="" loading="lazy">
         </figure>
         {{ end }}
       </div>
@@ -168,27 +176,21 @@
   <section class="section" id="schedule">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
-      {{ with .address }}<p class="has-text-weight-bold">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="has-text-grey mb-2">{{ . }}</p>{{ end }}
+      {{ with .address }}<p class="has-text-weight-bold mt-5 mb-5">{{ . }}</p>{{ end }}
 
       {{ with .groups }}
-        {{ range . }}
-        <div class="box">
-          <div class="level is-mobile">
-            <div class="level-left">
-              <div class="level-item has-text-weight-bold">{{ .name }}</div>
-            </div>
-            <div class="level-right">
-              <div class="level-item has-text-grey">{{ .age }}</div>
-              <div class="level-item has-text-grey">{{ .time }}</div>
-            </div>
+        {{ range $i, $g := . }}
+        <div class="program-schedule-item">
+            <span class="program-schedule-age">{{ $g.age }}</span>
+            <span class="program-schedule-time">{{ $g.time }}</span>
+            <span class="program-schedule-name program-schedule-name--{{ add $i 1 }}">{{ $g.name }}</span>
           </div>
-        </div>
         {{ end }}
       {{ end }}
 
       {{ with .notes }}
-      <ul class="has-text-grey ml-4">
+      <ul class="program-schedule-notes has-text-grey">
         {{ range . }}<li>{{ . }}</li>{{ end }}
       </ul>
       {{ end }}
@@ -222,9 +224,10 @@
   <section class="section" id="specialists">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <div class="columns is-multiline">
-        {{ range $specialists }}
-        <div class="column is-one-third-desktop is-half-tablet">
+      <div class="program-carousel" data-carousel>
+        <button class="program-carousel-nav program-carousel-nav-prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
+        <div class="program-carousel-track" data-carousel-track>
+          {{ range $specialists }}
           <a class="card program-specialist-card" href="{{ .RelPermalink }}">
             <div class="card-image">
               <figure class="image is-4by5">
@@ -233,11 +236,14 @@
             </div>
             <div class="card-content">
               <p class="title is-6">{{ .Params.name }}</p>
-              {{ with .Params.specialties }}<p class="has-text-grey">{{ delimit . ", " }}</p>{{ end }}
+              {{ with first 7 .Params.specialties }}
+                <p class="has-text-grey">{{ delimit . ", " }}</p>
+              {{ end }}
             </div>
           </a>
+          {{ end }}
         </div>
-        {{ end }}
+        <button class="program-carousel-nav program-carousel-nav-next" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
       </div>
     </div>
   </section>
@@ -293,30 +299,30 @@
   {{ end }}
 
   {{/* SIGNUP */}}
-  <section class="section has-background-info-light" id="signup">
+  <section class="section program-hero" id="signup">
     <div class="container">
-      <h2 class="title is-3">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
+      <h2 class="title is-3 has-text-white">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
       <form class="program-signup-form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
         <div class="field">
-          <label class="label" for="name">Имя</label>
+          <label class="label has-text-white" for="name">Имя</label>
           <div class="control">
             <input class="input" type="text" id="name" name="name" required>
           </div>
         </div>
         <div class="field">
-          <label class="label" for="phone">Телефон</label>
+          <label class="label has-text-white" for="phone">Телефон</label>
           <div class="control">
             <input class="input" type="tel" id="phone" name="phone" required>
           </div>
         </div>
         <div class="field">
-          <label class="label" for="age">Возраст подростка</label>
+          <label class="label has-text-white" for="age">Возраст подростка</label>
           <div class="control">
             <input class="input" type="number" id="age" name="age" min="10" max="18">
           </div>
         </div>
         <div class="field">
-          <label class="label" for="comment">Комментарий</label>
+          <label class="label has-text-white" for="comment">Комментарий</label>
           <div class="control">
             <textarea class="textarea" id="comment" name="comment" rows="3"></textarea>
           </div>
