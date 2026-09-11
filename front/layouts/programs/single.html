@@ -24,20 +24,20 @@
   </nav>
 
   {{/* HERO */}}
-  <section class="hero has-background-white program-hero">
+  <section class="hero program-hero" style="background-color: #2B4181;">
     <div class="hero-body">
       <div class="container">
         <div class="program-hero-row">
           <div class="program-hero-content">
             {{ with .Params.status }}<span class="program-hero-tag">{{ . }}</span>{{ end }}
             <h1 class="program-hero-title">{{ .Title }}</h1>
-            {{ with .Params.subtitle }}<p class="subtitle has-text-grey-dark">{{ . }}</p>{{ end }}
+            {{ with .Params.subtitle }}<p class="program-hero-subtitle">{{ . }}</p>{{ end }}
             <div class="buttons">
               {{ with .Params.cta_text }}
                <a class="program-hero-cta" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
               {{ end }}
               {{ with .Params.ask_question_text }}
-               <a class="button is-text has-text-info" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
+               <a class="has-text-white" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
               {{ end }}
             </div>
           </div>
@@ -52,7 +52,7 @@
   {{/* WHY EFFECTIVE */}}
   {{ with .Params.why_effective }}
   {{ $icons := slice "connection.png" "point.png" "Star.png" "check.png" "lighthouse.png" "iteam.png" }}
-  <section class="section has-background-white">
+  <section class="section has-background-white" style="position: relative; z-index: 1;">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
@@ -103,13 +103,13 @@
   <section class="section has-background-white" id="results">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="program-results-intro has-text-grey">{{ . }}</p>{{ end }}
       {{ with .images }}
       <div class="program-carousel" data-carousel>
         <button class="program-carousel-nav program-carousel-nav-prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
         <div class="program-carousel-track" data-carousel-track>
           {{ range . }}
-          <figure class="program-carousel-slide">
+          <figure class="program-carousel-slide has-text-centered">
             <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
             {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
           </figure>
@@ -124,9 +124,9 @@
 
   {{/* SELLING PHRASE */}}
   {{ with .Params.selling_phrase }}
-  <section class="section has-background-info">
+  <section class="section program-selling">
     <div class="container">
-      <p class="program-quote-text has-text-white">{{ . }}</p>
+      <p class="program-selling-text">{{ . }}</p>
     </div>
   </section>
   {{ end }}
@@ -136,14 +136,17 @@
   <section class="section has-background-white">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="program-parents-intro has-text-grey">{{ . }}</p>{{ end }}
 
       {{ with .points }}
       <div class="columns is-multiline">
         {{ range . }}
         <div class="column is-half">
+          <div class="program-parents-point has-text-centered">
           <h3 class="title is-6">{{ .title }}</h3>
+          {{ with .image }}<img class="program-parents-point-image" src="{{ . }}" alt="" loading="lazy">{{ end }}
           <p class="has-text-grey">{{ .text }}</p>
+          </div>
         </div>
         {{ end }}
       </div>
@@ -153,8 +156,7 @@
       <div class="program-gallery">
         {{ range . }}
         <figure>
-          <img src="{{ .image }}" alt="{{ .caption | default "" }}" loading="lazy">
-          {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+          <img src="{{ .image }}" alt="" loading="lazy">
         </figure>
         {{ end }}
       </div>
@@ -168,27 +170,21 @@
   <section class="section" id="schedule">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey">{{ . }}</p>{{ end }}
-      {{ with .address }}<p class="has-text-weight-bold">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="program-schedule-intro has-text-grey">{{ . }}</p>{{ end }}
+      {{ with .address }}<p class="program-schedule-address has-text-weight-bold">{{ . }}</p>{{ end }}
 
       {{ with .groups }}
-        {{ range . }}
-        <div class="box">
-          <div class="level is-mobile">
-            <div class="level-left">
-              <div class="level-item has-text-weight-bold">{{ .name }}</div>
-            </div>
-            <div class="level-right">
-              <div class="level-item has-text-grey">{{ .age }}</div>
-              <div class="level-item has-text-grey">{{ .time }}</div>
-            </div>
+        {{ range $i, $g := . }}
+        <div class="program-schedule-item">
+            <span class="program-schedule-age">{{ $g.age }}</span>
+            <span class="program-schedule-time">{{ $g.time }}</span>
+            <span class="program-schedule-name program-schedule-name--{{ add $i 1 }}">{{ $g.name }}</span>
           </div>
-        </div>
         {{ end }}
       {{ end }}
 
       {{ with .notes }}
-      <ul class="has-text-grey ml-4">
+      <ul class="program-schedule-notes has-text-grey">
         {{ range . }}<li>{{ . }}</li>{{ end }}
       </ul>
       {{ end }}
@@ -218,26 +214,35 @@
 
   {{/* SPECIALISTS */}}
   {{ with .Params.specialists }}
-  {{ $specialists := where $.Site.RegularPages "Section" "specialists" }}
-  <section class="section" id="specialists">
+  {{ $specialistsPage := $.Site.GetPage "/specialists" }}
+  {{ $specialistsData := $specialistsPage.Params.specialists }}
+  <section class="section has-background-white" id="specialists">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <div class="columns is-multiline">
-        {{ range $specialists }}
-        <div class="column is-one-third-desktop is-half-tablet">
-          <a class="card program-specialist-card" href="{{ .RelPermalink }}">
-            <div class="card-image">
-              <figure class="image is-4by5">
-                <img src="{{ .RelPermalink }}{{ .Params.photo }}" alt="{{ .Params.name }}" loading="lazy">
-              </figure>
+      <div class="program-carousel" data-carousel>
+        <button class="program-carousel-nav program-carousel-nav-prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
+        <div class="program-carousel-track" data-carousel-track>
+          {{ range $specialistsData }}
+          {{ $parts := split .name " " }}
+          {{ $lastName := index $parts (sub (len $parts) 1) }}
+          {{ $firstName := index $parts 0 }}
+          {{ $midName := "" }}
+          {{ if gt (len $parts) 2 }}{{ $midName = index $parts 1 }}{{ end }}
+          <div class="program-specialists-card"
+               data-specialties="{{ delimit .specialties "|" }}">
+            <div class="program-specialists-photo">
+              <img src="/specialists/{{ .slug }}/{{ .photo }}" alt="{{ .name }}" loading="lazy">
             </div>
-            <div class="card-content">
-              <p class="title is-6">{{ .Params.name }}</p>
-              {{ with .Params.specialties }}<p class="has-text-grey">{{ delimit . ", " }}</p>{{ end }}
+            <div class="program-specialists-name-row">
+              <span class="program-specialists-firstname">{{ $firstName }}{{ with $midName }} {{ . }}{{ end }}</span>
+              <span class="program-specialists-lastname">{{ $lastName }}</span>
+              <span class="program-specialists-since">с {{ .since }} года</span>
             </div>
-          </a>
+            <div class="program-specialists-roles">{{ delimit .specialties ", " }}</div>
+          </div>
+          {{ end }}
         </div>
-        {{ end }}
+        <button class="program-carousel-nav program-carousel-nav-next" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
       </div>
     </div>
   </section>
@@ -248,13 +253,17 @@
   <section class="section has-background-white" id="reviews">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <div class="program-carousel" data-carousel>
+      <div class="program-reviews-carousel" data-carousel>
         <button class="program-carousel-nav program-carousel-nav-prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
-        <div class="program-carousel-track" data-carousel-track>
+        <div class="program-reviews-track" data-carousel-track>
           {{ range .items }}
-          <blockquote class="box program-review-card">
-            <p class="has-text-grey">{{ .text }}</p>
-            <cite>{{ .author }}</cite>
+          <blockquote class="program-review-card">
+            <div class="program-review-header">
+              {{ with .image }}<img class="program-review-author-img" src="{{ . }}" alt="" loading="lazy">{{ end }}
+              <cite>{{ .author }}</cite>
+            </div>
+            <p class="program-review-text" data-review-text>{{ .text }}</p>
+            <button class="program-review-toggle" data-review-toggle type="button">читать</button>
           </blockquote>
           {{ end }}
         </div>
@@ -266,24 +275,28 @@
 
   {{/* PRICING */}}
   {{ with .Params.pricing }}
-  <section class="section" id="pricing">
+  <section class="section program-pricing-section" id="pricing">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
-        {{ range .plans }}
+        {{ range $i, $plan := .plans }}
         <div class="column is-half">
-          <div class="box">
-            <h3 class="title is-4">{{ .name }}</h3>
-            <p class="program-pricing-price">{{ .price }}</p>
-            {{ with .group_size }}<p class="has-text-grey">{{ . }}</p>{{ end }}
-            {{ with .features }}
-            <ul>
-              {{ range . }}<li>{{ . }}</li>{{ end }}
-            </ul>
-            {{ end }}
-            {{ with $.Params.cta_text }}
-            <a class="button is-info is-outlined is-fullwidth" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
-            {{ end }}
+          <div class="program-pricing-card program-pricing-card--{{ add $i 1 }}">
+            <div class="program-pricing-card-inner">
+              <div class="program-pricing-header">
+                <h3 class="title is-4">{{ $plan.name }}</h3>
+                <p class="program-pricing-price program-pricing-price--{{ add $i 1 }}">{{ $plan.price }}</p>
+              </div>
+              {{ with $plan.group_size }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+              {{ with $plan.features }}
+              <ul>
+                {{ range . }}<li>{{ . }}</li>{{ end }}
+              </ul>
+              {{ end }}
+              {{ with $.Params.cta_text }}
+              <a class="button is-fullwidth program-pricing-cta program-pricing-cta--{{ add $i 1 }}" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
+              {{ end }}
+            </div>
           </div>
         </div>
         {{ end }}
@@ -293,38 +306,50 @@
   {{ end }}
 
   {{/* SIGNUP */}}
-  <section class="section has-background-info-light" id="signup">
+  <section class="section program-signup-section" style="background-color: #2B4181; color: #fff;" id="signup">
     <div class="container">
       <h2 class="title is-3">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
-      <form class="program-signup-form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
-        <div class="field">
-          <label class="label" for="name">Имя</label>
-          <div class="control">
-            <input class="input" type="text" id="name" name="name" required>
+      {{ with .Params.signup_form }}
+      <form class="program-signup-form" method="POST" action="{{ .action | default "#" }}">
+        {{ range .fields }}
+          {{ if eq .type "submit" }}
+          <div class="control has-text-centered">
+            <button type="submit" class="button" style="background-color: #6D87D6; color: #fff; border-color: #6D87D6;">{{ .label }}</button>
           </div>
-        </div>
-        <div class="field">
-          <label class="label" for="phone">Телефон</label>
-          <div class="control">
-            <input class="input" type="tel" id="phone" name="phone" required>
+          {{ else if eq .type "checkbox" }}
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox" name="{{ .name }}" {{ if .required }}required{{ end }}>
+                {{ .label }}
+              </label>
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label class="label" for="age">Возраст подростка</label>
-          <div class="control">
-            <input class="input" type="number" id="age" name="age" min="10" max="18">
+          {{ else if eq .type "select" }}
+          <div class="field">
+            <label class="label" for="{{ .name }}">{{ .label }}</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select id="{{ .name }}" name="{{ .name }}" {{ if .required }}required{{ end }}>
+                  <option value="" disabled selected>{{ .placeholder }}</option>
+                  {{ range .options }}
+                  <option value="{{ . }}">{{ . }}</option>
+                  {{ end }}
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label class="label" for="comment">Комментарий</label>
-          <div class="control">
-            <textarea class="textarea" id="comment" name="comment" rows="3"></textarea>
+          {{ else }}
+          <div class="field">
+            <label class="label" for="{{ .name }}">{{ .label }}</label>
+            <div class="control">
+              <input class="input" type="{{ .type }}" id="{{ .name }}" name="{{ .name }}" placeholder="{{ .placeholder }}" {{ if .required }}required{{ end }}>
+            </div>
           </div>
-        </div>
-        <div class="control">
-          <button type="submit" class="button is-info">Отправить заявку</button>
-        </div>
+          {{ end }}
+        {{ end }}
       </form>
+      {{ end }}
     </div>
   </section>
 
@@ -336,11 +361,27 @@
     var prev = carousel.querySelector('[data-carousel-prev]');
     var next = carousel.querySelector('[data-carousel-next]');
     if (!track) return;
+    var isReviews = track.classList.contains('program-reviews-track');
     function scrollByAmount(dir) {
-      track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: 'smooth' });
+      var amount = isReviews ? (track.querySelector('.program-review-card').offsetWidth + parseFloat(getComputedStyle(track).gap || 0)) : track.clientWidth * 0.8;
+      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
     }
     if (prev) prev.addEventListener('click', function () { scrollByAmount(-1); });
     if (next) next.addEventListener('click', function () { scrollByAmount(1); });
+  });
+
+  document.querySelectorAll('[data-review-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.previousElementSibling;
+      var isExpanded = text.classList.toggle('expanded');
+      btn.textContent = isExpanded ? 'свернуть' : 'читать';
+    });
+  });
+
+  document.querySelectorAll('.program-specialists-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      card.classList.toggle('revealed');
+    });
   });
 </script>
 {{ end }}
