@@ -215,6 +215,52 @@ pricing:
 signup_form:
   title: "Форма для записи"
   action: "#"
+  fields:
+    - name: "name"
+      label: "Имя"
+      type: "text"
+      placeholder: "Ваше имя"
+      required: true
+    - name: "phone"
+      label: "Телефон"
+      type: "tel"
+      placeholder: "+7 (___) ___-__-__"
+      required: true
+    - name: "age"
+      label: "Возраст ребенка"
+      type: "select"
+      placeholder: "Выберите возраст"
+      required: true
+      options:
+        - "10"
+        - "11"
+        - "12"
+        - "13"
+        - "14"
+        - "15"
+        - "16"
+        - "17"
+        - "18"
+    - name: "course"
+      label: "Курс"
+      type: "select"
+      placeholder: "Выберите курс"
+      required: true
+      options:
+        - "Базовый"
+        - "Продвинутый"
+    - name: "promo"
+      label: "Промокод"
+      type: "text"
+      placeholder: "Введите промокод"
+      required: false
+    - name: "consent"
+      label: "Я даю согласие на обработку персональных данных"
+      type: "checkbox"
+      required: true
+    - name: "submit"
+      label: "Записаться"
+      type: "submit"
 ---
  
 Дополнительный текст программы можно писать здесь, в теле markdown-файла —

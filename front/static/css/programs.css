@@ -140,6 +140,9 @@
 }
 
 .program-signup-form { max-width: 32rem; }
+.program-signup-section .label { color: rgba(255,255,255,0.85) !important; font-weight: 400; }
+.program-signup-section .title { color: #fff; }
+.program-signup-section .checkbox { color: rgba(255,255,255,0.85); }
 
 /* accordion */
 .program-accordion-row {
