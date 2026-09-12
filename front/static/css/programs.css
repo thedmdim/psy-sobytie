@@ -13,6 +13,33 @@
   -webkit-overflow-scrolling: touch;
 }
 .program-navbar::-webkit-scrollbar { display: none; }
+.program-navbar-container {
+  display: flex;
+  align-items: center;
+}
+.program-navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.5rem;
+  font-family: 'Lora', 'PT Serif', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem 0.5rem 0;
+  background: linear-gradient(135deg, #1e88e5, #4fc3f7, #b39ddb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.program-navbar-logo {
+  border-radius: 50%;
+  object-fit: cover;
+  -webkit-text-fill-color: initial;
+}
+.program-navbar-brand:hover {
+  opacity: 0.8;
+}
 .program-navbar-list {
   display: flex;
   gap: 0.25rem;
