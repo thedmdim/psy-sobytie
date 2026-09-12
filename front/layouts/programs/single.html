@@ -306,38 +306,54 @@
   {{ end }}
 
   {{/* SIGNUP */}}
-  <section class="section has-background-info-light" id="signup">
+  <section class="section has-background-white" id="signup">
     <div class="container">
-      <h2 class="title is-3">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
-      <form class="program-signup-form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
-        <div class="field">
-          <label class="label" for="name">Имя</label>
-          <div class="control">
-            <input class="input" type="text" id="name" name="name" required>
+      <div class="program-signup-container">
+        <h2 class="program-signup-title">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
+        {{ with .Params.signup_form }}
+        {{ with .subtitle }}<p class="program-signup-subtitle">{{ . }}</p>{{ end }}
+        {{ end }}
+        <form class="program-signup-form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
+          {{ with .Params.signup_form }}
+          {{ range .fields }}
+          {{ if eq .type "checkbox" }}
+          <div class="field">
+            <div class="control">
+              <label class="checkbox program-signup-checkbox">
+                <input type="checkbox" id="{{ .name }}" name="{{ .name }}"{{ if .required }} required{{ end }}>
+                {{ .label }}
+              </label>
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label class="label" for="phone">Телефон</label>
-          <div class="control">
-            <input class="input" type="tel" id="phone" name="phone" required>
+          {{ else }}
+          <div class="field">
+            <label class="label program-signup-label" for="{{ .name }}">{{ .label }}</label>
+            <div class="control">
+              {{ if eq .type "select" }}
+              <div class="select is-fullwidth">
+                <select id="{{ .name }}" name="{{ .name }}"{{ if .required }} required{{ end }}>
+                  {{ with .placeholder }}
+                  <option value="" disabled selected>{{ . }}</option>
+                  {{ end }}
+                  {{ range .options }}
+                  <option value="{{ . }}">{{ . }}</option>
+                  {{ end }}
+                </select>
+              </div>
+              {{ else }}
+              <input class="input" type="{{ .type }}" id="{{ .name }}" name="{{ .name }}"
+                     placeholder="{{ .placeholder }}"{{ if .required }} required{{ end }}>
+              {{ end }}
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label class="label" for="age">Возраст подростка</label>
+          {{ end }}
+          {{ end }}
+          {{ end }}
           <div class="control">
-            <input class="input" type="number" id="age" name="age" min="10" max="18">
+            <button type="submit" class="button is-info program-signup-submit">{{ with .Params.signup_form }}{{ .submit_text | default "Отправить заявку" }}{{ else }}Отправить заявку{{ end }}</button>
           </div>
-        </div>
-        <div class="field">
-          <label class="label" for="comment">Комментарий</label>
-          <div class="control">
-            <textarea class="textarea" id="comment" name="comment" rows="3"></textarea>
-          </div>
-        </div>
-        <div class="control">
-          <button type="submit" class="button is-info">Отправить заявку</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </section>
 

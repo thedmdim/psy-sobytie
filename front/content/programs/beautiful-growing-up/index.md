@@ -213,8 +213,50 @@ pricing:
         - "1 родительская встреча"
  
 signup_form:
-  title: "Форма для записи"
+  title: "Есть контак!"
+  subtitle: "Будем рады ответить на ваши вопросы"
   action: "#"
+  submit_text: "Записаться"
+  fields:
+    - name: "name"
+      label: "Имя"
+      type: "text"
+      placeholder: "Введите имя"
+      required: true
+    - name: "phone"
+      label: "Телефон"
+      type: "tel"
+      placeholder: "+7 (___) ___-__-__"
+      required: true
+    - name: "age"
+      label: "Возраст ребенка"
+      type: "select"
+      placeholder: "Выберите возраст"
+      options:
+        - "10"
+        - "11"
+        - "12"
+        - "13"
+        - "14"
+        - "15"
+        - "16"
+        - "17"
+        - "18"
+    - name: "course"
+      label: "Курс"
+      type: "select"
+      placeholder: "Выберите курс"
+      options:
+        - "Базовый"
+        - "Продвинутый"
+    - name: "promo"
+      label: "Промокод"
+      type: "text"
+      placeholder: "Введите промокод"
+    - name: "consent"
+      label: "Я даю согласие на обработку персональных данных"
+      type: "checkbox"
+      required: true
 ---
  
 Дополнительный текст программы можно писать здесь, в теле markdown-файла —

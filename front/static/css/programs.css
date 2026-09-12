@@ -139,7 +139,37 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.program-signup-form { max-width: 32rem; }
+.program-signup-container {
+  max-width: 36rem;
+  margin: 0 auto;
+  background: #2B4181;
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+}
+.program-signup-title {
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.program-signup-subtitle {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.program-signup-label {
+  color: #fff !important;
+}
+.program-signup-checkbox {
+  color: #fff;
+}
+.program-signup-submit {
+  width: 100%;
+  background-color: #476BD6;
+  border-color: #476BD6;
+  border-radius: 2rem;
+  color: #fff;
+}
 
 /* accordion */
 .program-accordion-row {
