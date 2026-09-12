@@ -255,6 +255,8 @@
 
 /* gallery */
 .program-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 1.25rem; }
+.program-gallery figure { margin: 0; }
+.program-gallery figure img { width: 100%; height: auto; display: block; border-radius: var(--bulma-radius, 0.5rem); }
 .program-gallery figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--bulma-text); }
 .program-parents-point {
   border: 2px solid #2B4181;
@@ -628,4 +630,201 @@
 
 @media (prefers-reduced-motion: reduce) {
   .program-page * { scroll-behavior: auto !important; transition: none !important; }
+}
+
+/* ===== MOBILE (≤768px) ===== */
+@media (max-width: 768px) {
+  /* Navbar */
+  .program-navbar .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .program-navbar-list {
+    gap: 0;
+  }
+  .program-navbar-list a {
+    padding: 0.65rem 0.6rem;
+    font-size: 0.78rem;
+    flex-shrink: 0;
+  }
+
+  /* Hero */
+  .program-hero-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .program-hero .hero-body {
+    padding-top: 1.5rem;
+    padding-bottom: 0;
+  }
+  .program-hero-title {
+    font-size: 2.25rem;
+  }
+  .program-hero-subtitle {
+    font-size: 0.95rem;
+    margin: 0.5rem 0 1.5rem;
+  }
+  .program-hero-content {
+    order: 1;
+  }
+  .program-hero-image {
+    order: 2;
+    margin-bottom: -3rem;
+    margin-top: 1.5rem;
+    align-self: flex-end;
+    max-width: none;
+    width: 100%;
+  }
+  .program-hero-image img {
+    width: 100%;
+    height: auto;
+  }
+  .buttons {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* Accordion / Topics */
+  .program-accordion-row {
+    flex-direction: column;
+  }
+  .program-accordion-image {
+    order: -1;
+    max-height: 220px;
+  }
+  .program-accordion-image img {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  /* Selling phrase */
+  .program-selling-text {
+    font-size: 1.1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 1.5rem;
+  }
+
+  /* Parents feedback */
+  .program-parents-point {
+    padding: 1rem 0.75rem;
+  }
+
+  /* Schedule */
+  .program-schedule-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.3rem;
+    padding: 1rem 1.25rem;
+    max-width: 320px;
+    margin: 0 auto 0.75rem;
+  }
+  .program-schedule-age {
+    order: 2;
+  }
+  .program-schedule-time {
+    order: 3;
+    margin-right: 0;
+  }
+  .program-schedule-name {
+    order: 1;
+    font-size: 1rem;
+  }
+
+  /* Carousel slides — images */
+  #results.section {
+    padding-top: 1.5rem;
+  }
+  .program-carousel-slide {
+    width: 14rem;
+  }
+  .program-carousel-slide img {
+    width: 50%;
+  }
+
+  /* Specialist cards */
+  .program-specialists-card {
+    width: 14rem;
+  }
+
+  /* Review cards */
+  .program-reviews-track {
+    gap: 0.75rem;
+  }
+  .program-review-card {
+    flex: 0 0 calc(100% - 1rem);
+    padding: 1rem 1rem 2.2rem;
+  }
+  .program-review-text {
+    -webkit-line-clamp: 4;
+  }
+
+  /* Pricing */
+  .program-pricing-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .program-pricing-price {
+    font-size: 1.5rem;
+  }
+
+  /* Signup form */
+  .program-signup-container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ===== Small phones (≤480px) ===== */
+@media (max-width: 480px) {
+  .program-hero-title {
+    font-size: 1.85rem;
+  }
+  .program-hero-subtitle {
+    font-size: 0.9rem;
+  }
+  .program-hero-tag {
+    font-size: 0.75rem;
+  }
+  .program-hero-cta {
+    font-size: 0.9rem;
+    padding: 0.5em 1.2em;
+  }
+  .program-hero-image {
+    margin-bottom: -2rem;
+  }
+
+  .program-selling-text {
+    font-size: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 1rem;
+  }
+
+  .program-carousel-slide {
+    width: 12rem;
+  }
+  .program-carousel-slide img {
+    width: 65%;
+  }
+
+  .program-specialists-card {
+    width: 12rem;
+  }
+
+  .program-review-card {
+    flex: 0 0 calc(100% - 0.5rem);
+    padding: 0.85rem 0.85rem 2rem;
+  }
+  .program-review-text {
+    -webkit-line-clamp: 3;
+  }
+
+  .program-accordion-image {
+    max-height: 170px;
+  }
+
+  .program-schedule-item {
+    max-width: 280px;
+    padding: 0.8rem 1rem;
+  }
 }
