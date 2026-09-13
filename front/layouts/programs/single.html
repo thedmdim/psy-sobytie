@@ -40,13 +40,25 @@
               {{ with .Params.cta_text }}
                <a class="program-hero-cta" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
               {{ end }}
-              {{ with .Params.ask_question_text }}
-               <a class="has-text-white" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
-              {{ end }}
+              <a class="program-hero-cta program-hero-cta--outline" href="tel:+79093444555">Позвонить</a>
+              <a class="program-hero-cta program-hero-cta--icon" href="https://vk.ru/psy_sam" target="_blank" rel="noopener">
+                <img src="/images/vk.png" alt="VK">
+              </a>
+              <a class="program-hero-cta program-hero-cta--icon" href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw" target="_blank" rel="noopener">
+                <img src="/images/Max.png" alt="Max">
+              </a>
             </div>
           </div>
           <div class="program-hero-image">
-            <img src="/images/yes132.jpg" alt="">
+            <div class="program-hero-slideshow" data-slideshow>
+              <img src="/programs/beautiful-growing-up/yes114.jpg" alt="">
+              <img src="/programs/beautiful-growing-up/yes132.jpg" alt="">
+              <img src="/programs/beautiful-growing-up/yes141.jpg" alt="">
+              <img src="/programs/beautiful-growing-up/yes175.jpg" alt="">
+              <img src="/programs/beautiful-growing-up/yes295.jpg" alt="">
+              <img src="/programs/beautiful-growing-up/yes363.jpg" alt="">
+              <img src="/programs/beautiful-growing-up/yes426.jpg" alt="">
+            </div>
           </div>
         </div>
       </div>
@@ -220,6 +232,7 @@
   {{ with .Params.specialists }}
   {{ $specialistsPage := $.Site.GetPage "/specialists" }}
   {{ $specialistsData := $specialistsPage.Params.specialists }}
+  {{ $filterSlugs := .show }}
   <section class="section has-background-white" id="specialists">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
@@ -227,6 +240,7 @@
         <button class="program-carousel-nav program-carousel-nav-prev" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
         <div class="program-carousel-track" data-carousel-track>
           {{ range $specialistsData }}
+          {{ if or (not $filterSlugs) (in $filterSlugs .slug) }}
           {{ $parts := split .name " " }}
           {{ $lastName := index $parts (sub (len $parts) 1) }}
           {{ $firstName := index $parts 0 }}
@@ -244,6 +258,7 @@
             </div>
             <div class="program-specialists-roles">{{ delimit .specialties ", " }}</div>
           </div>
+          {{ end }}
           {{ end }}
         </div>
         <button class="program-carousel-nav program-carousel-nav-next" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
@@ -391,5 +406,20 @@
       card.classList.toggle('revealed');
     });
   });
+
+  var slideshow = document.querySelector('[data-slideshow]');
+  if (slideshow) {
+    var slides = slideshow.querySelectorAll('img');
+    var current = 0;
+    var total = slides.length;
+    if (total > 0) {
+      slides[0].classList.add('is-visible');
+      setInterval(function () {
+        slides[current].classList.remove('is-visible');
+        current = (current + 1) % total;
+        slides[current].classList.add('is-visible');
+      }, 3000);
+    }
+  }
 </script>
 {{ end }}

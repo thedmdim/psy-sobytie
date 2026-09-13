@@ -126,6 +126,10 @@ roadmap:
  
 specialists:
   title: "Наши специалисты"
+  show:
+    - "stupchenko-maksim"
+    - "borisova-olga-vladimirovna"
+    - "skachkov-aleksandr-vladimirovich"
  
 reviews:
   title: "Отзывы"
