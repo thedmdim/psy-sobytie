@@ -4,38 +4,27 @@
 :root { --program-brand: #2B4181; }
 
 /* navbar */
-.program-navbar {
+.navbar.is-sticky {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: var(--bulma-white);
   border-bottom: 1px solid var(--bulma-border);
+}
+.program-navbar-items {
+  flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
-.program-navbar::-webkit-scrollbar { display: none; }
-.program-navbar-list {
-  display: flex;
-  gap: 0.25rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
+.program-navbar-items::-webkit-scrollbar { display: none; }
+
+.navbar-brand-text {
+  background: linear-gradient(135deg, #1e88e5, #4fc3f7, #b39ddb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.program-navbar-list a {
-  display: block;
-  padding: 0.75rem 0.9rem;
-  font-size: 0.9rem;
-  color: var(--bulma-text);
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-}
-.program-navbar-list a:hover,
-.program-navbar-list a:focus-visible {
-  color: var(--bulma-info);
-  border-bottom-color: var(--bulma-info);
-}
+
 
 .program-hero {
   background: var(--program-brand);

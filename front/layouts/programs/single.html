@@ -7,19 +7,36 @@
 <div class="program-page has-background-white-ter">
 
   {{/* NAVBAR */}}
-  <nav class="program-navbar is-sticky">
+  <nav class="navbar is-sticky" role="navigation" aria-label="page sections">
     <div class="container">
-      <ul class="program-navbar-list">
-        <li><a href="#groups">Про группы</a></li>
-        <li><a href="#program">Программа</a></li>
-        <li><a href="#results">Результаты</a></li>
-        <li><a href="#schedule">Расписание</a></li>
-        <li><a href="#pricing">Стоимость</a></li>
-        <li><a href="#specialists">Специалисты</a></li>
-        <li><a href="#reviews">Отзывы</a></li>
-        <li><a href="#signup">Контакты</a></li>
-        <li><a href="#signup">Вопросы</a></li>
-      </ul>
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <figure class="image">
+            <img class="is-rounded" src="/images/logo.png" alt="СО-БЫТИЕ">
+          </figure>
+          <span class="navbar-brand-text has-text-weight-bold is-size-5">СО-БЫТИЕ</span>
+        </a>
+
+        <a role="button" class="navbar-burger" data-target="programNavbar" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="programNavbar">
+        <div class="navbar-start program-navbar-items">
+          <a class="navbar-item" href="#groups">Про группы</a>
+          <a class="navbar-item" href="#program">Программа</a>
+          <a class="navbar-item" href="#results">Результаты</a>
+          <a class="navbar-item" href="#schedule">Расписание</a>
+          <a class="navbar-item" href="#pricing">Стоимость</a>
+          <a class="navbar-item" href="#specialists">Специалисты</a>
+          <a class="navbar-item" href="#reviews">Отзывы</a>
+          <a class="navbar-item" href="#signup">Контакты</a>
+          <a class="navbar-item" href="#signup">Вопросы</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -337,6 +354,17 @@
 </div>
 
 <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var $burgers = document.querySelectorAll('.navbar-burger');
+    for (var i = 0; i < $burgers.length; i++) {
+      $burgers[i].addEventListener('click', function () {
+        var target = document.getElementById(this.dataset.target);
+        this.classList.toggle('is-active');
+        target.classList.toggle('is-active');
+      });
+    }
+  });
+
   document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
     var track = carousel.querySelector('[data-carousel-track]');
     var prev = carousel.querySelector('[data-carousel-prev]');
