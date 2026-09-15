@@ -312,31 +312,34 @@
   .program-roadmap-step:hover { transform: none; }
 }
 
-.hero img {
-  position: relative;
-  top: 30pt;
-  z-index: 10;
-  border-radius: 10px
+.program-hero-image-col {
+  align-self: flex-end;
+  margin-bottom: -3rem;
+  overflow: visible;
 }
 
 .program-slideshow {
   position: relative;
-  min-height: 200px;
-  z-index: 10
+  z-index: 10;
 }
-.program-slideshow-slide {
+
+.slide {
   position: absolute;
-  top: 30pt;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.8s ease;
+  top: 0; left: 0;
   width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease-in-out;
 }
-.program-slideshow-slide.is-active {
+.slide.is-active {
   opacity: 1;
+  position: relative;
 }
-.program-slideshow-slide img {
-  border-radius: 10px;
+.slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--bulma-radius, 0.5rem);
 }
 
 @media (max-width: 768px) {
@@ -344,8 +347,18 @@
   .program-roadmap-step:hover,
   .program-roadmap-step:hover .program-roadmap-index,
   .program-roadmap-step:hover .program-roadmap-index::before { transform: none; }
-  .hero img, .program-accordion-image {
-    display: none;
+  .program-hero-image-col {
+    margin-bottom: -2rem;
+    margin-top: 1.5rem;
+  }
+  .program-accordion-row { flex-direction: column; }
+  .program-accordion-image {
+    order: -1;
+    max-height: 220px;
+  }
+  .program-accordion-image img {
+    object-fit: cover;
+    height: 100%;
   }
 }
 

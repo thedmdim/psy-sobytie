@@ -58,11 +58,11 @@
               {{ end }}
             </div>
           </div>
-          <div class="column">
+          <div class="column program-hero-image-col">
             {{ with .Params.slideshow }}
             <div class="program-slideshow" data-slideshow>
               {{ range $i, $img := . }}
-              <figure class="image program-slideshow-slide{{ if eq $i 0 }} is-active{{ end }}">
+              <figure class="image slide{{ if eq $i 0 }} is-active{{ end }}">
                 <img src="{{ $.RelPermalink }}{{ $img }}" alt="">
               </figure>
               {{ end }}
