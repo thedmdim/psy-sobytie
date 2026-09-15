@@ -286,8 +286,12 @@
         <div class="program-carousel-track" data-carousel-track>
           {{ range .items }}
           <blockquote class="box program-review-card">
-            <p class="has-text-grey">{{ .text }}</p>
+            <figure class="image is-64x64">
+              <img class="is-rounded" src="{{ .image }}">
+            </figure>
             <cite>{{ .author }}</cite>
+            <p class="has-text-grey">{{ .text }}</p>
+            
           </blockquote>
           {{ end }}
         </div>

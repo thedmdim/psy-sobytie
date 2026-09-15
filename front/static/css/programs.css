@@ -357,6 +357,7 @@
 /* review card */
 .program-review-card { width: 20rem; margin: 0; border-left: 3px solid var(--bulma-info); }
 .program-review-card cite { font-style: normal; font-weight: 700; font-size: 0.9rem; }
+.program-review-source { height: 1.25rem; margin-bottom: 0.5rem; }
 
 /* pricing */
 .program-pricing-price { font-size: 1.8rem; font-weight: 600; color: var(--bulma-info-dark); }
