@@ -286,12 +286,12 @@
         <div class="program-carousel-track" data-carousel-track>
           {{ range .items }}
           <blockquote class="box program-review-card">
-            <figure class="image is-64x64">
-              <img class="is-rounded" src="{{ .image }}">
-            </figure>
-            <cite>{{ .author }}</cite>
-            <p class="has-text-grey">{{ .text }}</p>
-            
+            <div class="is-flex is-align-items-center mb-2" style="gap:0.5rem">
+              {{ with .image }}<img src="{{ . }}" alt="" style="height:1.25rem">{{ end }}
+              <cite class="has-text-weight-bold">{{ .author }}</cite>
+            </div>
+            <p class="program-review-text has-text-grey" data-review-text>{{ .text }}</p>
+            <button class="program-review-toggle" data-review-toggle type="button">читать</button>
           </blockquote>
           {{ end }}
         </div>
@@ -389,6 +389,14 @@
     }
     if (prev) prev.addEventListener('click', function () { scrollByAmount(-1); });
     if (next) next.addEventListener('click', function () { scrollByAmount(1); });
+  });
+
+  document.querySelectorAll('[data-review-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.previousElementSibling;
+      var expanded = text.classList.toggle('expanded');
+      btn.textContent = expanded ? 'свернуть' : 'читать';
+    });
   });
 
   var slideshow = document.querySelector('[data-slideshow]');

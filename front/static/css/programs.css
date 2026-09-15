@@ -356,8 +356,10 @@
 
 /* review card */
 .program-review-card { width: 20rem; margin: 0; border-left: 3px solid var(--bulma-info); }
-.program-review-card cite { font-style: normal; font-weight: 700; font-size: 0.9rem; }
-.program-review-source { height: 1.25rem; margin-bottom: 0.5rem; }
+.program-review-card cite { font-style: normal; }
+.program-review-text { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.program-review-text.expanded { display: block; -webkit-line-clamp: unset; overflow: visible; }
+.program-review-toggle { display: block; margin-top: 0.25rem; background: none; border: none; color: var(--bulma-info); cursor: pointer; padding: 0; font-size: 0.85rem; text-decoration: underline; }
 
 /* pricing */
 .program-pricing-price { font-size: 1.8rem; font-weight: 600; color: var(--bulma-info-dark); }
