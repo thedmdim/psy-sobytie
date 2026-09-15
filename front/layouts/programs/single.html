@@ -59,10 +59,14 @@
             </div>
           </div>
           <div class="column">
-            {{ with .Params.hero_image }}
-            <figure class="image">
-              <img src="{{ $.RelPermalink }}{{ . }}" alt="">
-            </figure>
+            {{ with .Params.slideshow }}
+            <div class="program-slideshow" data-slideshow>
+              {{ range $i, $img := . }}
+              <figure class="image program-slideshow-slide{{ if eq $i 0 }} is-active{{ end }}">
+                <img src="{{ $.RelPermalink }}{{ $img }}" alt="">
+              </figure>
+              {{ end }}
+            </div>
             {{ end }}
           </div>
         </div>
@@ -237,7 +241,15 @@
 
   {{/* SPECIALISTS */}}
   {{ with .Params.specialists }}
-  {{ $specialists := where $.Site.RegularPages "Section" "specialists" }}
+    {{ $filtered := slice }}
+    {{ range $s := where $.Site.RegularPages "Section" "specialists" }}
+      {{ range $.Params.specialists.items }}
+        {{ if in (lower $s.Params.name) (lower .) }}
+          {{ $filtered = $filtered | append $s }}
+        {{ end }}
+      {{ end }}
+  {{ end }}
+  {{ $specialists := $filtered | uniq }}
   <section class="section" id="specialists">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
@@ -253,9 +265,7 @@
             </div>
             <div class="card-content">
               <p class="title is-6">{{ .Params.name }}</p>
-              {{ with first 7 .Params.specialties }}
-                <p class="has-text-grey">{{ delimit . ", " }}</p>
-              {{ end }}
+              <p class="has-text-grey">c {{ .Params.since }} года</p>
             </div>
           </a>
           {{ end }}
@@ -376,5 +386,16 @@
     if (prev) prev.addEventListener('click', function () { scrollByAmount(-1); });
     if (next) next.addEventListener('click', function () { scrollByAmount(1); });
   });
+
+  var slideshow = document.querySelector('[data-slideshow]');
+  if (slideshow && slideshow.children.length > 1) {
+    var slides = slideshow.children;
+    var current = 0;
+    setInterval(function () {
+      slides[current].classList.remove('is-active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('is-active');
+    }, 2300);
+  }
 </script>
 {{ end }}

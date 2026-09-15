@@ -11,8 +11,20 @@ cta_link: "#signup"
 ask_question_text: "Задать вопрос"
 ask_question_link: "#signup"
  
-hero_image: "yes132.jpg"
+slideshow:
+  - "yes132.jpg"
+  - "yes114.jpg"
+  - "yes141.jpg"
+  - "yes175.jpg"
+  - "yes295.jpg"
+  - "yes363.jpg"
 topics_image: "yes426.jpg"
+
+specialists:
+  title: "Наши специалисты"
+  items:
+    - "Исаева Анастасия Александровна"
+    - "Скачков Александр Владимирович"
 
 why_effective:
   title: "Почему эффективно"
@@ -126,9 +138,6 @@ roadmap:
       text: "Подросток встречается с группой и психологом каждое воскресенье."
     - title: "Родительская встреча — итоги"
       text: "Рассказываем, что происходило в группе, и как поддержать результат дома."
- 
-specialists:
-  title: "Наши специалисты"
  
 reviews:
   title: "Отзывы"
