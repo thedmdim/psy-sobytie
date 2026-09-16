@@ -343,19 +343,43 @@
         <div class="field">
           <label class="label has-text-white" for="name">Имя</label>
           <div class="control">
-            <input class="input" type="text" id="name" name="name" required>
+            <input class="input" type="text" id="name" name="name" placeholder="Имя" required>
           </div>
         </div>
         <div class="field">
           <label class="label has-text-white" for="phone">Телефон</label>
           <div class="control">
-            <input class="input" type="tel" id="phone" name="phone" required>
+            <input class="input" type="tel" id="phone" name="phone" placeholder="+7" required>
           </div>
         </div>
         <div class="field">
           <label class="label has-text-white" for="age">Возраст подростка</label>
           <div class="control">
-            <input class="input" type="number" id="age" name="age" min="10" max="18">
+            <div class="select">
+              <select id="age" name="age">
+                <option value="">Выберите возраст</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-white" for="course">Выберете курс</label>
+          <div class="control">
+            <div class="select">
+              <select id="course" name="course">
+                <option value="Обычный">Обычный</option>
+                <option value="Продвинутый">Продвинутый</option>
+              </select>
+            </div>
           </div>
         </div>
         <div class="field">
