@@ -50,8 +50,8 @@
             <h1 class="title is-1 has-text-white">{{ .Title }}</h1>
             <p class="subtitle is-4 has-text-white">{{ .Params.subtitle }}</p>
             <div class="buttons mt-5">
-              <a class="button is-rounded program-hero-cta" href="#signup">Записаться</a>
-              <a class="button is-ghost has-text-white" href="#signup">Задать вопрос</a>
+              <a class="button is-rounded program-hero-cta" href="#contact">Записаться</a>
+              <a class="button is-ghost has-text-white" href="#contact">Задать вопрос</a>
               <a href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw">
                 <figure class="image is-48x48">
                   <img src="/images/max.png" alt="">
@@ -336,7 +336,7 @@
   {{ end }}
 
   {{/* SIGNUP */}}
-  <section class="section program-hero" id="signup">
+  <section class="section program-hero" id="contact">
     <div class="container">
       <h2 class="title is-3 has-text-white">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
       <form class="program-signup-form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
