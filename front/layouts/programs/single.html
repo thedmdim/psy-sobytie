@@ -7,19 +7,36 @@
 <div class="program-page has-background-white-ter">
 
   {{/* NAVBAR */}}
-  <nav class="program-navbar is-sticky">
+  <nav class="navbar is-sticky" role="navigation" aria-label="page sections">
     <div class="container">
-      <ul class="program-navbar-list">
-        <li><a href="#groups">Про группы</a></li>
-        <li><a href="#program">Программа</a></li>
-        <li><a href="#results">Результаты</a></li>
-        <li><a href="#schedule">Расписание</a></li>
-        <li><a href="#pricing">Стоимость</a></li>
-        <li><a href="#specialists">Специалисты</a></li>
-        <li><a href="#reviews">Отзывы</a></li>
-        <li><a href="#signup">Контакты</a></li>
-        <li><a href="#signup">Вопросы</a></li>
-      </ul>
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <figure class="image">
+            <img class="is-rounded" src="/images/logo.png" alt="СО-БЫТИЕ">
+          </figure>
+          <span class="navbar-brand-text has-text-weight-bold is-size-5">СО-БЫТИЕ</span>
+        </a>
+
+        <a role="button" class="navbar-burger" data-target="programNavbar" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="programNavbar">
+        <div class="navbar-start program-navbar-items">
+          <a class="navbar-item" href="#groups">Про группы</a>
+          <a class="navbar-item" href="#program">Программа</a>
+          <a class="navbar-item" href="#results">Результаты</a>
+          <a class="navbar-item" href="#schedule">Расписание</a>
+          <a class="navbar-item" href="#pricing">Стоимость</a>
+          <a class="navbar-item" href="#specialists">Специалисты</a>
+          <a class="navbar-item" href="#reviews">Отзывы</a>
+          <a class="navbar-item" href="#signup">Контакты</a>
+          <a class="navbar-item" href="#signup">Вопросы</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -31,21 +48,31 @@
           <div class="column">
             {{ with .Params.status }}<span class="tag is-warning is-medium mb-4">{{ . }}</span>{{ end }}
             <h1 class="title is-1 has-text-white">{{ .Title }}</h1>
-            {{ with .Params.subtitle }}<p class="subtitle is-4 has-text-white">{{ . }}</p>{{ end }}
+            <p class="subtitle is-4 has-text-white">{{ .Params.subtitle }}</p>
             <div class="buttons mt-5">
-              {{ with .Params.cta_text }}
-               <a class="button is-rounded program-hero-cta" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
-              {{ end }}
-              {{ with .Params.ask_question_text }}
-               <a class="button is-ghost has-text-white" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
-              {{ end }}
+              <a class="button is-rounded program-hero-cta" href="#contact">Записаться</a>
+              <a class="button is-ghost has-text-white" href="#contact">Задать вопрос</a>
+              <a href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw">
+                <figure class="image is-48x48">
+                  <img src="/images/max.png" alt="">
+                </figure>
+              </a>
+              <a href="https://vk.ru/psy_sam">
+              <figure class="image is-48x48">
+                  <img src="/images/vk.png" alt="">
+                </figure>
+              </a>
             </div>
           </div>
-          <div class="column">
-            {{ with .Params.hero_image }}
-            <figure class="image">
-              <img src="{{ $.RelPermalink }}{{ . }}" alt="">
-            </figure>
+          <div class="column program-slideshow-col">
+            {{ with .Params.slideshow }}
+            <div class="program-slideshow" data-slideshow>
+              {{ range $i, $img := . }}
+              <figure class="image slide{{ if eq $i 0 }} is-active{{ end }}">
+                <img src="{{ $.RelPermalink }}{{ $img }}" alt="">
+              </figure>
+              {{ end }}
+            </div>
             {{ end }}
           </div>
         </div>
@@ -220,7 +247,15 @@
 
   {{/* SPECIALISTS */}}
   {{ with .Params.specialists }}
-  {{ $specialists := where $.Site.RegularPages "Section" "specialists" }}
+    {{ $filtered := slice }}
+    {{ range $s := where $.Site.RegularPages "Section" "specialists" }}
+      {{ range $.Params.specialists.items }}
+        {{ if in (lower $s.Params.name) (lower .) }}
+          {{ $filtered = $filtered | append $s }}
+        {{ end }}
+      {{ end }}
+  {{ end }}
+  {{ $specialists := $filtered | uniq }}
   <section class="section" id="specialists">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
@@ -236,9 +271,7 @@
             </div>
             <div class="card-content">
               <p class="title is-6">{{ .Params.name }}</p>
-              {{ with first 7 .Params.specialties }}
-                <p class="has-text-grey">{{ delimit . ", " }}</p>
-              {{ end }}
+              <p class="has-text-grey">c {{ .Params.since }} года</p>
             </div>
           </a>
           {{ end }}
@@ -259,8 +292,12 @@
         <div class="program-carousel-track" data-carousel-track>
           {{ range .items }}
           <blockquote class="box program-review-card">
-            <p class="has-text-grey">{{ .text }}</p>
-            <cite>{{ .author }}</cite>
+            <div class="is-flex is-align-items-center mb-2" style="gap:0.5rem">
+              {{ with .image }}<img src="{{ . }}" alt="" style="height:1.25rem">{{ end }}
+              <cite class="has-text-weight-bold">{{ .author }}</cite>
+            </div>
+            <p class="program-review-text has-text-grey" data-review-text>{{ .text }}</p>
+            <button class="program-review-toggle" data-review-toggle type="button">читать</button>
           </blockquote>
           {{ end }}
         </div>
@@ -299,26 +336,50 @@
   {{ end }}
 
   {{/* SIGNUP */}}
-  <section class="section program-hero" id="signup">
+  <section class="section program-hero" id="contact">
     <div class="container">
       <h2 class="title is-3 has-text-white">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
       <form class="program-signup-form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
         <div class="field">
           <label class="label has-text-white" for="name">Имя</label>
           <div class="control">
-            <input class="input" type="text" id="name" name="name" required>
+            <input class="input" type="text" id="name" name="name" placeholder="Имя" required>
           </div>
         </div>
         <div class="field">
           <label class="label has-text-white" for="phone">Телефон</label>
           <div class="control">
-            <input class="input" type="tel" id="phone" name="phone" required>
+            <input class="input" type="tel" id="phone" name="phone" placeholder="+7" required>
           </div>
         </div>
         <div class="field">
           <label class="label has-text-white" for="age">Возраст подростка</label>
           <div class="control">
-            <input class="input" type="number" id="age" name="age" min="10" max="18">
+            <div class="select">
+              <select id="age" name="age">
+                <option value="">Выберите возраст</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label has-text-white" for="course">Выберете курс</label>
+          <div class="control">
+            <div class="select">
+              <select id="course" name="course">
+                <option value="Обычный">Обычный</option>
+                <option value="Продвинутый">Продвинутый</option>
+              </select>
+            </div>
           </div>
         </div>
         <div class="field">
@@ -337,6 +398,17 @@
 </div>
 
 <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var $burgers = document.querySelectorAll('.navbar-burger');
+    for (var i = 0; i < $burgers.length; i++) {
+      $burgers[i].addEventListener('click', function () {
+        var target = document.getElementById(this.dataset.target);
+        this.classList.toggle('is-active');
+        target.classList.toggle('is-active');
+      });
+    }
+  });
+
   document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
     var track = carousel.querySelector('[data-carousel-track]');
     var prev = carousel.querySelector('[data-carousel-prev]');
@@ -348,5 +420,24 @@
     if (prev) prev.addEventListener('click', function () { scrollByAmount(-1); });
     if (next) next.addEventListener('click', function () { scrollByAmount(1); });
   });
+
+  document.querySelectorAll('[data-review-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.previousElementSibling;
+      var expanded = text.classList.toggle('expanded');
+      btn.textContent = expanded ? 'свернуть' : 'читать';
+    });
+  });
+
+  var slideshow = document.querySelector('[data-slideshow]');
+  if (slideshow && slideshow.children.length > 1) {
+    var slides = slideshow.children;
+    var current = 0;
+    setInterval(function () {
+      slides[current].classList.remove('is-active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('is-active');
+    }, 2300);
+  }
 </script>
 {{ end }}
