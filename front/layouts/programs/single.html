@@ -48,17 +48,23 @@
           <div class="column">
             {{ with .Params.status }}<span class="tag is-warning is-medium mb-4">{{ . }}</span>{{ end }}
             <h1 class="title is-1 has-text-white">{{ .Title }}</h1>
-            {{ with .Params.subtitle }}<p class="subtitle is-4 has-text-white">{{ . }}</p>{{ end }}
+            <p class="subtitle is-4 has-text-white">{{ .Params.subtitle }}</p>
             <div class="buttons mt-5">
-              {{ with .Params.cta_text }}
-               <a class="button is-rounded program-hero-cta" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
-              {{ end }}
-              {{ with .Params.ask_question_text }}
-               <a class="button is-ghost has-text-white" href="{{ $.Params.ask_question_link | default "#signup" }}">{{ . }}</a>
-              {{ end }}
+              <a class="button is-rounded program-hero-cta" href="#signup">Записаться</a>
+              <a class="button is-ghost has-text-white" href="#signup">Задать вопрос</a>
+              <a href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw">
+                <figure class="image is-48x48">
+                  <img src="/images/max.png" alt="">
+                </figure>
+              </a>
+              <a href="https://vk.ru/psy_sam">
+              <figure class="image is-48x48">
+                  <img src="/images/vk.png" alt="">
+                </figure>
+              </a>
             </div>
           </div>
-          <div class="column program-hero-image-col">
+          <div class="column program-slideshow-col">
             {{ with .Params.slideshow }}
             <div class="program-slideshow" data-slideshow>
               {{ range $i, $img := . }}

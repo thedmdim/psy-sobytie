@@ -34,6 +34,11 @@
   padding-bottom: 0;
   overflow: visible;
 }
+
+.hero h1 {
+  white-space: nowrap;
+}
+
 .program-section-stack { position: relative; z-index: 1; }
 .program-hero .title.has-text-white {
   font-family: 'Lora', 'PT Serif', serif;
@@ -312,10 +317,11 @@
   .program-roadmap-step:hover { transform: none; }
 }
 
-.program-hero-image-col {
+.program-slideshow-col {
   align-self: flex-end;
   margin-bottom: -3rem;
   overflow: visible;
+  flex: 0 0 600px;
 }
 
 .program-slideshow {
@@ -347,7 +353,7 @@
   .program-roadmap-step:hover,
   .program-roadmap-step:hover .program-roadmap-index,
   .program-roadmap-step:hover .program-roadmap-index::before { transform: none; }
-  .program-hero-image-col {
+  .program-slideshow-col {
     margin-bottom: -2rem;
     margin-top: 1.5rem;
   }
