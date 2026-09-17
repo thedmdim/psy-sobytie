@@ -1,6 +1,18 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "watcher": {
-    "ignore": ["public"]
+  "model": "bothub/deepseek-v4-pro",
+  "provider": {
+    "bothub": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "BotHub API",
+      "options": {
+        "baseURL": "https://openai.bothub.chat/v1"
+      },
+      "models": {
+        "claude-sonnet-4.5": {},
+        "deepseek-v4-pro": {},
+        "gpt-5.3-codex": {}
+      }
+    }
   }
 }

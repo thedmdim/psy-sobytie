@@ -145,13 +145,9 @@
     <div id="{{ $group.slug }}" class="columns is-multiline is-variable is-4{{ if ne $_ 0 }} is-hidden{{ end }}">
       {{ range $card := $group.cards }}
         <div class="column is-full-mobile is-half-tablet is-one-third-desktop is-one-quarter-widescreen">
-          <a class="card is-block" href="{{ $card.url | relURL }}">
-            <div class="card-content has-background-link has-text-white">
-              <p class="title is-6 has-text-white">{{ $card.title }}</p>
-              {{ with $card.description }}
-              <p class="content">{{ . }}</p>
-              {{ end }}
-            </div>
+          <a class="project-card" href="{{ $card.url | relURL }}">
+            <img src="{{ $card.photo | relURL }}" alt="{{ $card.title }}">
+            <span class="project-card-label">{{ $card.title }}</span>
           </a>
         </div>
       {{ end }}
