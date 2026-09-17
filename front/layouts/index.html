@@ -7,7 +7,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const navItems = Array.from(document.querySelectorAll('#mainNavbar .navbar-item'));
-    const cardGroups = Array.from(document.querySelectorAll('#primary-nav-section > .columns[id]'));
+    const cardGroups = Array.from(document.querySelectorAll('#primary-nav-section > .cards-grid[id]'));
 
     const showGroup = (slug) => {
       cardGroups.forEach((group) => {
@@ -54,91 +54,39 @@
     </div>
 </nav>
 
-<section id="primary-nav-section" class="section">
+<section id="primary-nav-section">
     {{ range $groupIndex, $group := .Params.sections.nav }}
-    <div id="{{ .slug }}" class="columns is-variable is-4{{ if ne $groupIndex 0 }} is-hidden{{ end }}">
-        <div class="column">
-            <div class="columns is-multiline is-mobile is-variable is-2">
-                <div class="column is-full">
-                    {{ with index .cards 0 }}
-                    <a class="card is-block" href="{{ .url | relURL }}">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="/{{ .photo }}.png" alt="{{ .title }}">
-                            </figure>
-                        </div>
-                        <div class="card-content has-background-link has-text-white">
-                            <div class="content">{{ .title }}</div>
-                        </div>
-                    </a>
-                    {{ end }}
-                </div>
-                <div class="column is-full">
-                    <div class="columns is-mobile is-variable is-2">
-                        <div class="column">
-                            {{ with index .cards 1 }}
-                            <a class="card is-block" href="{{ .url | relURL }}">
-                                <div class="card-image">
-                                    <figure class="image is-4by3">
-                                        <img src="/{{ .photo }}.png" alt="{{ .title }}">
-                                    </figure>
-                                </div>
-                                <div class="card-content has-background-link has-text-white">
-                                    <div class="content">{{ .title }}</div>
-                                </div>
-                            </a>
-                            {{ end }}
-                        </div>
-                        <div class="column">
-                            {{ with index .cards 2 }}
-                            <a class="card is-block" href="{{ .url | relURL }}">
-                                <div class="card-image">
-                                    <figure class="image is-4by3">
-                                        <img src="/{{ .photo }}.png" alt="{{ .title }}">
-                                    </figure>
-                                </div>
-                                <div class="card-content has-background-link has-text-white">
-                                    <div class="content">{{ .title }}</div>
-                                </div>
-                            </a>
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="columns is-multiline is-mobile is-variable is-2">
-                <div class="column is-full">
-                    {{ with index .cards 3 }}
-                    <a class="card is-block" href="{{ .url | relURL }}">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="/{{ .photo }}.png" alt="{{ .title }}">
-                            </figure>
-                        </div>
-                        <div class="card-content has-background-link has-text-white">
-                            <div class="content">{{ .title }}</div>
-                        </div>
-                    </a>
-                    {{ end }}
-                </div>
-                <div class="column is-full">
-                    {{ with index .cards 4 }}
-                    <a class="card is-block" href="{{ .url | relURL }}">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="/{{ .photo }}.png" alt="{{ .title }}">
-                            </figure>
-                        </div>
-                        <div class="card-content has-background-link has-text-white">
-                            <div class="content">{{ .title }}</div>
-                        </div>
-                    </a>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
+    <div id="{{ .slug }}" class="cards-grid{{ if ne $groupIndex 0 }} is-hidden{{ end }}">
+        {{ with index .cards 0 }}
+        <a class="card-wide" href="{{ .url | relURL }}">
+            <img src="/{{ .photo }}.png" alt="{{ .title }}">
+            <span class="card-label">{{ .title }}</span>
+        </a>
+        {{ end }}
+        {{ with index .cards 1 }}
+        <a class="card-left1" href="{{ .url | relURL }}">
+            <img src="/{{ .photo }}.png" alt="{{ .title }}">
+            <span class="card-label">{{ .title }}</span>
+        </a>
+        {{ end }}
+        {{ with index .cards 2 }}
+        <a class="card-left2" href="{{ .url | relURL }}">
+            <img src="/{{ .photo }}.png" alt="{{ .title }}">
+            <span class="card-label">{{ .title }}</span>
+        </a>
+        {{ end }}
+        {{ with index .cards 3 }}
+        <a class="card-right1" href="{{ .url | relURL }}">
+            <img src="/{{ .photo }}.png" alt="{{ .title }}">
+            <span class="card-label">{{ .title }}</span>
+        </a>
+        {{ end }}
+        {{ with index .cards 4 }}
+        <a class="card-right2" href="{{ .url | relURL }}">
+            <img src="/{{ .photo }}.png" alt="{{ .title }}">
+            <span class="card-label">{{ .title }}</span>
+        </a>
+        {{ end }}
     </div>
     {{ end }}
 </section>

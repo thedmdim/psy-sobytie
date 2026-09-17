@@ -1,19 +1,54 @@
-#cards .column {
-    color: white;
-    border: 1px solid blue;
+#primary-nav-section {
+    padding: 0.75rem;
+    height: calc(100dvh - 3.25rem);
+    box-sizing: border-box;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "wide wide right1"
+        "left1 left2 right2";
+    gap: 0.75rem;
+    height: 100%;
+}
+
+.cards-grid > a {
+    display: block;
+    position: relative;
+    overflow: hidden;
     border-radius: 12pt;
 }
 
-#cards {
-    margin: 0;
-    gap: 1rem;
+.cards-grid > a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-#cards .columns {
-    margin: 0;
-    gap: 1rem;
+.cards-grid .card-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.75rem;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 100%);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.15rem;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    text-align: center;
 }
 
-#cards .columns > .column {
-    padding: 0;
+.card-wide  { grid-area: wide; }
+.card-left1 { grid-area: left1; }
+.card-left2 { grid-area: left2; }
+.card-right1 { grid-area: right1; }
+.card-right2 { grid-area: right2; }
+
+.cards-grid.is-hidden {
+    display: none;
 }
