@@ -17,3 +17,12 @@
 #cards .columns > .column {
     padding: 0;
 }
+
+#primary-nav-section .card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.2s ease;
+}
+
+#primary-nav-section .card:hover {
+    box-shadow: 0 4px 16px #2B4181;
+}

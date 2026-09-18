@@ -1,6 +1,7 @@
 :root {
   --accent-primary: #63ABCF;
   --accent-secondary: #8B5A9B;
+  --navbar-btn-radius: 20pt;
 }
 
 @media screen and (min-width: 1024px) {
@@ -19,11 +20,15 @@
     font-weight:800;
 }
 
-/* .navbar-item:hover , .navbar-item.is-active {
+.navbar-item {
+    border-radius: var(--navbar-btn-radius);
+    cursor: pointer;
+    margin: 0 0.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-item:hover,
+.navbar-item.is-active {
     background-color: var(--accent-primary);
     color: white;
-} */
-
-.navbar-item {
-    border-radius: 20pt;
 }
