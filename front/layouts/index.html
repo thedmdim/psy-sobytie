@@ -9,6 +9,9 @@
     const navItems = Array.from(document.querySelectorAll('#mainNavbar .navbar-item'));
     const cardGroups = Array.from(document.querySelectorAll('#primary-nav-section > .columns[id]'));
 
+    let autoTimer = null;
+    const AUTO_INTERVAL = 6000;
+
     const showGroup = (slug) => {
       cardGroups.forEach((group) => {
         group.classList.toggle('is-hidden', group.id !== slug);
@@ -19,6 +22,19 @@
       });
     };
 
+    const startAuto = () => {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        const active = navItems.findIndex((item) => item.classList.contains('is-active'));
+        const next = (active + 1) % navItems.length;
+        const slug = navItems[next].id;
+        if (slug) {
+          showGroup(slug);
+          window.location.hash = slug;
+        }
+      }, AUTO_INTERVAL);
+    };
+
     navItems.forEach((item) => {
       item.addEventListener('click', (event) => {
         event.preventDefault();
@@ -26,6 +42,7 @@
         if (slug) {
           showGroup(slug);
           window.location.hash = slug;
+          startAuto();
         }
       });
     });
@@ -37,6 +54,8 @@
     if (targetSlug) {
       showGroup(targetSlug);
     }
+
+    startAuto();
   });
 </script>
 
