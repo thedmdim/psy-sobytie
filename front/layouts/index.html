@@ -56,89 +56,18 @@
 
 <section id="primary-nav-section" class="section">
     {{ range $groupIndex, $group := .Params.sections.nav }}
-    <div id="{{ .slug }}" class="columns is-variable is-4{{ if ne $groupIndex 0 }} is-hidden{{ end }}">
+    <div id="{{ .slug }}" class="columns is-variable is-2 is-mobile{{ if ne $groupIndex 0 }} is-hidden{{ end }}">
+        {{ range .cards }}
         <div class="column">
-            <div class="columns is-multiline is-mobile is-variable is-2">
-                <div class="column is-full">
-                    {{ with index .cards 0 }}
-                    <a class="card is-block" href="{{ .url | relURL }}">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="/{{ .photo }}.png" alt="{{ .title }}">
-                            </figure>
-                        </div>
-                        <div class="card-content has-background-link has-text-white">
-                            <div class="content">{{ .title }}</div>
-                        </div>
-                    </a>
-                    {{ end }}
+            <a class="card is-block" href="{{ .url | relURL }}">
+                <div class="card-image">
+                    <figure class="image is-16by9">
+                        <img src="/{{ .photo }}.png" alt="{{ .title }}">
+                    </figure>
                 </div>
-                <div class="column is-full">
-                    <div class="columns is-mobile is-variable is-2">
-                        <div class="column">
-                            {{ with index .cards 1 }}
-                            <a class="card is-block" href="{{ .url | relURL }}">
-                                <div class="card-image">
-                                    <figure class="image is-4by3">
-                                        <img src="/{{ .photo }}.png" alt="{{ .title }}">
-                                    </figure>
-                                </div>
-                                <div class="card-content has-background-link has-text-white">
-                                    <div class="content">{{ .title }}</div>
-                                </div>
-                            </a>
-                            {{ end }}
-                        </div>
-                        <div class="column">
-                            {{ with index .cards 2 }}
-                            <a class="card is-block" href="{{ .url | relURL }}">
-                                <div class="card-image">
-                                    <figure class="image is-4by3">
-                                        <img src="/{{ .photo }}.png" alt="{{ .title }}">
-                                    </figure>
-                                </div>
-                                <div class="card-content has-background-link has-text-white">
-                                    <div class="content">{{ .title }}</div>
-                                </div>
-                            </a>
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </a>
         </div>
-        <div class="column">
-            <div class="columns is-multiline is-mobile is-variable is-2">
-                <div class="column is-full">
-                    {{ with index .cards 3 }}
-                    <a class="card is-block" href="{{ .url | relURL }}">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="/{{ .photo }}.png" alt="{{ .title }}">
-                            </figure>
-                        </div>
-                        <div class="card-content has-background-link has-text-white">
-                            <div class="content">{{ .title }}</div>
-                        </div>
-                    </a>
-                    {{ end }}
-                </div>
-                <div class="column is-full">
-                    {{ with index .cards 4 }}
-                    <a class="card is-block" href="{{ .url | relURL }}">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="/{{ .photo }}.png" alt="{{ .title }}">
-                            </figure>
-                        </div>
-                        <div class="card-content has-background-link has-text-white">
-                            <div class="content">{{ .title }}</div>
-                        </div>
-                    </a>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
+        {{ end }}
     </div>
     {{ end }}
 </section>
