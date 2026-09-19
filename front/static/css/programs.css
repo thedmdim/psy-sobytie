@@ -29,6 +29,9 @@
   background: var(--program-brand);
   color: #fff;
 }
+.hero.program-hero {
+  background: #67b5e4;
+}
 .program-hero .hero-body {
   padding-top: 2.8rem;
   padding-bottom: 0;
@@ -36,15 +39,18 @@
 }
 
 .hero h1 {
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .program-section-stack { position: relative; z-index: 1; }
 .program-hero .title.has-text-white {
   font-family: 'Lora', 'PT Serif', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
 }
 .program-hero .subtitle.has-text-white {
   line-height: 1.5;
+  font-family: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
+  font-size: 12pt;
 }
 
 .program-hero-cta {
@@ -321,18 +327,24 @@
   align-self: flex-end;
   margin-bottom: -3rem;
   overflow: visible;
-  flex: 0 0 600px;
+  flex: 0 1 600px;
+  min-width: 0;
 }
 
 .program-slideshow {
   position: relative;
   z-index: 10;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 4rem;
+  border: 3px solid #fff;
 }
 
 .slide {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
+  height: 100%;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.8s ease-in-out;
@@ -344,8 +356,8 @@
 .slide img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: var(--bulma-radius, 0.5rem);
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 768px) {

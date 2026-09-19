@@ -110,7 +110,7 @@ sections:
             url: "/programs/for-leaders/"
             photo: "leaders.png"
           - title: "Для сотрудников"
-            url: "/programs/for-employees/"
+            url: "/programs/corporate-training/"
             photo: "workers.png"
           - title: "Госпроекты"
             url: "/programs/organizational-integration/"

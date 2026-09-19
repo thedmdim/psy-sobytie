@@ -9,7 +9,10 @@ subtitle: >
 ask_question_text: "Задать вопрос"
 ask_question_link: "#signup"
 
-slideshow: []
+slideshow:
+  - "ele1.jpg"
+  - "ele2.jpg"
+  - "g1.jpg"
 topics_image: ""
 
 specialists:
