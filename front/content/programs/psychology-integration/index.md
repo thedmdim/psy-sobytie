@@ -11,7 +11,8 @@ subtitle: >
 ask_question_text: "Задать вопрос"
 ask_question_link: "#signup"
 
-slideshow: []
+slideshow:
+  - "wallpic.jpg"
 topics_image: ""
 
 specialists:
