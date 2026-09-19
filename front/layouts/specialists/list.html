@@ -13,31 +13,150 @@
   </div>
   <div class="navbar-menu is-active">
   {{ range .Params.nav }}
-    <a class="navbar-item" href="{{ .url }}">{{ .label }}</a>
+    <a class="navbar-item js-filter-btn" href="#" data-filter="{{ .label }}">{{ .label }}</a>
   {{ end }}
   </div>
 </nav>
 
-<section class="section">
+<section class="section pt-0 pb-0">
+  <figure class="image">
+    <img src="team.png" alt="Команда специалистов" style="width: 100%; border-radius: 4rem; border: 3px solid #67b5e4;">
+  </figure>
+</section>
+
+<section class="section pt-4">
   <div class="columns is-multiline">
     {{ range .Params.specialists }}
-      <div id="{{ .slug }}" class="column is-one-third-desktop is-half-tablet">
-        <a class="card is-block" href="{{ .slug }}">
+      <div id="{{ .slug }}" class="column" data-categories='{{ delimit .categories "," }}'>
+        <div class="card">
           <div class="card-image">
             <figure class="image is-1by1">
               <img src="{{ .slug }}/{{ .photo }}" alt="">
             </figure>
           </div>
-          <div class="card-content has-background-link has-text-white">
-            <p class="title is-6 has-text-white">{{ .name }}</p>
-            {{ range .specialties }}
-            <p class="content">{{ . }}</p>
-            {{ end }}
+          <div class="card-content has-text-centered">
+            <p class="title is-6 mb-4">{{ .name }}</p>
+            <div class="buttons is-centered">
+              <a class="button js-signup-btn" href="#contact" data-specialist="{{ .name }}">Записаться</a>
+              <button class="button js-detail-btn" data-detail="{{ .slug }}/{{ replace .photo "1.png" ".png" }}">Подробнее</button>
+            </div>
           </div>
-        </a>
+        </div>
       </div>
     {{ end }}
   </div>
 </section>
+
+<section class="section" id="contact" style="background: linear-gradient(to bottom, #fff, #67b5e4);">
+  <div class="container">
+    <h2 class="title is-3 mb-5" style="color: #333;">Форма для записи</h2>
+    <form class="signup-form" method="POST" action="#">
+      <div class="field">
+        <label class="label" style="color: #333;" for="name">Имя</label>
+        <div class="control">
+          <input class="input" type="text" id="name" name="name" placeholder="Имя" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" style="color: #333;" for="phone">Телефон</label>
+        <div class="control">
+          <input class="input" type="tel" id="phone" name="phone" placeholder="+7" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" style="color: #333;" for="specialist">Специалист</label>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select id="specialist" name="specialist">
+              <option value="">Выберите специалиста</option>
+              {{ range .Params.specialists }}
+              <option value="{{ .name }}">{{ .name }}</option>
+              {{ end }}
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" style="color: #333;" for="comment">Комментарий</label>
+        <div class="control">
+          <textarea class="textarea" id="comment" name="comment" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="control">
+        <button type="submit" class="button js-signup-btn">Отправить заявку</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div class="modal" id="detail-modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p class="image">
+      <img id="detail-modal-img" src="" alt="">
+    </p>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('detail-modal');
+  const modalImg = document.getElementById('detail-modal-img');
+  const closeBtn = modal.querySelector('.modal-close');
+  const bg = modal.querySelector('.modal-background');
+
+  const openModal = (src) => {
+    modalImg.src = src;
+    modal.classList.add('is-active');
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('is-active');
+  };
+
+  document.querySelectorAll('.js-detail-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(btn.dataset.detail);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  bg.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  const specialistSelect = document.getElementById('specialist');
+  document.querySelectorAll('.js-signup-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      specialistSelect.value = btn.dataset.specialist;
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const filterBtns = document.querySelectorAll('.js-filter-btn');
+  const columns = document.querySelectorAll('.column[data-categories]');
+
+  const filter = (category) => {
+    filterBtns.forEach(b => b.classList.toggle('is-active', b.dataset.filter === category));
+    columns.forEach(col => {
+      const cats = col.dataset.categories.split(',');
+      col.classList.toggle('is-hidden', !cats.includes(category));
+    });
+  };
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      filter(btn.dataset.filter);
+    });
+  });
+
+  filter('Взрослые');
+});
+</script>
 
 {{ end }}

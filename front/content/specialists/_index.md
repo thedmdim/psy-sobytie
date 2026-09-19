@@ -2,15 +2,31 @@
 title: "Выбрать психолога"
 draft: false
 nav:
-  - label: "Пункт 1"
+
+  - label: "Взрослые"
     url: ""
-  - label: "Пункт 2"
+  - label: "Дети"
+    url: ""
+  - label: "Подростки"
+    url: ""
+  - label: "Беременность"
+    url: ""
+  - label: "Отношения"
+    url: ""
+  - label: "СВО"
+    url: ""
+  - label: "Расстройства"
+    url: ""
+  - label: "Школа"
+    url: ""
+  - label: "Бизнес"
     url: ""
 specialists:
   - name: "Ступченко Максим Вадимович"
     slug: "stupchenko-maksim"
     since: 2019
-    photo: "stupchenko-maksim.png"
+    photo: "MV1.png"
+    categories: ["Взрослые", "Дети", "Подростки", "СВО", "Беременность", "Расстройства", "Отношения", "Школа", "Бизнес"]
     specialties:
     - "IFS"
     - "Арт-терапия"
@@ -38,7 +54,8 @@ specialists:
   - name: "Исаева Анастасия Александровна"
     slug: "isaeva-anastasiya"
     since: 2012
-    photo: "isaeva-anastasiya.png"
+    photo: "AA1.png"
+    categories: ["Взрослые", "Беременность", "Отношения"]
     specialties:
     - "IFS"
     - "Арт-терапия"
@@ -66,7 +83,8 @@ specialists:
   - name: "Серебрякова Мария Евгениевна"
     slug: "serebryakova-mariya-evgenievna"
     since: 2002
-    photo: "serebryakova-mariya-evgenievna.png"
+    photo: "ME1.png"
+    categories: ["Взрослые", "Расстройства"]
     specialties:
     - "Групповая психология"
     - "Психотерапия"
@@ -76,7 +94,8 @@ specialists:
   - name: "Борисова Ольга Николаевна"
     slug: "borisova-olga-vladimirovna"
     since: 2022
-    photo: "borisova-olga-vladimirovna.png"
+    photo: "ON1.png"
+    categories: ["Взрослые", "Дети", "Подростки", "СВО", "Отношения"]
     specialties:
     - "Нейропсихология"
     - "Детская психология"
@@ -87,32 +106,8 @@ specialists:
   - name: "Скачков Александр Владимирович"
     slug: "skachkov-aleksandr-vladimirovich"
     since: 2015
-    photo: "skachkov-aleksandr-vladimirovich.png"
+    photo: "AC1.png"
+    categories: ["Взрослые", "Подростки"]
     specialties:
     - "IFS"
-
-  - name: "Баженов Павел Александрович"
-    slug: "bazhenov-pavel-aleksandrovich"
-    since: 2020
-    photo: "bazhenov-pavel-aleksandrovich.png"
-    specialties:
-    - "Психотравматология"
-    - "Когнитивно-поведенческая терапия"
-
-  - name: "Никишина Ксения Олеговна"
-    slug: "nikishina-kseniya"
-    since: 2023
-    photo: "nikishina-kseniya.png"
-    specialties:
-    - "Процесс-ориентированная психотерапия"
-    - "IFS"
-    - "Психотерапия"
-
-  - name: "Пробкина Наталья"
-    slug: "probkina-natalya"
-    photo: "probkina-natalya.png"
-    specialties:
-    - "IFS"
-    - "Психотерапия"
-    - "Семейная психология"
 ---
