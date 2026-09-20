@@ -137,7 +137,7 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="/" id="logo">
+        <a class="navbar-item" href="/" id="logo" style="font-family: 'Pushkin', serif; color: #67b5e4; font-weight: 400; font-size: 2rem;">
             {{ .Params.sections.delim1 }}
         </a>
     </div>
@@ -170,6 +170,53 @@
       {{ end }}
     </div>
   {{ end }}
+</section>
+
+<section class="section" style="background: linear-gradient(to bottom, #67b5e4, #e3edfa); overflow: hidden; padding: 2rem 0;">
+  <h2 class="title is-3 has-text-centered mb-5" style="color: #fff; font-family: 'Pushkin', serif; font-weight: 400;">Нам доверяют</h2>
+  <div class="carousel-track" id="carousel-track">
+    {{ range $i := seq 1 15 }}
+    <div class="carousel-item">
+      <img src="/images/p{{ $i }}.png" alt="" class="carousel-img">
+    </div>
+    {{ end }}
+    {{ range $i := seq 1 15 }}
+    <div class="carousel-item">
+      <img src="/images/p{{ $i }}.png" alt="" class="carousel-img">
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section" id="contact" style="background: url('/images/elback.png') bottom/cover no-repeat;">
+  <div class="container" style="display: flex; justify-content: center;">
+    <div style="background: linear-gradient(to bottom, #fff, #67b5e4); border-radius: 4rem; padding: 2.5rem; max-width: 32rem; width: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+    <h2 class="title is-3 mb-5" style="color: #333;">Форма для записи</h2>
+    <form class="signup-form" method="POST" action="#">
+      <div class="field">
+        <label class="label" style="color: #333;" for="contact-name">Имя</label>
+        <div class="control">
+          <input class="input" type="text" id="contact-name" name="name" placeholder="Имя" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" style="color: #333;" for="contact-phone">Телефон</label>
+        <div class="control">
+          <input class="input" type="tel" id="contact-phone" name="phone" placeholder="+7" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" style="color: #333;" for="contact-comment">Комментарий</label>
+        <div class="control">
+          <textarea class="textarea" id="contact-comment" name="comment" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="control has-text-centered">
+        <button type="submit" class="button js-signup-btn">Отправить заявку</button>
+      </div>
+    </form>
+    </div>
+  </div>
 </section>
 
 {{ end }}
