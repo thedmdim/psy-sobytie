@@ -92,10 +92,10 @@ parents_feedback:
     отдельные встречи для родителей — участвовать могут оба родителя ребёнка.
   points:
     - title: "На старте"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconteen.png"
       text: "Обсуждаем ваши вопросы, запросы и тревоги перед началом группы."
     - title: "В конце"
-      image: "/icons2/point.png"
+      image: "/icons3/iconlook.png"
       text: "Подводим итоги: какие были процессы, что важно понимать и как поддержать результат дома."
   gallery:
     - image: "/images/programs/parents-1.jpg"

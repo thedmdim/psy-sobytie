@@ -89,22 +89,22 @@ parents_feedback:
     под задачу.
   points:
     - title: "Запрос и идея"
-      image: "/icons2/rocket.png"
+      image: "/icons3/icongear.png"
       text: "Обсуждаем задачу: что за проект, для кого, какой эффект нужен. Помогаем сформулировать цель и формат."
     - title: "Разработка концепции"
-      image: "/icons2/point.png"
+      image: "/icons3/iconowl.png"
       text: "Предлагаем концепцию мероприятия или программы: темы, спикеры, структура, аудитория."
     - title: "Организация"
-      image: "/icons2/point.png"
+      image: "/icons3/iconhandshake.png"
       text: "Берём на себя организацию: площадка, программа, спикеры, модерация, сопровождение."
     - title: "Проведение"
-      image: "/icons2/point.png"
+      image: "/icons3/iconfire.png"
       text: "Проводим мероприятие или сопровождаем проект — на нашей площадке или на вашей."
     - title: "Экспертное сопровождение"
-      image: "/icons2/point.png"
+      image: "/icons3/iconlook.png"
       text: "Консультируем по содержанию, помогаем сохранить психологическую безопасность и этику."
     - title: "Итоги и продолжение"
-      image: "/icons2/point.png"
+      image: "/icons3/iconpuzzle.png"
       text: "Подводим итоги, собираем обратную связь, обсуждаем продолжение — цикл, серия мероприятий или долгосрочное партнёрство."
   gallery: []
 

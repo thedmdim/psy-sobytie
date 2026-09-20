@@ -83,13 +83,13 @@ parents_feedback:
     для специалистов и инициатив, которые разделяют наши ценности.
   points:
     - title: "Осознанность"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconhandshake.png"
       text: "Мы развиваем способность замечать себя, свои ценности и свою ответственность."
     - title: "Сотворчество"
-      image: "/icons2/point.png"
+      image: "/icons3/iconpuzzle.png"
       text: "Мы верим в силу совместного творчества и реальных дел."
     - title: "Ответственность"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbalance.png"
       text: "Мы стремимся быть активными субъектами, а не пассивными наблюдателями."
   gallery: []
 

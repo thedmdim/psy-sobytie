@@ -88,13 +88,13 @@ parents_feedback:
     интервизии, самостоятельная работа.
   points:
     - title: "Формат встреч"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconbooks.png"
       text: "Встречи проходят каждый понедельник и два раза в месяц четверг с 19:00 до 21:00."
     - title: "Сроки"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbell.png"
       text: "С 7 сентября 2026 по 1 июля 2027."
     - title: "Итоговая работа"
-      image: "/icons2/point.png"
+      image: "/icons3/iconowl.png"
       text: "Защита клиентского случая (открытая супервизия) — навыки психологического консультирования."
   gallery: []
 

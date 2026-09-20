@@ -72,13 +72,13 @@ parents_feedback:
     сессия для родителей.
   points:
     - title: "Разбор результатов"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconowl.png"
       text: "Подробный разбор выводов и рекомендаций, ответы на вопросы."
     - title: "Стратегия действий"
-      image: "/icons2/point.png"
+      image: "/icons3/iconchess.png"
       text: "Обсуждаем, как поддерживать ребёнка в выборе, не навязывая свои ожидания."
     - title: "Письменное заключение"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbooks.png"
       text: "Вы получаете подробное письменное заключение с перечнем подходящих профессий и планом по развитию и поступлению."
   gallery: []
 

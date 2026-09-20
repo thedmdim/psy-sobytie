@@ -85,19 +85,19 @@ parents_feedback:
     с классом. Всё согласовывается с администрацией.
   points:
     - title: "Заявка от школы"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconbooks.png"
       text: "Вы оставляете заявку, мы связываемся, обсуждаем запрос, возраст детей, темы и формат."
     - title: "Согласование программы"
-      image: "/icons2/point.png"
+      image: "/icons3/iconhandshake.png"
       text: "Подбираем содержание, длительность, количество встреч. Учитываем особенности школы."
     - title: "Проведение встреч"
-      image: "/icons2/point.png"
+      image: "/icons3/iconnetwork.png"
       text: "Приезжаем в школу в удобное время. Работаем с детьми, родителями или учителями."
     - title: "Обратная связь"
-      image: "/icons2/point.png"
+      image: "/icons3/iconlook.png"
       text: "После встречи администрация получает обратную связь и рекомендации по дальнейшей работе."
     - title: "Продолжение при необходимости"
-      image: "/icons2/point.png"
+      image: "/icons3/iconpuzzle.png"
       text: "Если требуется, разрабатываем цикл встреч или индивидуальную программу для школы."
   gallery: []
 
