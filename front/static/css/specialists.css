@@ -1,4 +1,5 @@
-.card-image .image img {
+.card-image .image img,
+.image img {
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -51,4 +52,13 @@
     max-width: 90vw;
     max-height: 90vh;
     object-fit: contain;
+}
+
+#contact {
+    background: linear-gradient(to bottom, #fff, #67b5e4);
+}
+
+#contact h2.title,
+#contact .label {
+    color: #333;
 }
