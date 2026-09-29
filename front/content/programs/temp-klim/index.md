@@ -54,17 +54,17 @@ results:
   title: "Что получает класс"
   intro: "То, что меняется после программы — в наблюдениях психологов, учителей и родителей."
   images:
-    - image: "/images/temp-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Становится ясно, что происходит в классе на самом деле"
-    - image: "/images/temp-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается напряжение и количество скрытых конфликтов"
-    - image: "/images/temp-3.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Дети начинают видеть друг друга, а не только роли"
-    - image: "/images/temp-4.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Появляется опыт взаимной поддержки"
-    - image: "/images/temp-5.png"
+    - image: "/icons3/icongear.png"
       caption: "Учителя и родители получают конкретные рекомендации"
-    - image: "/images/temp-6.png"
+    - image: "/icons3/iconfire.png"
       caption: "Формируется более здоровая атмосфера в классе"
 
 parents_feedback:

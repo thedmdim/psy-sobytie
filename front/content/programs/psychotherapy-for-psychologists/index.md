@@ -73,17 +73,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется за время терапии — в наблюдениях психологов и словах коллег."
   images:
-    - image: "/images/psy-therapy-1.png"
+    - image: "/icons3/iconfire.png"
       caption: "Возвращается интерес к профессии и смысл в работе"
-    - image: "/images/psy-therapy-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается выгорание и эмоциональное истощение"
-    - image: "/images/psy-therapy-3.png"
+    - image: "/icons3/iconlook.png"
       caption: "Появляется ясность в границах и профессиональной позиции"
-    - image: "/images/psy-therapy-4.png"
+    - image: "/icons3/iconowl.png"
       caption: "Уходит синдром самозванца"
-    - image: "/images/psy-therapy-5.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Становится легче разделять личное и рабочее"
-    - image: "/images/psy-therapy-6.png"
+    - image: "/icons3/icongear.png"
       caption: "Появляется устойчивость к сложным клиентским случаям"
 
 parents_feedback:

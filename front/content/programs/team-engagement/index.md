@@ -68,17 +68,17 @@ results:
   title: "Что меняется в коллективе"
   intro: "То, что замечают участники и руководители — в наблюдениях психологов и словах самих коллективов."
   images:
-    - image: "/images/team-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Люди начинают видеть друг друга, а не только роли"
-    - image: "/images/team-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается напряжение и количество скрытых конфликтов"
-    - image: "/images/team-3.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Появляется опыт взаимной поддержки"
-    - image: "/images/team-4.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Легче договариваться и решать общие задачи"
-    - image: "/images/team-5.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Каждый чувствует, что его место важно"
-    - image: "/images/team-6.png"
+    - image: "/icons3/iconglobal.png"
       caption: "Формируется общий язык и общее чувство «мы»"
 
 parents_feedback:

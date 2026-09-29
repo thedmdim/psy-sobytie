@@ -56,17 +56,17 @@ results:
   title: "Что вы получаете"
   intro: "То, что меняется, когда у вас есть своё профессиональное пространство."
   images:
-    - image: "/images/rent-1.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Клиенты приходят с удовольствием и возвращаются"
-    - image: "/images/rent-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Вы сосредоточены на терапии, а не на быте"
-    - image: "/images/rent-3.png"
+    - image: "/icons3/icongear.png"
       caption: "Рабочее место настраивает на профессиональный лад"
-    - image: "/images/rent-4.png"
+    - image: "/icons3/iconlook.png"
       caption: "Не нужно вкладываться в ремонт и оборудование"
-    - image: "/images/rent-5.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Появляется ощущение принадлежности к сообществу коллег"
-    - image: "/images/rent-6.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Можно гибко планировать расписание и нагрузку"
 
 parents_feedback:

@@ -65,17 +65,17 @@ results:
   title: "Что меняется после смены"
   intro: "То, что замечают родители и сами подростки — в наблюдениях психологов и словах выпускников."
   images:
-    - image: "/images/camp-1.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Подросток спокойно обсуждает проблемы вместо хлопанья дверьми"
-    - image: "/images/camp-2.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Легче знакомится и находит друзей"
-    - image: "/images/camp-3.png"
+    - image: "/icons3/iconfire.png"
       caption: "Чётко знает, чего хочет, и делает первые шаги к цели"
-    - image: "/images/camp-4.png"
+    - image: "/icons3/iconlook.png"
       caption: "Лучше понимает себя и начинает договариваться"
-    - image: "/images/camp-5.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Умеет осознавать и проживать эмоции"
-    - image: "/images/camp-6.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Решает конфликты без ссор и обид"
 
 parents_feedback:

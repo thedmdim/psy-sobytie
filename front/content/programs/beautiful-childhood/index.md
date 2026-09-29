@@ -63,17 +63,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется у детей за время группы — в наблюдениях психологов и словах родителей."
   images:
-    - image: "/images/child-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Ребёнок лучше понимает и называет свои чувства"
-    - image: "/images/child-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Легче выдерживает правила и переключается"
-    - image: "/images/child-3.png"
+    - image: "/icons3/iconfire.png"
       caption: "Становится увереннее и спокойнее относится к ошибкам"
-    - image: "/images/child-4.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Учится договариваться и отстаивать границы"
-    - image: "/images/child-5.png"
+    - image: "/icons3/iconbooks.png"
       caption: "Меньше тревоги в школе"
-    - image: "/images/child-6.png"
+    - image: "/icons3/iconbaby.png"
       caption: "Появляется больше самостоятельности"
 
 parents_feedback:

@@ -69,17 +69,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется по итогам консультирования — в наблюдениях руководителей и команды."
   images:
-    - image: "/images/org-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Становится ясно, что именно мешает организации двигаться вперёд"
-    - image: "/images/org-2.png"
+    - image: "/icons3/iconowl.png"
       caption: "Руководитель видит свою роль в системе и новые управленческие ходы"
-    - image: "/images/org-3.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается напряжение в управленческой команде"
-    - image: "/images/org-4.png"
+    - image: "/icons3/icongear.png"
       caption: "Выстраиваются прозрачные зоны ответственности"
-    - image: "/images/org-5.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Коммуникация становится более прямой и рабочей"
-    - image: "/images/org-6.png"
+    - image: "/icons3/iconchess.png"
       caption: "Появляется стратегия развития и понятные шаги её реализации"
 
 parents_feedback:

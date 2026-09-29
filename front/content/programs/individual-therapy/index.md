@@ -67,17 +67,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется за время терапии — в наблюдениях психологов и словах клиентов."
   images:
-    - image: "/images/therapy-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Понимание своих чувств и причин повторяющихся ситуаций"
-    - image: "/images/therapy-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижение тревоги и внутреннего напряжения"
-    - image: "/images/therapy-3.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Улучшение отношений с близкими"
-    - image: "/images/therapy-4.png"
+    - image: "/icons3/iconadult.png"
       caption: "Появление опоры на себя и уверенности"
-    - image: "/images/therapy-5.png"
+    - image: "/icons3/iconfire.png"
       caption: "Проживание кризиса и выход из него"
-    - image: "/images/therapy-6.png"
+    - image: "/icons3/icongear.png"
       caption: "Ощущение, что жизнь становится более управляемой"
 
 parents_feedback:

@@ -4,6 +4,24 @@ draft: false
 name: "Скачков Александр Владимирович"
 since: 2015
 photo: "skachkov-aleksandr-vladimirovich.png"
+detail_photo: "AC2.png"
+subtitle: "Психолог"
+blocks:
+  - icon: "/icons3/iconbooks.png"
+    label: "Специализация"
+    text: "Панические атаки, психосоматика, работа с горем, работа с травмами, кинотерапия"
+  - icon: "/icons3/icongear.png"
+    label: "Направление"
+    text: "Групповая психология, психотерапия, кризисная психология, экзистенциальная психология"
+  - icon: "/icons3/iconcheir.png"
+    label: "Опыт"
+    text: "10+ лет терапевтической практики"
+  - icon: "/icons3/iconhandshake.png"
+    label: "В центре"
+    text: "Ведущий подростковых групп, методолог"
+  - icon: "/icons3/iconbalance.png"
+    label: "Стоимость"
+    text: "Индивидуальная консультация — 4 000 ₽"
 specialties:
   - "IFS"
 description: |

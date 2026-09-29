@@ -67,17 +67,17 @@ results:
   title: "Результаты для организации"
   intro: "То, что меняется, когда психология становится частью жизни компании — в наблюдениях руководителей и сотрудников."
   images:
-    - image: "/images/outsource-1.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Сотрудники получают поддержку и меньше выгорают"
-    - image: "/images/outsource-2.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Коммуникация в командах становится более прямой и рабочей"
-    - image: "/images/outsource-3.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Конфликты решаются конструктивно и без затягивания"
-    - image: "/images/outsource-4.png"
+    - image: "/icons3/icongear.png"
       caption: "Руководители получают поддержку и новые управленческие инструменты"
-    - image: "/images/outsource-5.png"
+    - image: "/icons3/iconfire.png"
       caption: "Снижается текучесть и растёт вовлечённость"
-    - image: "/images/outsource-6.png"
+    - image: "/icons3/iconglobal.png"
       caption: "Формируется здоровая и устойчивая культура компании"
 
 parents_feedback:

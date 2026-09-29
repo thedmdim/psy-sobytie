@@ -66,17 +66,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется за время консультирования — в наблюдениях психологов и словах семей."
   images:
-    - image: "/images/family-1.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Восстанавливается близость и связь между партнёрами"
-    - image: "/images/family-2.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Родители и дети начинают слышать друг друга"
-    - image: "/images/family-3.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается напряжение и количество конфликтов"
-    - image: "/images/family-4.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Развод проходит экологично, с заботой о детях"
-    - image: "/images/family-5.png"
+    - image: "/icons3/iconbaby.png"
       caption: "Ребёнок получает поддержку и понимание в период перемен"
-    - image: "/images/family-6.png"
+    - image: "/icons3/iconchess.png"
       caption: "Появляется ясная стратегия на будущее семьи"
 
 parents_feedback:

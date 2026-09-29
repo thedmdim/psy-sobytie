@@ -61,17 +61,17 @@ results:
   title: "Что вы получите"
   intro: "То, что меняется за время обучения — в наблюдениях ведущих и словах выпускников."
   images:
-    - image: "/images/programs-1.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Устойчивые клиент-терапевтические отношения и рабочий альянс"
-    - image: "/images/programs-2.png"
+    - image: "/icons3/icongear.png"
       caption: "Инструментарий из разных методов психотерапии"
-    - image: "/images/programs-3.png"
+    - image: "/icons3/iconowl.png"
       caption: "Профессиональное мышление и работа с контрпереносом"
-    - image: "/images/programs-4.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Понимание границ компетенции и взаимодействия с психиатром"
-    - image: "/images/programs-5.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Опыт принадлежности к профессиональному сообществу"
-    - image: "/images/programs-6.png"
+    - image: "/icons3/iconbooks.png"
       caption: "Документ, подтверждающий квалификацию"
 
 parents_feedback:

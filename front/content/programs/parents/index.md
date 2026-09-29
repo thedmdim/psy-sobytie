@@ -66,17 +66,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется за время группы — в наблюдениях психологов и словах участниц."
   images:
-    - image: "/images/moms-1.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Появляется ощущение «я не одна»"
-    - image: "/images/moms-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается уровень вины и внутреннего напряжения"
-    - image: "/images/moms-3.png"
+    - image: "/icons3/iconfire.png"
       caption: "Восстанавливается ресурс и желание жить, а не выживать"
-    - image: "/images/moms-4.png"
+    - image: "/icons3/icongear.png"
       caption: "Появляются работающие способы реагировать на сложное поведение ребёнка"
-    - image: "/images/moms-5.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Улучшаются отношения с близкими"
-    - image: "/images/moms-6.png"
+    - image: "/icons3/iconlook.png"
       caption: "Возвращается ощущение себя — живой, отдельной, интересной"
 
 parents_feedback:

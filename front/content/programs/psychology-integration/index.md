@@ -68,17 +68,17 @@ results:
   title: "Что мы делаем возможным"
   intro: "То, что меняется, когда психология становится частью культуры — в наблюдениях сообщества и партнёров."
   images:
-    - image: "/images/culture-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Психология становится понятной и доступной, а не «для избранных»"
-    - image: "/images/culture-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается стигма вокруг обращения за поддержкой"
-    - image: "/images/culture-3.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Появляются городские и региональные площадки для диалога"
-    - image: "/images/culture-4.png"
+    - image: "/icons3/icongear.png"
       caption: "Организации интегрируют психологию в свою деятельность"
-    - image: "/images/culture-5.png"
+    - image: "/icons3/iconfire.png"
       caption: "Растёт уровень профессионального сообщества"
-    - image: "/images/culture-6.png"
+    - image: "/icons3/iconglobal.png"
       caption: "Формируется среда, в которой людям безопаснее жить и работать"
 
 parents_feedback:

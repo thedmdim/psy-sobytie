@@ -68,17 +68,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется за время терапии — в наблюдениях психологов и словах самих подростков и их родителей."
   images:
-    - image: "/images/teen-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Подросток начинает понимать свои чувства и называть их"
-    - image: "/images/teen-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается тревога и напряжение"
-    - image: "/images/teen-3.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Улучшаются отношения со сверстниками и родителями"
-    - image: "/images/teen-4.png"
+    - image: "/icons3/iconteen.png"
       caption: "Появляется опора на себя и уверенность"
-    - image: "/images/teen-5.png"
+    - image: "/icons3/iconfire.png"
       caption: "Легче проходят кризисные периоды"
-    - image: "/images/teen-6.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Возвращается интерес к жизни и к себе"
 
 parents_feedback:

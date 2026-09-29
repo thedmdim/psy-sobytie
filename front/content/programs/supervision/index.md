@@ -70,17 +70,17 @@ results:
   title: "Результаты супервизии"
   intro: "То, что меняется за время работы — в наблюдениях супервизоров и словах коллег."
   images:
-    - image: "/images/supervision-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Становится яснее, что происходит в сложных случаях"
-    - image: "/images/supervision-2.png"
+    - image: "/icons3/iconfire.png"
       caption: "Появляется профессиональная уверенность"
-    - image: "/images/supervision-3.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Уходит чувство бессилия и изоляции"
-    - image: "/images/supervision-4.png"
+    - image: "/icons3/icongear.png"
       caption: "Улучшается качество работы с клиентами"
-    - image: "/images/supervision-5.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается риск выгорания"
-    - image: "/images/supervision-6.png"
+    - image: "/icons3/iconowl.png"
       caption: "Формируется собственный профессиональный стиль"
 
 parents_feedback:

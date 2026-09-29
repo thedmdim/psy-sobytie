@@ -65,17 +65,17 @@ results:
   title: "Результаты медиации"
   intro: "То, что меняется после медиации — в наблюдениях медиаторов и словах сторон."
   images:
-    - image: "/images/mediation-1.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Стороны начинают слышать друг друга"
-    - image: "/images/mediation-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается напряжение и враждебность"
-    - image: "/images/mediation-3.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Находится решение, которое устроит всех"
-    - image: "/images/mediation-4.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Отношения сохраняются там, где это возможно"
-    - image: "/images/mediation-5.png"
+    - image: "/icons3/iconbooks.png"
       caption: "Дети учатся разрешать конфликты мирно"
-    - image: "/images/mediation-6.png"
+    - image: "/icons3/icongear.png"
       caption: "Организации избегают судов и репутационных потерь"
 
 parents_feedback:

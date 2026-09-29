@@ -18,10 +18,12 @@
   </div>
 </nav>
 
-<section class="section pt-0 pb-0">
-  <figure class="image">
-    <img src="team.png" alt="Команда специалистов">
-  </figure>
+<section class="section pt-3 pb-0">
+  <div class="container">
+    <figure class="image">
+      <img src="specialists.png" alt="Команда специалистов">
+    </figure>
+  </div>
 </section>
 
 <section class="section pt-4">
@@ -38,7 +40,7 @@
             <p class="title is-6 mb-4">{{ .name }}</p>
             <div class="buttons is-centered">
               <a class="button js-signup-btn" href="#contact" data-specialist="{{ .name }}">Записаться</a>
-              <button class="button js-detail-btn" data-detail="{{ .slug }}/{{ replace .photo "1.png" ".png" }}">Подробнее</button>
+              <a class="button js-detail-btn" href="/specialists/{{ .slug }}/">Подробнее</a>
             </div>
           </div>
         </div>
@@ -89,45 +91,8 @@
   </div>
 </section>
 
-<div class="modal" id="detail-modal">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <p class="image">
-      <img id="detail-modal-img" src="" alt="">
-    </p>
-  </div>
-  <button class="modal-close is-large" aria-label="close"></button>
-</div>
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('detail-modal');
-  const modalImg = document.getElementById('detail-modal-img');
-  const closeBtn = modal.querySelector('.modal-close');
-  const bg = modal.querySelector('.modal-background');
-
-  const openModal = (src) => {
-    modalImg.src = src;
-    modal.classList.add('is-active');
-  };
-
-  const closeModal = () => {
-    modal.classList.remove('is-active');
-  };
-
-  document.querySelectorAll('.js-detail-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal(btn.dataset.detail);
-    });
-  });
-
-  closeBtn.addEventListener('click', closeModal);
-  bg.addEventListener('click', closeModal);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-
   const specialistSelect = document.getElementById('specialist');
   document.querySelectorAll('.js-signup-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {

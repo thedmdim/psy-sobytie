@@ -5,41 +5,79 @@
 
 {{ define "main" }}
 
-<section class="hero is-info is-light">
-    <div class="hero-body">
-        <div class="block">
-            <figure class="image">
-                <img class="is-rounded" src="{{ .Params.photo }}" />
-            </figure>
+<nav class="navbar has-shadow" role="navigation" aria-label="specialist navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/" id="logo">
+      {{ .Site.Title }}
+    </a>
+  </div>
+  <div class="navbar-menu is-active">
+    <a class="navbar-item" href="/specialists/">Все специалисты</a>
+  </div>
+</nav>
+
+<section class="section pt-3 pb-0">
+  <div class="container">
+    <div class="specialist-hero">
+      <figure class="image">
+        <img src="{{ .Params.detail_photo }}" alt="{{ .Title }}">
+      </figure>
+      <div class="specialist-overlay">
+        <h1 class="specialist-title">{{ .Title }}</h1>
+        <p class="specialist-subtitle">{{ .Params.subtitle }}</p>
+        <div class="specialist-blocks">
+          {{ range .Params.blocks }}
+          <div class="specialist-block">
+            <img class="block-icon" src="{{ .icon }}" alt="">
+            <div class="block-content">
+              <span class="block-label">{{ .label }}</span>
+              <span class="block-text">{{ .text }}</span>
+            </div>
+          </div>
+          {{ end }}
         </div>
-        
-        <div class="tags">
-            <span class="tag">C {{ .Params.since }} года</span>
-        </div>
-        
-        <div class="block">
-            {{ delimit .Params.specialties ", " }}
-        </div>
-        
-        <p class="title">{{ .Title }}</p>
+      </div>
     </div>
+  </div>
 </section>
 
-
-<div class="section is-medium">
-    <h2 class="title">О специалисте</h2>
-    <h2 class="subtitle">{{ .Params.description }}</h2>
-    {{ if .Params.focus }}
-    <h2 class="subtitle content">
-        <ul>
-            {{ range .Params.focus }}
-                <li>{{ . }}</li>
-            {{ end }}
-        </ul>
-    </h2>
-        
-    {{ end }}
-    
-</div>
+<section class="section" id="contact">
+  <div class="container">
+    <h2 class="title is-3 mb-5">Форма для записи</h2>
+    <form class="signup-form" method="POST" action="#">
+      <div class="field">
+        <label class="label" for="name">Имя</label>
+        <div class="control">
+          <input class="input" type="text" id="name" name="name" placeholder="Имя" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="phone">Телефон</label>
+        <div class="control">
+          <input class="input" type="tel" id="phone" name="phone" placeholder="+7" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="specialist">Специалист</label>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select id="specialist" name="specialist">
+              <option value="{{ .Title }}" selected>{{ .Title }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="comment">Комментарий</label>
+        <div class="control">
+          <textarea class="textarea" id="comment" name="comment" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="control">
+        <button type="submit" class="button js-signup-btn">Отправить заявку</button>
+      </div>
+    </form>
+  </div>
+</section>
 
 {{ end }}

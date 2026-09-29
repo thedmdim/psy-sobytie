@@ -62,17 +62,17 @@ results:
   title: "Результаты работы"
   intro: "То, что становится возможным по мере работы — в наблюдениях ведущего и участников."
   images:
-    - image: "/images/adult-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Появляется возможность проявлять разные эмоции и быть принятым"
-    - image: "/images/adult-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Становится яснее, где ваши границы"
-    - image: "/images/adult-3.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Легче выдерживать близость и конфликт"
-    - image: "/images/adult-4.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Находятся слова для сложных чувств"
-    - image: "/images/adult-5.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Видно, как вы строите отношения"
-    - image: "/images/adult-6.png"
+    - image: "/icons3/iconadult.png"
       caption: "Уменьшается чувство одиночества в переживаниях"
 
 parents_feedback:
