@@ -23,7 +23,7 @@
 4. Do not webfetch (or otherwise look up) data the user already provided. If the user supplies a list, names, or content directly, use that as-is; never re-fetch the source to double-check unless the user asks.
 5. Before changing layout/styles, prefer framework best practices over quick CSS overrides. For Bulma grid: keep `.column` as layout only, keep spacing via `.columns is-variable`, and put visual styles (background/border/radius) on inner wrapper like `.box`/`.card`.
 6. Don't inline raw css styles in html, use only Bulma classes.
-6. In Hugo templates, avoid excessive temporary variables for straightforward paths. Prefer direct access like `.Params.sections.nav` unless it prevents context bugs.
-7. Avoid speculative defensive code that has no matching markup or runtime path in current template (for example, element handlers without element itself). Keep JS/CSS minimal, purpose-driven, and tied to actual rendered elements.
-8. When user asks to change smth it almost always about changing style and template
-9. CSS class naming: flat kebab-case only. No BEM delimiters (`__`, `--`). Example: `program-carousel-nav`, not `program-carousel__nav` or `program-carousel__nav--prev`.
+7. In Hugo templates, avoid excessive temporary variables for straightforward paths. Prefer direct access like `.Params.sections.nav` unless it prevents context bugs.
+8. Avoid speculative defensive code that has no matching markup or runtime path in current template (for example, element handlers without element itself). Keep JS/CSS minimal, purpose-driven, and tied to actual rendered elements.
+9. When user asks to change smth it almost always about changing style and template
+10. CSS class naming: flat kebab-case only. No BEM delimiters (`__`, `--`). Example: `program-carousel-nav`, not `program-carousel__nav` or `program-carousel__nav--prev`.

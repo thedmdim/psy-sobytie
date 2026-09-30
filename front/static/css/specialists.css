@@ -1,5 +1,4 @@
-.card-image .image img,
-.image img {
+.specialists-grid .card-image .image img {
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -12,46 +11,16 @@
     color: #fff;
 }
 
-.js-signup-btn {
-    background-color: #67b5e4;
-    border-color: #67b5e4;
-    color: #fff;
-    border-radius: 4rem;
-}
-.js-signup-btn:hover {
-    background-color: #5aa5d4;
-    border-color: #5aa5d4;
-    color: #fff;
-}
-
-.js-detail-btn {
+.detail-btn {
     background-color: #fff;
     border-color: #67b5e4;
     color: #67b5e4;
     border-radius: 4rem;
 }
-.js-detail-btn:hover {
+.detail-btn:hover {
     background-color: #67b5e4;
     border-color: #67b5e4;
     color: #fff;
-}
-
-#detail-modal .modal-content {
-    width: auto;
-    max-width: 90vw;
-    max-height: 90vh;
-}
-
-#detail-modal .modal-content .image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#detail-modal .modal-content img {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
 }
 
 #contact {

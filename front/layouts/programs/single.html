@@ -339,7 +339,7 @@
   <section class="section program-hero" id="contact">
     <div class="container">
       <h2 class="title is-3 has-text-white">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
-      <form class="program-signup-form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
+      <form class="signup-form" method="POST" action="{{ with .Params.signup_form }}{{ .action | default "#" }}{{ else }}#{{ end }}">
         <div class="field">
           <label class="label has-text-white" for="name">Имя</label>
           <div class="control">

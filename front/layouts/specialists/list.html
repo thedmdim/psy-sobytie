@@ -8,7 +8,9 @@
 <nav class="navbar has-shadow" role="navigation" aria-label="specialists navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/" id="logo">
-      {{ .Site.Title }}
+      <figure class="image">
+        <img class="is-rounded" src="/images/logo.png">
+      </figure>
     </a>
   </div>
   <div class="navbar-menu is-active">
@@ -27,7 +29,7 @@
 </section>
 
 <section class="section pt-4">
-  <div class="columns is-multiline">
+  <div class="columns is-multiline is-variable is-4 specialists-grid">
     {{ range .Params.specialists }}
       <div id="{{ .slug }}" class="column" data-categories='{{ delimit .categories "," }}'>
         <div class="card">
@@ -40,7 +42,7 @@
             <p class="title is-6 mb-4">{{ .name }}</p>
             <div class="buttons is-centered">
               <a class="button js-signup-btn" href="#contact" data-specialist="{{ .name }}">Записаться</a>
-              <a class="button js-detail-btn" href="/specialists/{{ .slug }}/">Подробнее</a>
+              <a class="button detail-btn" href="/specialists/{{ .slug }}/">Подробнее</a>
             </div>
           </div>
         </div>
@@ -94,11 +96,14 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const specialistSelect = document.getElementById('specialist');
-  document.querySelectorAll('.js-signup-btn').forEach(btn => {
+  const contactSection = document.getElementById('contact');
+  document.querySelectorAll('.specialists-grid .js-signup-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      specialistSelect.value = btn.dataset.specialist;
-      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      if (btn.dataset.specialist) {
+        specialistSelect.value = btn.dataset.specialist;
+      }
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
@@ -108,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const filter = (category) => {
     filterBtns.forEach(b => b.classList.toggle('is-active', b.dataset.filter === category));
     columns.forEach(col => {
-      const cats = col.dataset.categories.split(',');
+      const cats = col.dataset.categories.split(',').map(c => c.trim());
       col.classList.toggle('is-hidden', !cats.includes(category));
     });
   };
@@ -120,7 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  filter('Взрослые');
+  if (filterBtns.length > 0) {
+    filter(filterBtns[0].dataset.filter);
+  }
 });
 </script>
 

@@ -8,7 +8,9 @@
 <nav class="navbar has-shadow" role="navigation" aria-label="specialist navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/" id="logo">
-      {{ .Site.Title }}
+      <figure class="image">
+        <img class="is-rounded" src="/images/logo.png">
+      </figure>
     </a>
   </div>
   <div class="navbar-menu is-active">
@@ -60,11 +62,7 @@
       <div class="field">
         <label class="label" for="specialist">Специалист</label>
         <div class="control">
-          <div class="select is-fullwidth">
-            <select id="specialist" name="specialist">
-              <option value="{{ .Title }}" selected>{{ .Title }}</option>
-            </select>
-          </div>
+          <input class="input" type="text" id="specialist" name="specialist" value="{{ .Title }}" readonly>
         </div>
       </div>
       <div class="field">
