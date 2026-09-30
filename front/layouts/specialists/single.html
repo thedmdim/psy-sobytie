@@ -25,18 +25,18 @@
       <div class="specialist-overlay">
         <h1 class="specialist-title">{{ .Title }}</h1>
         <p class="specialist-subtitle">{{ .Params.subtitle }}</p>
-        <div class="specialist-blocks">
-          {{ range .Params.blocks }}
-          <div class="specialist-block">
-            <img class="block-icon" src="{{ .icon }}" alt="">
-            <div class="block-content">
-              <span class="block-label">{{ .label }}</span>
-              <span class="block-text">{{ .text }}</span>
-            </div>
-          </div>
-          {{ end }}
+      </div>
+    </div>
+    <div class="specialist-blocks">
+      {{ range $i, $block := .Params.blocks }}
+      <div class="specialist-block">
+        <img class="block-icon" src="{{ $block.icon }}" alt="">
+        <div class="block-content">
+          <span class="block-label">{{ $block.label }}</span>
+          <span class="block-text">{{ $block.text }}</span>
         </div>
       </div>
+      {{ end }}
     </div>
   </div>
 </section>

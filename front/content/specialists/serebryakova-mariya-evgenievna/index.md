@@ -1,5 +1,5 @@
 ---
-title: "Серебрякова Мария Евгения"
+title: "Серебрякова Мария Евгениевна"
 draft: false
 name: "Серебрякова Мария Евгениевна"
 since: 2002
@@ -7,19 +7,19 @@ photo: "serebryakova-mariya-evgenievna.png"
 detail_photo: "ME2.png"
 subtitle: "Клинический / экзистенциальный психолог / супервизор / КПН"
 blocks:
-  - icon: "/icons3/iconbooks.png"
+  - icon: "/icons/award.gif"
     label: "Специализация"
     text: "Панические атаки, психосоматика, работа с горем, работа с депрессией, работа с зависимостями, работа с травмами, семейная терапия"
-  - icon: "/icons3/icongear.png"
+  - icon: "/icons/work.gif"
     label: "Направление"
     text: "Групповая психология, психотерапия, супервизия, кризисная психология, клиническая психология"
-  - icon: "/icons3/iconcheir.png"
+  - icon: "/icons/hat.gif"
     label: "Опыт"
     text: "24+ лет клинической и терапевтической практики"
-  - icon: "/icons3/iconhandshake.png"
+  - icon: "/icons/school.gif"
     label: "В центре"
     text: "Обучение коллег сложным случаям, работа с расстройствами"
-  - icon: "/icons3/iconbalance.png"
+  - icon: "/icons/system.gif"
     label: "Стоимость"
     text: "Индивидуальная консультация — 5 000 ₽"
 specialties:
