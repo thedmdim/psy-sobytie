@@ -6,6 +6,7 @@
 {{ define "main" }}
 
 <nav class="navbar has-shadow" role="navigation" aria-label="specialists navigation">
+  <div class="container">
   <div class="navbar-brand">
     <a class="navbar-item" href="/" id="logo">
       <figure class="image">
@@ -17,6 +18,7 @@
   {{ range .Params.nav }}
     <a class="navbar-item js-filter-btn" href="#" data-filter="{{ .label }}">{{ .label }}</a>
   {{ end }}
+  </div>
   </div>
 </nav>
 

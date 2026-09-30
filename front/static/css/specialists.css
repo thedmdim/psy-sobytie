@@ -6,6 +6,11 @@
     border: 3px solid #67b5e4;
 }
 
+.image img {
+    border-radius: 4rem;
+    border: 3px solid #67b5e4;
+}
+
 .js-filter-btn.is-active {
     background-color: #67b5e4;
     color: #fff;
