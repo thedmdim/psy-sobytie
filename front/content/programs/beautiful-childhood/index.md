@@ -63,17 +63,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется у детей за время группы — в наблюдениях психологов и словах родителей."
   images:
-    - image: "/images/child-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Ребёнок лучше понимает и называет свои чувства"
-    - image: "/images/child-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Легче выдерживает правила и переключается"
-    - image: "/images/child-3.png"
+    - image: "/icons3/iconfire.png"
       caption: "Становится увереннее и спокойнее относится к ошибкам"
-    - image: "/images/child-4.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Учится договариваться и отстаивать границы"
-    - image: "/images/child-5.png"
+    - image: "/icons3/iconbooks.png"
       caption: "Меньше тревоги в школе"
-    - image: "/images/child-6.png"
+    - image: "/icons3/iconbaby.png"
       caption: "Появляется больше самостоятельности"
 
 parents_feedback:
@@ -84,10 +84,10 @@ parents_feedback:
     учитывать в этот период.
   points:
     - title: "Родительская группа"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconbaby.png"
       text: "2 встречи в полном курсе и 1 встреча в базовом. Обсуждаем, как поддерживать ребёнка, выстраивать границы, реагировать на истерики, тревогу, агрессию или учебные трудности — не давя и не обесценивая."
     - title: "«Дорожная карта»"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbooks.png"
       text: "Отчёт о результатах и прогрессе с точечными рекомендациями для родителей. Вы увидите, что меняется, на что обратить внимание и как продолжить поддержку дома. Составляется в полном курсе."
   gallery: []
 

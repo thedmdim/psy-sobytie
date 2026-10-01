@@ -55,13 +55,13 @@ results:
   title: "Что получит подросток"
   intro: "То, что меняется за время программы — в наблюдениях психологов и словах самих подростков."
   images:
-    - image: "/images/proforient-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Ясность и уверенность: уйдёт тревога и растерянность перед будущим"
-    - image: "/images/proforient-2.png"
+    - image: "/icons3/iconowl.png"
       caption: "Список подходящих профессий: 5–7 вариантов, которые соответствуют его профилю"
-    - image: "/images/proforient-3.png"
+    - image: "/icons3/iconchess.png"
       caption: "План действий: чёткий алгоритм — какие предметы подтянуть, куда поступать, какие курсы пройти"
-    - image: "/images/proforient-4.png"
+    - image: "/icons3/iconfire.png"
       caption: "Мотивация к учёбе: понимание цели повысит интерес к школьным предметам"
 
 parents_feedback:
@@ -72,13 +72,13 @@ parents_feedback:
     сессия для родителей.
   points:
     - title: "Разбор результатов"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconowl.png"
       text: "Подробный разбор выводов и рекомендаций, ответы на вопросы."
     - title: "Стратегия действий"
-      image: "/icons2/point.png"
+      image: "/icons3/iconchess.png"
       text: "Обсуждаем, как поддерживать ребёнка в выборе, не навязывая свои ожидания."
     - title: "Письменное заключение"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbooks.png"
       text: "Вы получаете подробное письменное заключение с перечнем подходящих профессий и планом по развитию и поступлению."
   gallery: []
 

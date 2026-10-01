@@ -66,17 +66,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется за время консультирования — в наблюдениях психологов и словах семей."
   images:
-    - image: "/images/family-1.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Восстанавливается близость и связь между партнёрами"
-    - image: "/images/family-2.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Родители и дети начинают слышать друг друга"
-    - image: "/images/family-3.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается напряжение и количество конфликтов"
-    - image: "/images/family-4.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Развод проходит экологично, с заботой о детях"
-    - image: "/images/family-5.png"
+    - image: "/icons3/iconbaby.png"
       caption: "Ребёнок получает поддержку и понимание в период перемен"
-    - image: "/images/family-6.png"
+    - image: "/icons3/iconchess.png"
       caption: "Появляется ясная стратегия на будущее семьи"
 
 parents_feedback:
@@ -87,19 +87,19 @@ parents_feedback:
     и ситуацию.
   points:
     - title: "Первичная встреча"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconhandshake.png"
       text: "Знакомимся, обсуждаем запрос, ситуацию и цели работы. Определяем, кто будет участвовать в консультировании."
     - title: "Работа с семьёй"
-      image: "/icons2/point.png"
+      image: "/icons3/iconnetwork.png"
       text: "Совместные встречи с парой, родителями и детьми. Работаем с отношениями, чувствами и способами взаимодействия."
     - title: "Индивидуальные встречи"
-      image: "/icons2/point.png"
+      image: "/icons3/iconcheir.png"
       text: "При необходимости — отдельные встречи с ребёнком, с одним из партнёров или родителем для более глубокой работы."
     - title: "Обратная связь"
-      image: "/icons2/point.png"
+      image: "/icons3/iconlook.png"
       text: "Рассказываем, что происходит в семье, какие есть динамика и на что обратить внимание."
     - title: "Стратегия на будущее"
-      image: "/icons2/point.png"
+      image: "/icons3/iconchess.png"
       text: "Помогаем определить шаги и план: как жить дальше, как поддерживать изменения и справляться с новыми вызовами."
   gallery: []
 

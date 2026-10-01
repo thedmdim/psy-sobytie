@@ -67,17 +67,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется за время терапии — в наблюдениях психологов и словах клиентов."
   images:
-    - image: "/images/therapy-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Понимание своих чувств и причин повторяющихся ситуаций"
-    - image: "/images/therapy-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижение тревоги и внутреннего напряжения"
-    - image: "/images/therapy-3.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Улучшение отношений с близкими"
-    - image: "/images/therapy-4.png"
+    - image: "/icons3/iconadult.png"
       caption: "Появление опоры на себя и уверенности"
-    - image: "/images/therapy-5.png"
+    - image: "/icons3/iconfire.png"
       caption: "Проживание кризиса и выход из него"
-    - image: "/images/therapy-6.png"
+    - image: "/icons3/icongear.png"
       caption: "Ощущение, что жизнь становится более управляемой"
 
 parents_feedback:
@@ -88,19 +88,19 @@ parents_feedback:
     один раз в неделю, 50–60 минут.
   points:
     - title: "Первичная встреча"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconadult.png"
       text: "Знакомимся, обсуждаем запрос, ваши ожидания и то, как будет устроена работа. Вы можете задать любые вопросы."
     - title: "Подбор специалиста"
-      image: "/icons2/point.png"
+      image: "/icons3/iconlook.png"
       text: "Если запрос требует определённой специализации, мы порекомендуем подходящего психолога."
     - title: "Регулярные сессии"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbell.png"
       text: "Встречи один раз в неделю или в другом удобном режиме. Это создаёт устойчивый процесс и позволяет видеть динамику."
     - title: "Обратная связь"
-      image: "/icons2/point.png"
+      image: "/icons3/iconhandshake.png"
       text: "Психолог может предложить промежуточное обсуждение результатов, чтобы вы понимали, что происходит."
     - title: "Завершение"
-      image: "/icons2/point.png"
+      image: "/icons3/iconfire.png"
       text: "Заканчиваем терапию, когда цель достигнута или вы чувствуете, что готовы двигаться дальше самостоятельно. Подводим итоги и обсуждаем, как поддерживать изменения."
   gallery: []
 

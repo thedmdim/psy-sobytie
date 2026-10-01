@@ -64,17 +64,17 @@ results:
   title: "Результаты для школы"
   intro: "То, что меняется после наших встреч — в наблюдениях администрации, учителей и родителей."
   images:
-    - image: "/images/school-1.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Дети лучше понимают свои чувства и учатся договариваться"
-    - image: "/images/school-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается напряжение в классах и между учениками"
-    - image: "/images/school-3.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Родители становятся более включёнными и спокойными"
-    - image: "/images/school-4.png"
+    - image: "/icons3/icongear.png"
       caption: "Учителя получают инструменты для работы с конфликтами и выгоранием"
-    - image: "/images/school-5.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Конфликты решаются более экологично и конструктивно"
-    - image: "/images/school-6.png"
+    - image: "/icons3/iconfire.png"
       caption: "Формируется более здоровая и безопасная атмосфера в школе"
 
 parents_feedback:
@@ -85,19 +85,19 @@ parents_feedback:
     с классом. Всё согласовывается с администрацией.
   points:
     - title: "Заявка от школы"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconbooks.png"
       text: "Вы оставляете заявку, мы связываемся, обсуждаем запрос, возраст детей, темы и формат."
     - title: "Согласование программы"
-      image: "/icons2/point.png"
+      image: "/icons3/iconhandshake.png"
       text: "Подбираем содержание, длительность, количество встреч. Учитываем особенности школы."
     - title: "Проведение встреч"
-      image: "/icons2/point.png"
+      image: "/icons3/iconnetwork.png"
       text: "Приезжаем в школу в удобное время. Работаем с детьми, родителями или учителями."
     - title: "Обратная связь"
-      image: "/icons2/point.png"
+      image: "/icons3/iconlook.png"
       text: "После встречи администрация получает обратную связь и рекомендации по дальнейшей работе."
     - title: "Продолжение при необходимости"
-      image: "/icons2/point.png"
+      image: "/icons3/iconpuzzle.png"
       text: "Если требуется, разрабатываем цикл встреч или индивидуальную программу для школы."
   gallery: []
 

@@ -59,11 +59,11 @@ results:
   title: "Как работают тарифы"
   intro: "Выбирайте сами под каждую ситуацию."
   images:
-    - image: "/images/partner-1.png"
+    - image: "/icons3/iconbalance.png"
       caption: "«Равные»: клиент получает скидку, вы — такой же гонорар. Всё поровну. Идеальный баланс для долгосрочных отношений. Код: СМВ94Р"
-    - image: "/images/partner-2.png"
+    - image: "/icons3/iconlook.png"
       caption: "«Фокус»: клиент получает максимальную скидку, вы не получаете денег, но укрепляете доверие. Идеально для первичного контакта. Код: СМВ94Ф"
-    - image: "/images/partner-3.png"
+    - image: "/icons3/iconowl.png"
       caption: "«Эксперт»: клиент получает небольшую скидку, а вы — основную сумму. Ваш гонорар почти не снижается. Код: СМВ94Э"
 
 parents_feedback:
@@ -71,22 +71,22 @@ parents_feedback:
   intro: "Просто следуйте этим шагам."
   points:
     - title: "Напишите нам"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconhandshake.png"
       text: "В любой мессенджер одну фразу: «Партнёрская программа. ФИО, дата рождения, телефон»."
     - title: "Получите промокод"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbell.png"
       text: "Вам придёт ответ с вашим персональным промокодом СМВ94."
     - title: "Добавьте букву тарифа"
-      image: "/icons2/point.png"
+      image: "/icons3/icongear.png"
       text: "Три кода на все случаи: СМВ94Р — Равные, СМВ94Ф — Фокус, СМВ94Э — Эксперт."
     - title: "Передайте код клиенту"
-      image: "/icons2/point.png"
+      image: "/icons3/iconnetwork.png"
       text: "Клиент вводит код на сайте или называет администратору при оплате."
     - title: "Вы получаете вознаграждение"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbalance.png"
       text: "После оплаты услуги клиентом сумма гонорара фиксируется и выплачивается в течение 10 рабочих дней. Без отчётов с вашей стороны."
     - title: "Готово!"
-      image: "/icons2/point.png"
+      image: "/icons3/iconfire.png"
       text: "Вы присылаете одну фразу, получаете подтверждение и сразу можете давать коды клиентам."
 
 schedule:

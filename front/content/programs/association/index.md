@@ -63,17 +63,17 @@ results:
   title: "Результаты"
   intro: "То, к чему мы стремимся в своей работе."
   images:
-    - image: "/images/so-1.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Люди чувствуют себя лучше и обретают внутреннюю опору"
-    - image: "/images/so-2.png"
+    - image: "/icons3/iconlook.png"
       caption: "Появляются чёткие ценностные ориентиры"
-    - image: "/images/so-3.png"
+    - image: "/icons3/iconteen.png"
       caption: "Подростки и молодёжь находят свой путь"
-    - image: "/images/so-4.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Специалисты получают поддержку и развитие"
-    - image: "/images/so-5.png"
+    - image: "/icons3/iconfire.png"
       caption: "Реализуются социально значимые инициативы"
-    - image: "/images/so-6.png"
+    - image: "/icons3/iconglobal.png"
       caption: "Формируется осознанное и ответственное общество"
 
 parents_feedback:
@@ -83,13 +83,13 @@ parents_feedback:
     для специалистов и инициатив, которые разделяют наши ценности.
   points:
     - title: "Осознанность"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconhandshake.png"
       text: "Мы развиваем способность замечать себя, свои ценности и свою ответственность."
     - title: "Сотворчество"
-      image: "/icons2/point.png"
+      image: "/icons3/iconpuzzle.png"
       text: "Мы верим в силу совместного творчества и реальных дел."
     - title: "Ответственность"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbalance.png"
       text: "Мы стремимся быть активными субъектами, а не пассивными наблюдателями."
   gallery: []
 

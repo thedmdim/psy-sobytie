@@ -5,64 +5,55 @@
 
 {{ define "main" }}
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const navItems = Array.from(document.querySelectorAll('#mainNavbar .navbar-item'));
-    const cardGroups = Array.from(document.querySelectorAll('#primary-nav-section > .columns[id]'));
-
-    let autoTimer = null;
-    const AUTO_INTERVAL = 6000;
+  const initTabSwitch = (navSelector, groupSelector, auto) => {
+    const navItems = Array.from(document.querySelectorAll(navSelector + ' .navbar-item'));
+    const cardGroups = Array.from(document.querySelectorAll(groupSelector));
 
     const showGroup = (slug) => {
-      cardGroups.forEach((group) => {
-        group.classList.toggle('is-hidden', group.id !== slug);
-      });
-
-      navItems.forEach((item) => {
-        item.classList.toggle('is-active', item.id === slug);
-      });
+      cardGroups.forEach((g) => g.classList.toggle('is-hidden', g.id !== slug));
+      navItems.forEach((item) => item.classList.toggle('is-active', item.id === slug));
     };
 
+    let autoTimer = null;
     const startAuto = () => {
       clearInterval(autoTimer);
       autoTimer = setInterval(() => {
         const active = navItems.findIndex((item) => item.classList.contains('is-active'));
         const next = (active + 1) % navItems.length;
-        const slug = navItems[next].id;
-        if (slug) {
-          showGroup(slug);
-          history.replaceState(null, '', '#' + slug);
+        if (navItems[next].id) {
+          showGroup(navItems[next].id);
+          history.replaceState(null, '', '#' + navItems[next].id);
         }
-      }, AUTO_INTERVAL);
+      }, 10000);
     };
 
     navItems.forEach((item) => {
       item.addEventListener('click', (event) => {
         event.preventDefault();
-        const slug = item.id;
-        if (slug) {
-          showGroup(slug);
-          history.replaceState(null, '', '#' + slug);
-          startAuto();
+        if (item.id) {
+          showGroup(item.id);
+          history.replaceState(null, '', '#' + item.id);
+          if (auto) startAuto();
         }
       });
     });
 
     const initialSlug = window.location.hash.replace('#', '');
-    const hasInitialSlug = navItems.some((item) => item.id === initialSlug);
-    const fallbackSlug = navItems[0] && navItems[0].id;
-    const targetSlug = hasInitialSlug ? initialSlug : fallbackSlug;
-    if (targetSlug) {
-      showGroup(targetSlug);
-    }
+    const targetSlug = navItems.some((i) => i.id === initialSlug) ? initialSlug : (navItems[0] && navItems[0].id);
+    if (targetSlug) showGroup(targetSlug);
+    if (auto) startAuto();
+  };
 
-    startAuto();
+  document.addEventListener('DOMContentLoaded', () => {
+    initTabSwitch('#mainNavbar', '#primary-nav-section > .columns[id]', true);
+    initTabSwitch('#projectsNavbar', '#projects-section > .columns[id]', false);
   });
 </script>
 
 
-<section class="section" style="padding: 0;">
+<section class="section p-0">
   <figure class="image">
-    <img src="/plag1.png" alt="Main topic" style="width: 100%;">
+    <img src="/plag1.png" alt="Main topic">
   </figure>
 </section>
 
@@ -82,7 +73,7 @@
 </nav>
 
 <section id="primary-nav-section" class="section">
-    {{ range $groupIndex, $group := .Params.sections.nav }}
+    {{ range $groupIndex, $_ := .Params.sections.nav }}
     <div id="{{ .slug }}" class="columns is-variable is-2 is-mobile{{ if ne $groupIndex 0 }} is-hidden{{ end }}">
         {{ range .cards }}
         <div class="column">
@@ -99,45 +90,9 @@
     {{ end }}
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const navItems = Array.from(document.querySelectorAll('#projectsNavbar .navbar-item'));
-    const cardGroups = Array.from(document.querySelectorAll('#projects-section > .columns[id]'));
-
-    const showGroup = (slug) => {
-      cardGroups.forEach((group) => {
-        group.classList.toggle('is-hidden', group.id !== slug);
-      });
-
-      navItems.forEach((item) => {
-        item.classList.toggle('is-active', item.id === slug);
-      });
-    };
-
-    navItems.forEach((item) => {
-      item.addEventListener('click', (event) => {
-        event.preventDefault();
-        const slug = item.id;
-        if (slug) {
-          showGroup(slug);
-          history.replaceState(null, '', '#' + slug);
-        }
-      });
-    });
-
-    const initialSlug = window.location.hash.replace('#', '');
-    const hasInitialSlug = navItems.some((item) => item.id === initialSlug);
-    const fallbackSlug = navItems[0] && navItems[0].id;
-    const targetSlug = hasInitialSlug ? initialSlug : fallbackSlug;
-    if (targetSlug) {
-      showGroup(targetSlug);
-    }
-  });
-</script>
-
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="/" id="logo">
+        <a class="navbar-item section-title" href="/">
             {{ .Params.sections.delim1 }}
         </a>
     </div>
@@ -156,7 +111,7 @@
           <a class="card is-block" href="{{ $card.url | relURL }}">
             <div class="card-image">
               <figure class="image is-3by4">
-                <img src="/{{ $card.photo }}" alt="{{ $card.title }}" style="object-fit: cover;">
+                <img src="/{{ $card.photo }}" alt="{{ $card.title }}">
               </figure>
             </div>
             <div class="card-content">
@@ -170,6 +125,53 @@
       {{ end }}
     </div>
   {{ end }}
+</section>
+
+<section class="section">
+  <h2 class="title is-3 has-text-centered mb-5">Нам доверяют</h2>
+  <div class="carousel-track" id="carousel-track">
+    {{ range $i := seq 1 15 }}
+    <div class="carousel-item">
+      <img src="/images/p{{ $i }}.png" alt="" class="carousel-img">
+    </div>
+    {{ end }}
+    {{ range $i := seq 1 15 }}
+    <div class="carousel-item">
+      <img src="/images/p{{ $i }}.png" alt="" class="carousel-img">
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<section id="contact" class="section contact-hero">
+  <div class="container is-flex is-justify-content-center">
+    <div class="contact-form-box">
+    <h2 class="title is-3 mb-5 has-text-dark">Форма для записи</h2>
+    <form class="signup-form" method="POST" action="#">
+      <div class="field">
+        <label class="label has-text-dark" for="contact-name">Имя</label>
+        <div class="control">
+          <input class="input" type="text" id="contact-name" name="name" placeholder="Имя" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label has-text-dark" for="contact-phone">Телефон</label>
+        <div class="control">
+          <input class="input" type="tel" id="contact-phone" name="phone" placeholder="+7" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label has-text-dark" for="contact-comment">Комментарий</label>
+        <div class="control">
+          <textarea class="textarea" id="contact-comment" name="comment" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="control has-text-centered">
+        <button type="submit" class="button js-signup-btn">Отправить заявку</button>
+      </div>
+    </form>
+    </div>
+  </div>
 </section>
 
 {{ end }}

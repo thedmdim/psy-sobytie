@@ -65,17 +65,17 @@ results:
   title: "Что меняется после смены"
   intro: "То, что замечают родители и сами подростки — в наблюдениях психологов и словах выпускников."
   images:
-    - image: "/images/camp-1.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Подросток спокойно обсуждает проблемы вместо хлопанья дверьми"
-    - image: "/images/camp-2.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Легче знакомится и находит друзей"
-    - image: "/images/camp-3.png"
+    - image: "/icons3/iconfire.png"
       caption: "Чётко знает, чего хочет, и делает первые шаги к цели"
-    - image: "/images/camp-4.png"
+    - image: "/icons3/iconlook.png"
       caption: "Лучше понимает себя и начинает договариваться"
-    - image: "/images/camp-5.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Умеет осознавать и проживать эмоции"
-    - image: "/images/camp-6.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Решает конфликты без ссор и обид"
 
 parents_feedback:
@@ -85,19 +85,19 @@ parents_feedback:
     рассказываем, как всё устроено, и остаёмся на связи.
   points:
     - title: "Собеседование перед сменой"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconfire.png"
       text: "Проводим короткое собеседование с родителем, чтобы познакомиться, обсудить особенности ребёнка и ответить на вопросы."
     - title: "Список вещей"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbrush.png"
       text: "Высылаем после записи: одежда по погоде, средства гигиены, удобная обувь, блокнот и ручка."
     - title: "Связь с ребёнком"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbell.png"
       text: "Телефоны разрешены в определённое время. Родители могут связаться с организаторами в любое время."
     - title: "Безопасность"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbalance.png"
       text: "На смене постоянно находятся психологи и вожатые. Действуют правила конфиденциальности и уважения."
     - title: "Без принуждения"
-      image: "/icons2/point.png"
+      image: "/icons3/icontoy.png"
       text: "Мы не заставляем участвовать в активностях насильно. Можно наблюдать и присоединяться по мере готовности. Психологи помогают включиться в группу мягко."
   gallery: []
 

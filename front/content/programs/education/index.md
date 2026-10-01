@@ -66,17 +66,17 @@ results:
   title: "Чему вы научитесь"
   intro: "То, что меняется за время программы — в наблюдениях ведущих и словах выпускников."
   images:
-    - image: "/images/education-1.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Выстраивать устойчивые клиент-терапевтические отношения и рабочий альянс"
-    - image: "/images/education-2.png"
+    - image: "/icons3/icongear.png"
       caption: "Использовать инструментарий из различных методов классической и современной психотерапии"
-    - image: "/images/education-3.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Работать с переносом и контр-переносом, заботиться о себе в рабочем процессе"
-    - image: "/images/education-4.png"
+    - image: "/icons3/iconfire.png"
       caption: "Ценить свой труд и не испытывать стыда за стоимость своих консультаций"
-    - image: "/images/education-5.png"
+    - image: "/icons3/iconlook.png"
       caption: "Понимать возможности и границы терапевтического взаимодействия"
-    - image: "/images/education-6.png"
+    - image: "/icons3/iconbooks.png"
       caption: "Практиковать психологическое консультирование по актуальным данным современных исследований"
 
 parents_feedback:
@@ -88,13 +88,13 @@ parents_feedback:
     интервизии, самостоятельная работа.
   points:
     - title: "Формат встреч"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconbooks.png"
       text: "Встречи проходят каждый понедельник и два раза в месяц четверг с 19:00 до 21:00."
     - title: "Сроки"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbell.png"
       text: "С 7 сентября 2026 по 1 июля 2027."
     - title: "Итоговая работа"
-      image: "/icons2/point.png"
+      image: "/icons3/iconowl.png"
       text: "Защита клиентского случая (открытая супервизия) — навыки психологического консультирования."
   gallery: []
 

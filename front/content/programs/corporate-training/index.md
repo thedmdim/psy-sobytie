@@ -68,17 +68,17 @@ results:
   title: "Результаты для организации"
   intro: "То, что меняется после тренингов — в наблюдениях руководителей и сотрудников."
   images:
-    - image: "/images/corp-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Становится яснее, что мешает команде работать эффективно"
-    - image: "/images/corp-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается напряжение и количество скрытых конфликтов"
-    - image: "/images/corp-3.png"
+    - image: "/icons3/iconfire.png"
       caption: "Улучшается атмосфера и психологический климат"
-    - image: "/images/corp-4.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Сотрудники лучше слышат друг друга и договариваются"
-    - image: "/images/corp-5.png"
+    - image: "/icons3/icongear.png"
       caption: "Появляются общие инструменты для решения сложных ситуаций"
-    - image: "/images/corp-6.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Снижается риск выгорания и растёт вовлечённость"
 
 parents_feedback:
@@ -88,19 +88,19 @@ parents_feedback:
     ситуацию в вашей организации и подбираем формат под конкретную задачу.
   points:
     - title: "Заявка и первичный запрос"
-      image: "/icons2/rocket.png"
+      image: "/icons3/icongear.png"
       text: "Вы оставляете заявку, мы связываемся, обсуждаем ситуацию в коллективе и предварительные цели."
     - title: "Диагностическая встреча"
-      image: "/icons2/point.png"
+      image: "/icons3/iconlook.png"
       text: "Проводим интервью с руководителем или фокус-группу, чтобы точнее понять, что происходит и на что направить работу."
     - title: "Разработка программы"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbrush.png"
       text: "Формируем программу под конкретную организацию: темы, упражнения, длительность и формат."
     - title: "Проведение тренинга"
-      image: "/icons2/point.png"
+      image: "/icons3/iconnetwork.png"
       text: "Проводим групповую работу очно — на территории организации или в центре «Со-Бытие»."
     - title: "Обратная связь и рекомендации"
-      image: "/icons2/point.png"
+      image: "/icons3/iconowl.png"
       text: "Подводим итоги, даём обратную связь руководству и рекомендации по поддержанию результата."
   gallery: []
 

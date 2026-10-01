@@ -93,8 +93,6 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.program-signup-form { max-width: 32rem; }
-
 /* accordion */
 .program-accordion-row {
   display: flex;
@@ -190,7 +188,7 @@
   justify-content: center;
 }
 .program-parents-point-image {
-  width: 4rem;
+  width: 6rem;
   height: auto;
   display: block;
   margin: 0 auto 0.75rem;

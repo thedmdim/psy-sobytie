@@ -65,17 +65,17 @@ results:
   title: "Результаты работы"
   intro: "То, что меняется за время занятий — в наблюдениях психологов и словах родителей."
   images:
-    - image: "/images/individual-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Ребёнок лучше понимает и называет свои чувства"
-    - image: "/images/individual-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Снижается тревога и напряжение"
-    - image: "/images/individual-3.png"
+    - image: "/icons3/iconfire.png"
       caption: "Появляется уверенность в себе и своих силах"
-    - image: "/images/individual-4.png"
+    - image: "/icons3/icontoy.png"
       caption: "Легче проходит адаптация к садику или школе"
-    - image: "/images/individual-5.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Улучшаются отношения в семье и со сверстниками"
-    - image: "/images/individual-6.png"
+    - image: "/icons3/iconowl.png"
       caption: "Родители получают ясность и поддержку"
 
 parents_feedback:
@@ -86,13 +86,13 @@ parents_feedback:
     связь и рекомендации.
   points:
     - title: "Первичная встреча"
-      image: "/icons2/rocket.png"
+      image: "/icons3/icontoy.png"
       text: "Знакомимся, обсуждаем запрос, собираем анамнез, определяем цели работы."
     - title: "Обратная связь"
-      image: "/icons2/point.png"
+      image: "/icons3/iconlook.png"
       text: "После нескольких занятий рассказываем, что происходит с ребёнком, какие есть динамика и на что обратить внимание."
     - title: "Рекомендации"
-      image: "/icons2/point.png"
+      image: "/icons3/iconowl.png"
       text: "Даём конкретные рекомендации, как поддерживать ребёнка дома и как реагировать на сложные ситуации."
   gallery: []
 

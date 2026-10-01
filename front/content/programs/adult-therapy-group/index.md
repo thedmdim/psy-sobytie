@@ -62,17 +62,17 @@ results:
   title: "Результаты работы"
   intro: "То, что становится возможным по мере работы — в наблюдениях ведущего и участников."
   images:
-    - image: "/images/adult-1.png"
+    - image: "/icons3/iconlook.png"
       caption: "Появляется возможность проявлять разные эмоции и быть принятым"
-    - image: "/images/adult-2.png"
+    - image: "/icons3/iconbalance.png"
       caption: "Становится яснее, где ваши границы"
-    - image: "/images/adult-3.png"
+    - image: "/icons3/iconhandshake.png"
       caption: "Легче выдерживать близость и конфликт"
-    - image: "/images/adult-4.png"
+    - image: "/icons3/iconpuzzle.png"
       caption: "Находятся слова для сложных чувств"
-    - image: "/images/adult-5.png"
+    - image: "/icons3/iconnetwork.png"
       caption: "Видно, как вы строите отношения"
-    - image: "/images/adult-6.png"
+    - image: "/icons3/iconadult.png"
       caption: "Уменьшается чувство одиночества в переживаниях"
 
 parents_feedback:
@@ -83,13 +83,13 @@ parents_feedback:
     с другими людьми.
   points:
     - title: "Очно"
-      image: "/icons2/rocket.png"
+      image: "/icons3/iconadult.png"
       text: "Быть в одном пространстве, видеть живые глаза напротив, чувствовать тепло или холод — это важная часть терапевтического эффекта."
     - title: "Регулярно"
-      image: "/icons2/point.png"
+      image: "/icons3/iconbell.png"
       text: "Встречаемся по вторникам с 19:00 до 21:00. Продолжительность группы — 8 месяцев, до конца мая."
     - title: "В небольшом составе"
-      image: "/icons2/point.png"
+      image: "/icons3/iconnetwork.png"
       text: "8–10 участников. Это позволяет каждому быть замеченным и сохранять достаточно пространства для работы."
   gallery: []
 

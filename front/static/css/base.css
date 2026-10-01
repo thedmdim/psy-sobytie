@@ -32,3 +32,19 @@
     background-color: var(--accent-primary);
     color: white;
 }
+
+.signup-form {
+    max-width: 32rem;
+}
+
+.js-signup-btn {
+    background-color: #67b5e4;
+    border-color: #67b5e4;
+    color: #fff;
+    border-radius: 4rem;
+}
+.js-signup-btn:hover {
+    background-color: #5aa5d4;
+    border-color: #5aa5d4;
+    color: #fff;
+}
