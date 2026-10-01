@@ -22,9 +22,9 @@ func main() {
 		log.Fatal("set TG_BOT_TOKEN env")
 	}
 	
-	tgGroupID, err := strconv.ParseInt(os.Getenv("TG_GROUP"), 10, 64) 
+	tgGroupID, err := strconv.ParseInt(os.Getenv("TG_GROUP_ID"), 10, 64) 
 	if err != nil {
-		log.Fatal("set TG_GROUP env")
+		log.Fatal("set TG_GROUP_ID env")
 	}
 	
  

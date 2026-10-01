@@ -1,5 +1,7 @@
 example.com {
-    handle /api/* {
+    encode zstd gzip
+
+    handle /submit {
         reverse_proxy back:8080
     }
 
