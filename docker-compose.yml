@@ -7,11 +7,14 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./caddy_data:/data
-      - ./caddy_config:/config
+      - ./caddy/data:/data
+      - ./caddy/config:/config
     depends_on:
       - back
 
   back:
     build:
       context: ./back
+    environment:
+      - TG_BOT_TOKEN=${TG_BOT_TOKEN}
+      - TG_GROUP_ID=${TG_GROUP_ID}

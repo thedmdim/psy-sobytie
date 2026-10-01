@@ -48,7 +48,8 @@
 <section class="section" id="contact">
   <div class="container">
     <h2 class="title is-3 mb-5">Форма для записи</h2>
-    <form class="signup-form" method="POST" action="#">
+    <form class="signup-form" method="POST" action="/submit">
+      <input type="hidden" name="from" value="{{ .Title }}">
       <div class="field">
         <label class="label" for="name">Имя</label>
         <div class="control">

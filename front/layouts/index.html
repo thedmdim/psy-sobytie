@@ -147,7 +147,8 @@
   <div class="container is-flex is-justify-content-center">
     <div class="contact-form-box">
     <h2 class="title is-3 mb-5 has-text-dark">Форма для записи</h2>
-    <form class="signup-form" method="POST" action="#">
+    <form class="signup-form" method="POST" action="/submit">
+      <input type="hidden" name="from" value="Главная">
       <div class="field">
         <label class="label has-text-dark" for="contact-name">Имя</label>
         <div class="control">
