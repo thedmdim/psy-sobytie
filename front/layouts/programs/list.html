@@ -19,7 +19,7 @@
 </nav>
 
 <section class="section" id="programs-list">
-    <h2 class="title is-1">{{ .Title }}</h1>
+    <h2 class="title is-1">{{ .Title }}</h2>
     {{ range .Params.groups }}
       <h2 class="title is-3" id="{{ .slug }}">{{ .name }}</h2>
       <div class="columns is-multiline program-group program-group-{{ .color }}">
