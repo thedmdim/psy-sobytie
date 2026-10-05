@@ -46,7 +46,7 @@ jobs:
       - name: update backend on the server
         run: |
           ssh deploy@$SERVER_IP \
-          "docker compose -f /home/deploy/sobytie/docker-compose.yml up --pull always -d back && docker image prune -f"
+          "docker compose -f /home/deploy/docker-compose.yml up --pull always -d back && docker image prune -f"
         env:
           SERVER_IP: ${{ secrets.SERVER_IP }}
  
