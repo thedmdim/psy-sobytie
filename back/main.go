@@ -37,7 +37,7 @@ func main() {
 func NewLeadHandler(tgAPI echotron.API, tgGroupID int64) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
-			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+			w.WriteHeader(http.StatusMethodNotAllowed)
 			return
 		}
 
