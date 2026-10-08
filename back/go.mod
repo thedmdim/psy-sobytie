@@ -2,15 +2,17 @@ module back
 
 go 1.26.4
 
-require github.com/NicoNex/echotron/v3 v3.46.0
-
 require (
+	github.com/klauspost/compress v1.18.4 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
+	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
+	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	golang.org/x/sys v0.29.0 // indirect
+	golang.org/x/text v0.35.0 // indirect
 )
 
 require (
+	github.com/SevereCloud/vksdk/v3 v3.3.1
 	github.com/rs/zerolog v1.35.1
-	golang.org/x/time v0.5.0 // indirect
 )

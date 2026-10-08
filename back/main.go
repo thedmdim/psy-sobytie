@@ -10,31 +10,32 @@ import (
 	"strings"
 
 	"github.com/rs/zerolog/log"
-	"github.com/NicoNex/echotron/v3"
+	"github.com/SevereCloud/vksdk/v3/api"
 )
 
 const maxBytes = 10 * 1024
 
 func main() {
 
-	tgBotToken := os.Getenv("TG_BOT_TOKEN")
-	if tgBotToken == "" {
-		log.Fatal().Msg("set TG_BOT_TOKEN env")
+	vkToken := os.Getenv("VK_TOKEN")
+	if vkToken == "" {
+		log.Fatal().Msg("set VK_TOKEN env")
 	}
 	
-	tgGroupID, err := strconv.ParseInt(os.Getenv("TG_GROUP_ID"), 10, 64) 
+    vkGroupID, err := strconv.ParseInt(os.Getenv("VK_CHAT_ID"), 10, 64) 
 	if err != nil {
-		log.Fatal().Msg("set TG_GROUP_ID env")
+		log.Fatal().Msg("set VK_CHAT_ID env")
 	}
 	
  
-	tgAPI := echotron.NewAPI(tgBotToken)
+	vkAPI := api.NewVK(vkToken)
 
-	http.HandleFunc("/submit", NewLeadHandler(tgAPI, tgGroupID))
+
+	http.HandleFunc("/submit", NewLeadHandler(vkAPI, vkGroupID))
 	log.Fatal().Err(http.ListenAndServe(":8080", nil)).Msg("stopped listening")
 }
 
-func NewLeadHandler(tgAPI echotron.API, tgGroupID int64) func(w http.ResponseWriter, r *http.Request) {
+func NewLeadHandler(vkAPI *api.VK, vkChatID int64) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			w.WriteHeader(http.StatusMethodNotAllowed)
@@ -58,7 +59,11 @@ func NewLeadHandler(tgAPI echotron.API, tgGroupID int64) func(w http.ResponseWri
 		}
 
 		go func(){
-			_, err := tgAPI.SendMessage(msg, tgGroupID, nil)
+			_, err := vkAPI.MessagesSend(api.Params{
+				"peer_id":  vkChatID,
+				"random_id": 0,
+				"message":  msg,
+			})
 			if err != nil {
 				log.Error().Err(err).Msg("cannot send message")
 			}
