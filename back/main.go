@@ -65,7 +65,7 @@ func NewLeadHandler(vkAPI *api.VK, vkChatID int64) func(w http.ResponseWriter, r
 				"message":  msg,
 			})
 			if err != nil {
-				log.Error().Err(err).Msg("cannot send message")
+				log.Error().Err(err).Int64("peer_id", vkChatID).Msg("cannot send message")
 			}
 		}()
 		
