@@ -3,13 +3,13 @@ package main
 import (
 	"errors"
 	"fmt"
-	"log"
 	"net/http"
 	"net/url"
 	"os"
 	"strconv"
 	"strings"
 
+	"github.com/rs/zerolog/log"
 	"github.com/NicoNex/echotron/v3"
 )
 
@@ -19,19 +19,19 @@ func main() {
 
 	tgBotToken := os.Getenv("TG_BOT_TOKEN")
 	if tgBotToken == "" {
-		log.Fatal("set TG_BOT_TOKEN env")
+		log.Fatal().Msg("set TG_BOT_TOKEN env")
 	}
 	
 	tgGroupID, err := strconv.ParseInt(os.Getenv("TG_GROUP_ID"), 10, 64) 
 	if err != nil {
-		log.Fatal("set TG_GROUP_ID env")
+		log.Fatal().Msg("set TG_GROUP_ID env")
 	}
 	
  
 	tgAPI := echotron.NewAPI(tgBotToken)
 
 	http.HandleFunc("/submit", NewLeadHandler(tgAPI, tgGroupID))
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal().Err(http.ListenAndServe(":8080", nil)).Msg("stopped listening")
 }
 
 func NewLeadHandler(tgAPI echotron.API, tgGroupID int64) func(w http.ResponseWriter, r *http.Request) {
@@ -57,7 +57,13 @@ func NewLeadHandler(tgAPI echotron.API, tgGroupID int64) func(w http.ResponseWri
 			return
 		}
 
-		go tgAPI.SendMessage(msg, tgGroupID, nil)
+		go func(){
+			_, err := tgAPI.SendMessage(msg, tgGroupID, nil)
+			if err != nil {
+				log.Error().Err(err).Msg("cannot send message")
+			}
+		}()
+		
 	}
 }
 

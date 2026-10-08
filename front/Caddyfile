@@ -1,4 +1,4 @@
-example.com {
+test.psy-sobytie.ru {
     encode zstd gzip
 
     handle /submit {
