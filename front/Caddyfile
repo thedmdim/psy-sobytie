@@ -1,4 +1,4 @@
-test.psy-sobytie.ru {
+psy-sobytie.ru {
     encode zstd gzip
 
     handle /submit {

@@ -22,7 +22,7 @@ func main() {
 		log.Fatal().Msg("set VK_TOKEN env")
 	}
 	
-    vkGroupID, err := strconv.ParseInt(os.Getenv("VK_CHAT_ID"), 10, 64) 
+    vkChatID, err := strconv.ParseInt(os.Getenv("VK_CHAT_ID"), 10, 64) 
 	if err != nil {
 		log.Fatal().Msg("set VK_CHAT_ID env")
 	}
@@ -30,8 +30,7 @@ func main() {
  
 	vkAPI := api.NewVK(vkToken)
 
-
-	http.HandleFunc("/submit", NewLeadHandler(vkAPI, vkGroupID))
+	http.HandleFunc("/submit", NewLeadHandler(vkAPI, vkChatID))
 	log.Fatal().Err(http.ListenAndServe(":8080", nil)).Msg("stopped listening")
 }
 
