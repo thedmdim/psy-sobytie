@@ -5,18 +5,32 @@
 
 {{ define "main" }}
 
-<nav class="navbar has-shadow is-sticky" role="navigation" aria-label="specialists navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="/" id="logo">
-      {{ .Site.Title }}
-    </a>
-  </div>
-  <div class="navbar-menu is-active">
-  {{ range .Params.nav }}
-    <a class="navbar-item" href="{{ .url }}">{{ .label }}</a>
-  {{ end }}
-  </div>
-</nav>
+<nav class="navbar is-sticky" role="navigation" aria-label="page sections">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <figure class="image">
+            <img class="is-rounded" src="/images/logo.png" alt="СО-БЫТИЕ">
+          </figure>
+          <span class="navbar-brand-text has-text-weight-bold is-size-5">СО-БЫТИЕ</span>
+        </a>
+
+        <a role="button" class="navbar-burger" data-target="programNavbar" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="programNavbar">
+        <div class="navbar-start program-navbar-items">
+          {{ range .Params.nav }}
+          <a class="navbar-item" href="{{ .url }}">{{ .label }}</a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </nav>
 
 <section class="section" id="programs-list">
     <h2 class="title is-1">{{ .Title }}</h2>
@@ -34,7 +48,7 @@
               <div class="card-content">
                 <p class="title is-6 has-text-white has-text-centered">{{ .name }}</p>
                 {{ with .description }}
-                <p class="card-description has-text-white has-text-centered">{{ . }}</p>
+                <p class="card-description has-text-white has-text-centered is-size-7">{{ . }}</p>
                 {{ end }}
               </div>
             </a>
@@ -44,5 +58,18 @@
     {{ end }}
   
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var $burgers = document.querySelectorAll('.navbar-burger');
+    for (var i = 0; i < $burgers.length; i++) {
+      $burgers[i].addEventListener('click', function () {
+        var target = document.getElementById(this.dataset.target);
+        this.classList.toggle('is-active');
+        target.classList.toggle('is-active');
+      });
+    }
+  });
+</script>
 
 {{ end }}

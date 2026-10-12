@@ -58,13 +58,6 @@
 </section>
 
 <nav class="navbar home-nav has-shadow" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="/" id="logo">
-            <figure class="image">
-              <img class="is-rounded" src="/images/logo.png">
-            </figure>
-        </a>
-    </div>
     <div id="mainNavbar" class="navbar-menu is-active">
         {{ range .Params.sections.nav }}
         <div class="navbar-item " id="{{ .slug }}" href="#{{ .slug }}">{{ .nav_label }}</div>
@@ -91,8 +84,8 @@
 </section>
 
 <nav class="navbar home-nav projects-nav" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item section-title" href="/">
+    <div class="navbar-start">
+        <a class="navbar-item section-title is-size-2" href="/">
             {{ .Params.sections.delim1 }}
         </a>
     </div>

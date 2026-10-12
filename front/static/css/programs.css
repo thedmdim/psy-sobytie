@@ -11,15 +11,6 @@
   border-bottom: 1px solid var(--bulma-border);
 }
 
-#logo {
-  padding: 0.5rem 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  #logo {
-    padding: 0.5rem 3rem;
-  }
-}
 .program-navbar-items {
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -55,12 +46,10 @@
 .program-section-stack { position: relative; z-index: 1; }
 .program-hero .title.has-text-white {
   font-family: 'Lora', 'PT Serif', serif;
-  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
 }
 .program-hero .subtitle.has-text-white {
   line-height: 1.5;
   font-family: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
-  font-size: 12pt;
 }
 
 .program-hero-cta {
@@ -91,7 +80,6 @@
 .program-selling-text {
   font-family: 'Lora', 'PT Serif', serif;
   font-style: italic;
-  font-size: 1.5rem;
   line-height: 1.45;
   color: #fff;
   margin: 0;
@@ -125,7 +113,6 @@
   cursor: pointer;
   list-style: none;
   font-weight: 600;
-  font-size: 1.1rem;
 }
 .program-accordion-trigger::-webkit-details-marker { display: none; }
 .program-accordion-icon {
@@ -174,19 +161,18 @@
   border: 1px solid var(--bulma-border);
   background: var(--bulma-white);
   color: var(--bulma-text-strong);
-  font-size: 1.3rem;
   cursor: pointer;
   display: none;
 }
 .program-carousel-nav:hover { border-color: var(--bulma-info); color: var(--bulma-info); }
 .program-carousel-slide { width: 16rem; }
 .program-carousel-slide img { width: 25%; height: auto; display: block; margin: 0 auto; }
-.program-carousel-slide figcaption { margin-top: 0.6rem; font-size: 0.9rem; color: var(--bulma-text); }
+.program-carousel-slide figcaption { margin-top: 0.6rem; color: var(--bulma-text); }
 @media (min-width: 641px) { .program-carousel-nav { display: block; } }
 
 /* gallery */
 .program-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 1.25rem; }
-.program-gallery figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--bulma-text); }
+.program-gallery figcaption { margin-top: 0.5rem; color: var(--bulma-text); }
 .program-parents-point {
   border: 2px solid var(--program-brand);
   border-radius: 1.5rem;
@@ -207,8 +193,9 @@
 /* schedule */
 .program-schedule-item {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem 1rem;
   width: 54rem;
   max-width: 100%;
   background: var(--program-brand);
@@ -219,15 +206,12 @@
 }
 .program-schedule-age,
 .program-schedule-time {
-  font-size: 0.9rem;
   opacity: 0.85;
-  white-space: nowrap;
+  flex: 1 1 10rem;
 }
-.program-schedule-time { margin-right: auto; }
 .program-schedule-name {
   font-weight: 700;
-  font-size: 1.1rem;
-  white-space: nowrap;
+  flex: 1 1 10rem;
 }
 .program-schedule-name--1 {
   background: linear-gradient(135deg, #fff, #4fc3f7);
@@ -398,10 +382,10 @@
 .program-review-card cite { font-style: normal; }
 .program-review-text { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .program-review-text.expanded { display: block; -webkit-line-clamp: unset; overflow: visible; }
-.program-review-toggle { display: block; margin-top: 0.25rem; background: none; border: none; color: var(--bulma-info); cursor: pointer; padding: 0; font-size: 0.85rem; text-decoration: underline; }
+.program-review-toggle { display: block; margin-top: 0.25rem; background: none; border: none; color: var(--bulma-info); cursor: pointer; padding: 0; text-decoration: underline; }
 
 /* pricing */
-.program-pricing-price { font-size: 1.8rem; font-weight: 600; color: var(--bulma-info-dark); }
+.program-pricing-price { font-weight: 600; color: var(--bulma-info-dark); }
 
 @media (prefers-reduced-motion: reduce) {
   .program-page * { scroll-behavior: auto !important; transition: none !important; }
@@ -464,7 +448,6 @@
 
 #programs-list .card-description {
   font-family: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
-  font-size: 0.8rem;
   font-weight: 500;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   line-height: 1.3;

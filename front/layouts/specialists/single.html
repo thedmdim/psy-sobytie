@@ -27,8 +27,8 @@
         <img src="{{ .Params.detail_photo }}" alt="{{ .Title }}">
       </figure>
       <div class="specialist-overlay">
-        <h1 class="specialist-title">{{ .Title }}</h1>
-        <p class="specialist-subtitle">{{ .Params.subtitle }}</p>
+        <h1 class="specialist-title is-size-2">{{ .Title }}</h1>
+        <p class="specialist-subtitle is-size-6">{{ .Params.subtitle }}</p>
       </div>
     </div>
     <div class="specialist-blocks">
@@ -36,8 +36,8 @@
       <div class="specialist-block">
         <img class="block-icon" src="{{ $block.icon }}" alt="">
         <div class="block-content">
-          <span class="block-label">{{ $block.label }}</span>
-          <span class="block-text">{{ $block.text }}</span>
+          <span class="block-label is-size-7">{{ $block.label }}</span>
+          <span class="block-text is-size-6">{{ $block.text }}</span>
         </div>
       </div>
       {{ end }}

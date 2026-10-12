@@ -89,7 +89,6 @@
     font-family: 'Pushkin', serif;
     color: #67b5e4;
     font-weight: 400;
-    font-size: 2rem;
 }
 
 #projects-section + .section {
@@ -146,7 +145,6 @@
     font-family: 'Pushkin', serif;
     color: #67b5e4;
     font-weight: 400;
-    font-size: 2rem;
 }
 
 @keyframes scroll-carousel {
@@ -155,21 +153,6 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .home-nav .navbar-brand {
-        justify-content: center;
-    }
-
-    .home-nav .navbar-brand .image {
-        max-width: 72px;
-    }
-
-    .home-nav .navbar-brand .section-title {
-        font-size: 0.9rem;
-        text-align: center;
-        white-space: normal;
-        flex-shrink: 1;
-    }
-
     .home-nav .navbar-menu.is-active {
         display: flex;
         flex-direction: row;
@@ -177,25 +160,5 @@
         align-items: center;
         justify-content: flex-start;
         overflow-x: auto;
-    }
-
-    .home-nav .navbar-menu.is-active > .navbar-item:first-child {
-        margin-left: auto;
-    }
-
-    .home-nav .navbar-menu.is-active > .navbar-item:last-child {
-        margin-right: auto;
-    }
-
-    .home-nav .navbar-menu .navbar-item {
-        white-space: nowrap;
-        font-size: 0.72rem;
-        padding-left: 0.4rem;
-        padding-right: 0.4rem;
-        margin: 0 0.1rem;
-    }
-
-    #logo {
-        padding-left: 0;
     }
 }
