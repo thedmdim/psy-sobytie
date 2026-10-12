@@ -26,6 +26,21 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* navbar logo: locked size, never stretches (Safari fix) */
+.navbar-brand .navbar-item > figure.image {
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+}
+
+.navbar-brand .navbar-item > figure.image img {
+  width: 2rem;
+  height: 2rem;
+  max-height: none;
+  object-fit: contain;
+}
+
 .program-hero {
   background: var(--program-brand);
   color: #fff;
