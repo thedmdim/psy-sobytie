@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"regexp"
 	"strconv"
 	"strings"
 
@@ -26,7 +27,6 @@ func main() {
 	if err != nil {
 		log.Fatal().Msg("set VK_CHAT_ID env")
 	}
-	
  
 	vkAPI := api.NewVK(vkToken)
 
@@ -76,26 +76,38 @@ type field struct {
 	emoji    string
 	key      string
 	required bool
+	checker    func(string)bool  //must ruturn false to pass
 }
 
 var messageFields = []field{
-	{"📖", "from", true},
-	{"👤", "name", true},
-	{"📞", "phone", true},
-	{"🐣", "age", false},
-	{"💬", "comment", false},
+	{"📖", "from", true, nil},
+	{"👤", "name", true, nil},
+	{"📞", "phone", true, nil},
+	{"🐣", "age", false, nil},
+	{"💬", "comment", false, containsLinks},
+}
+
+var linkRE = regexp.MustCompile(`https?://[^\s]+`)
+
+func containsLinks(s string) bool {
+	return linkRE.MatchString(s)
 }
 
 func formToMessage(form url.Values) (string, error) {
 	var lines []string
-	for _, f := range messageFields {
-		if !form.Has(f.key) {
-			if f.required {
-				return "", fmt.Errorf("no requires field: %s", f.key)
+	for _, field := range messageFields {
+		if form.Has(field.key) {
+			if field.checker != nil && field.checker(form.Get(field.key)) {
+				return "", fmt.Errorf("field hasn't passed its checker: %s", field.key)
+			}
+		} else {
+			if field.required {
+				return "", fmt.Errorf("no requires field: %s", field.key)
 			}
 			continue
 		}
-		lines = append(lines, f.emoji+form.Get(f.key))
+
+		lines = append(lines, field.emoji+form.Get(field.key))
 	}
 	return strings.Join(lines, "\n"), nil
 }
