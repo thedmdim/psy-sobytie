@@ -9,9 +9,10 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"unicode"
 
-	"github.com/rs/zerolog/log"
 	"github.com/SevereCloud/vksdk/v3/api"
+	"github.com/rs/zerolog/log"
 )
 
 const maxBytes = 10 * 1024
@@ -85,13 +86,26 @@ var messageFields = []field{
 	{"👤", "name", true, nil},
 	{"📞", "phone", true, nil},
 	{"🐣", "age", false, nil},
-	{"💬", "comment", false, containsLinks},
+	{"💬", "comment", false, commentChecker},
 }
 
 var linkRE = regexp.MustCompile(`https?://[^\s]+`)
 
-func containsLinks(s string) bool {
-	return linkRE.MatchString(s)
+func commentChecker(s string) bool {
+	if linkRE.MatchString(s) {
+		return true
+	}
+
+	for _, r := range s {
+		if !unicode.IsLetter(r) {
+			continue
+		}
+		if unicode.Is(unicode.Cyrillic, r) {
+			return false
+		}
+	}
+
+	return true
 }
 
 func formToMessage(form url.Values) (string, error) {
