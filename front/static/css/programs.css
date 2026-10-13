@@ -41,6 +41,20 @@
   object-fit: contain;
 }
 
+/* signup form (matches home page) */
+.contact-hero {
+  background: url('/images/elback.png') bottom/cover no-repeat;
+}
+
+.contact-form-box {
+  background: linear-gradient(to bottom, #fff, #67b5e4);
+  border-radius: 4rem;
+  padding: 2.5rem;
+  max-width: 32rem;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
 .program-hero {
   background: var(--program-brand);
   color: #fff;

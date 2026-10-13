@@ -230,16 +230,28 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
+.home-nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: #fff;
+}
+
 .projects-nav {
     position: sticky;
     top: 0;
     z-index: 40;
+    background: #fff;
 }
 
 .section-title {
     font-family: 'Pushkin', serif;
     color: #67b5e4;
     font-weight: 400;
+}
+
+.projects-title {
+    padding: 2rem 1.5rem 0.5rem;
 }
 
 @keyframes scroll-carousel {
