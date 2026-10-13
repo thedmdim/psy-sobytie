@@ -84,6 +84,101 @@
     margin-bottom: 0;
 }
 
+.mobile-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #67b5e4 0%, #4fc3f7 50%, #b39ddb 100%);
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1.5rem 3.5rem;
+}
+
+.mobile-hero::before,
+.mobile-hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.mobile-hero::before {
+    width: 220px;
+    height: 220px;
+    left: -60px;
+    top: -60px;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.mobile-hero::after {
+    width: 260px;
+    height: 260px;
+    right: -80px;
+    bottom: -80px;
+    background: rgba(43, 65, 129, 0.45);
+}
+
+.mobile-hero-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.mobile-hero-logo {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 auto 1.25rem;
+}
+
+.mobile-hero-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+}
+
+.mobile-hero-subtitle {
+    font-family: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.mobile-hero-tagline {
+    font-family: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
+    font-weight: 400;
+    font-size: 1.05rem;
+    opacity: 0.95;
+}
+
+.mobile-hero-cta {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-radius: 4rem;
+    background: #fff;
+    border: none;
+    color: #2B4181;
+    font-family: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    height: auto;
+    text-decoration: none;
+}
+
+.mobile-hero-cta:hover {
+    background: #e3edfa;
+    color: #2B4181;
+}
+
 #logo {
     padding-left: 25pt;
     font-family: 'Pushkin', serif;
