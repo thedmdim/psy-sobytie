@@ -67,7 +67,8 @@ func NewLeadHandler(vkAPI *api.VK, vkChatID int64) func(w http.ResponseWriter, r
 				log.Error().Err(err).Int64("peer_id", vkChatID).Msg("cannot send message")
 			}
 		}()
-		
+
+		http.Redirect(w, r, "/success/", http.StatusSeeOther)
 	}
 }
 
