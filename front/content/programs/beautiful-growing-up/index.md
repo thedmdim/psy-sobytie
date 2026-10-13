@@ -220,4 +220,6 @@ pricing:
 signup_form:
   title: "Форма для записи"
   action: "#"
+  extra_fields: true
+  child_ages: ["12", "13", "14", "15", "16", "17", "18"]
 ---

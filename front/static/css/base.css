@@ -4,6 +4,11 @@
   --navbar-btn-radius: 20pt;
 }
 
+html {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
 @media screen and (min-width: 1024px) {
   .navbar-menu {
     justify-content: center;

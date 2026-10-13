@@ -43,9 +43,51 @@
     if (auto) startAuto();
   };
 
+  const initStickyNavbars = () => {
+    const nav1 = document.querySelector('.home-nav:not(.projects-nav)');
+    const nav2 = document.querySelector('.home-nav.projects-nav');
+    const partners = document.getElementById('partners');
+    if (!nav1 || !nav2 || !partners) return;
+
+    const getDocumentTop = (el) => {
+      let top = 0;
+      let node = el;
+      while (node) {
+        top += node.offsetTop;
+        node = node.offsetParent;
+      }
+      return top;
+    };
+
+    let nav1Top = 0;
+    let nav2Top = 0;
+    let partnersTop = 0;
+
+    const measure = () => {
+      nav1Top = getDocumentTop(nav1);
+      nav2Top = getDocumentTop(nav2);
+      partnersTop = getDocumentTop(partners);
+    };
+
+    const update = () => {
+      const y = window.scrollY;
+      const nav1H = nav1.offsetHeight;
+      const nav2H = nav2.offsetHeight;
+
+      nav1.style.top = (y >= nav2Top - nav1H) ? `-${nav1H}px` : '0px';
+      nav2.style.top = (y >= partnersTop - nav2H) ? `-${nav2H}px` : '0px';
+    };
+
+    measure();
+    update();
+    window.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener('resize', () => { measure(); update(); });
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     initTabSwitch('#mainNavbar', '#primary-nav-section > .columns[id]', true);
     initTabSwitch('#projectsNavbar', '#projects-section > .columns[id]', false);
+    initStickyNavbars();
   });
 </script>
 
@@ -92,12 +134,13 @@
     {{ end }}
 </section>
 
+<div class="projects-title">
+    <a class="section-title is-size-2" href="/">
+        {{ .Params.sections.delim1 }}
+    </a>
+</div>
+
 <nav class="navbar home-nav projects-nav" role="navigation" aria-label="main navigation">
-    <div class="navbar-start">
-        <a class="navbar-item section-title is-size-2" href="/">
-            {{ .Params.sections.delim1 }}
-        </a>
-    </div>
     <div id="projectsNavbar" class="navbar-menu is-active">
         {{ range .Params.sections.projects }}
         <div class="navbar-item" id="{{ .slug }}" href="#{{ .slug }}">{{ .nav_label }}</div>
@@ -129,7 +172,7 @@
   {{ end }}
 </section>
 
-<section class="section">
+<section id="partners" class="section">
   <h2 class="title is-3 has-text-centered mb-5">Нам доверяют</h2>
   <div class="carousel-track" id="carousel-track">
     {{ range $i := seq 1 15 }}

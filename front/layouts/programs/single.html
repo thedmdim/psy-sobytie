@@ -81,7 +81,7 @@
 
   {{/* WHY EFFECTIVE */}}
   {{ with .Params.why_effective }}
-  {{ $icons := slice "connection.png" "point.png" "Star.png" "check.png" "lighthouse.png" "iteam.png" }}
+  {{ $icons := slice "connection.png" "point.png" "Star.png" "check.png" "lighthouse.png" "iteam.png" "award2.png" "download.png" "list.png" "pluse.png" "road.png" "rocket.png" "watch.png" "world.png" }}
   <section class="section has-background-white program-section-stack">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
@@ -335,63 +335,55 @@
   {{ end }}
 
   {{/* SIGNUP */}}
-  <section class="section program-hero" id="contact">
-    <div class="container">
-      <h2 class="title is-3 has-text-white">{{ with .Params.signup_form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
+  {{ $form := .Params.signup_form }}
+  <section class="section contact-hero" id="contact">
+    <div class="container is-flex is-justify-content-center">
+      <div class="contact-form-box">
+      <h2 class="title is-3 mb-5 has-text-dark">{{ with $form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
       <form class="signup-form" method="POST" action="/submit">
         <input type="hidden" name="from" value="{{ .Title }}">
         <div class="field">
-          <label class="label has-text-white" for="name">Имя</label>
+          <label class="label has-text-dark" for="name">Имя</label>
           <div class="control">
             <input class="input" type="text" id="name" name="name" placeholder="Имя" required>
           </div>
         </div>
         <div class="field">
-          <label class="label has-text-white" for="phone">Телефон</label>
+          <label class="label has-text-dark" for="phone">Телефон</label>
           <div class="control">
             <input class="input" type="tel" id="phone" name="phone" placeholder="+7" required>
           </div>
         </div>
+        {{ if $form.extra_fields }}
         <div class="field">
-          <label class="label has-text-white" for="age">Возраст подростка</label>
+          <label class="label has-text-dark" for="child-age">Возраст ребенка</label>
           <div class="control">
-            <div class="select">
-              <select id="age" name="age">
+            <div class="select is-fullwidth">
+              <select id="child-age" name="child_age">
                 <option value="">Выберите возраст</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
+                {{ range $form.child_ages }}<option value="{{ . }}">{{ . }}</option>{{ end }}
               </select>
             </div>
           </div>
         </div>
         <div class="field">
-          <label class="label has-text-white" for="course">Выберете курс</label>
+          <label class="label has-text-dark" for="promo">Промокод</label>
           <div class="control">
-            <div class="select">
-              <select id="course" name="course">
-                <option value="Обычный">Обычный</option>
-                <option value="Продвинутый">Продвинутый</option>
-              </select>
-            </div>
+            <input class="input" type="text" id="promo" name="promo_code" placeholder="Промокод">
           </div>
         </div>
+        {{ end }}
         <div class="field">
-          <label class="label has-text-white" for="comment">Комментарий</label>
+          <label class="label has-text-dark" for="comment">Комментарий</label>
           <div class="control">
             <textarea class="textarea" id="comment" name="comment" rows="3"></textarea>
           </div>
         </div>
-        <div class="control">
-          <button type="submit" class="button is-info">Отправить заявку</button>
+        <div class="control has-text-centered">
+          <button type="submit" class="button js-signup-btn">Отправить заявку</button>
         </div>
       </form>
+      </div>
     </div>
   </section>
 
