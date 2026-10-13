@@ -56,11 +56,18 @@
 
 .hero h1 {
   white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .program-section-stack { position: relative; z-index: 1; }
 .program-hero .title.has-text-white {
   font-family: 'Lora', 'PT Serif', serif;
+}
+.program-hero.hero .title.is-2 {
+  font-size: clamp(1.5rem, 7vw, 2.5rem);
+  line-height: 1.2;
 }
 .program-hero .subtitle.has-text-white {
   line-height: 1.5;

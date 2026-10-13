@@ -2,7 +2,7 @@
 title: "Услуги"
 sections:
     nav:
-      - nav_label: "Взрослые"
+      - nav_label: "Взрослым"
         slug: "adults"
         cards:
           - title: "Родительская группа"
@@ -21,7 +21,7 @@ sections:
             url: "/specialists"
             photo: "choose.png"
 
-      - nav_label: "Дети"
+      - nav_label: "Детям"
         slug: "children"
         cards:
           - title: "Красивое детство"
@@ -40,7 +40,7 @@ sections:
             url: "/specialists"
             photo: "choose.png"
 
-      - nav_label: "Подростки"
+      - nav_label: "Подросткам"
         slug: "teens"
         cards:
           - title: "Красивое взросление"
@@ -95,7 +95,7 @@ sections:
             photo: "signup.png"
           - title: "Школьные программы"
             url: "/programs/team-engagement/"
-            photo: "lecture.png"
+            photo: "teambuilding.png"
 
       - nav_label: "Организациям"
         slug: "organizations"
