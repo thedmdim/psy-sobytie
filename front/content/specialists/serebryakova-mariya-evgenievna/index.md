@@ -1,7 +1,7 @@
 ---
-title: "Серебрякова Мария Евгениевна"
+title: "Серебрякова Мария Евгеньевна"
 draft: false
-name: "Серебрякова Мария Евгениевна"
+name: "Серебрякова Мария Евгеньевна"
 since: 2002
 photo: "serebryakova-mariya-evgenievna.png"
 detail_photo: "ME2.png"
