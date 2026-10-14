@@ -80,7 +80,7 @@ specialists:
     - "Соматическая работа"
     - "Супервизия"
 
-  - name: "Серебрякова Мария Евгениевна"
+  - name: "Серебрякова Мария Евгеньевна"
     slug: "serebryakova-mariya-evgenievna"
     since: 2002
     photo: "ME1.png"
