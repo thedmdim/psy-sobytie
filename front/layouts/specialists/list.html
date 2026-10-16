@@ -4,23 +4,6 @@
 
 {{ define "main" }}
 
-<nav class="navbar has-shadow" role="navigation" aria-label="specialists navigation">
-  <div class="container">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="/" id="logo">
-      <figure class="image">
-        <img class="is-rounded" src="/images/logo.png">
-      </figure>
-    </a>
-  </div>
-  <div class="navbar-menu is-active">
-  {{ range .Params.nav }}
-    <a class="navbar-item js-filter-btn" href="#" data-filter="{{ .label }}">{{ .label }}</a>
-  {{ end }}
-  </div>
-  </div>
-</nav>
-
 <section class="section pt-3 pb-0 is-hidden-mobile">
   <div class="container">
     <figure class="image">
@@ -37,7 +20,26 @@
     <p class="mobile-hero-tagline">Мы создали СО-БЫТИЕ, чтобы вы могли просто быть.</p>
     <a class="button mobile-hero-cta" href="#contact">Записаться</a>
   </div>
+  <div class="mobile-hero-bottom-fade"></div>
 </section>
+
+<nav class="navbar has-shadow" role="navigation" aria-label="specialists navigation">
+  <div class="container">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <figure class="image">
+        <img class="is-rounded" src="/images/logo.png" alt="СО-БЫТИЕ">
+      </figure>
+      <span class="navbar-brand-text has-text-weight-bold is-size-5">СО-БЫТИЕ</span>
+    </a>
+  </div>
+  <div class="navbar-menu is-active">
+  {{ range .Params.nav }}
+    <a class="navbar-item js-filter-btn" href="#" data-filter="{{ .label }}">{{ .label }}</a>
+  {{ end }}
+  </div>
+  </div>
+</nav>
 
 <section class="section pt-4">
   <div class="columns is-multiline is-variable is-4 specialists-grid">

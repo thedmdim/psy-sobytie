@@ -11,6 +11,13 @@
     border: 3px solid #67b5e4;
 }
 
+.navbar-brand-text {
+    background: linear-gradient(135deg, #1e88e5, #4fc3f7, #b39ddb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .js-filter-btn.is-active {
     background-color: #67b5e4;
     color: #fff;
@@ -84,6 +91,17 @@
     right: -80px;
     bottom: -80px;
     background: rgba(43, 65, 129, 0.45);
+}
+
+.mobile-hero-bottom-fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3rem;
+    background: linear-gradient(to bottom, transparent, #fff);
+    z-index: 2;
+    pointer-events: none;
 }
 
 .mobile-hero-inner {
