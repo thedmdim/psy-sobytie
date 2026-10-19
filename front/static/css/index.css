@@ -189,7 +189,7 @@
 
 #logo {
     padding-left: 25pt;
-    font-family: 'Pushkin', serif;
+    font-family: 'Caveat', cursive;
     color: #67b5e4;
     font-weight: 400;
 }
@@ -202,7 +202,7 @@
 
 #projects-section + .section h2.title {
     color: #fff;
-    font-family: 'Pushkin', serif;
+    font-family: 'Caveat', cursive;
     font-weight: 400;
 }
 
@@ -253,9 +253,18 @@
 }
 
 .section-title {
-    font-family: 'Pushkin', serif;
+    font-family: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
     color: #67b5e4;
-    font-weight: 400;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+@media screen and (max-width: 768px) {
+    .section-title {
+        font-size: 1rem !important;
+        letter-spacing: 0.04em;
+    }
 }
 
 .projects-title {
