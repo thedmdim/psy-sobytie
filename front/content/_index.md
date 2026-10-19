@@ -63,7 +63,7 @@ sections:
         slug: "specialists"
         cards:
           - title: "Аренда кабинета"
-            url: "/programs/become-a-partner/"
+            url: "/programs/for-employees/"
             photo: "rent.png"
           - title: "Стать партнёром"
             url: "/programs/become-a-partner/"
