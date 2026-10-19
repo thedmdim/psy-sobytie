@@ -59,7 +59,7 @@ sections:
             url: "/specialists"
             photo: "choose.png"
 
-      - nav_label: "Специалистам"
+      - nav_label: "Психологам"
         slug: "specialists"
         cards:
           - title: "Аренда кабинета"
