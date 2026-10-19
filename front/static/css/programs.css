@@ -56,47 +56,154 @@
 }
 
 .program-hero {
-  background: var(--program-brand);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #67b5e4 0%, #4fc3f7 50%, #b39ddb 100%);
+  color: #fff;
+  text-align: center;
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+.program-hero::before,
+.program-hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.program-hero::before {
+  width: 220px;
+  height: 220px;
+  left: -60px;
+  top: -60px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.program-hero::after {
+  width: 260px;
+  height: 260px;
+  right: -80px;
+  bottom: -80px;
+  background: rgba(43, 65, 129, 0.45);
+}
+
+.program-hero-status {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.program-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.program-hero-logo {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 auto 1.25rem;
+}
+
+.program-hero-title {
+  font-family: 'Lora', 'PT Serif', serif;
+  font-size: clamp(1.5rem, 7vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
   color: #fff;
 }
-.hero.program-hero {
-  background: #67b5e4;
-}
-.program-hero .hero-body {
-  padding-top: 2.8rem;
-  padding-bottom: 0;
-  overflow: visible;
-}
 
-.hero h1 {
-  white-space: normal;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
-}
-
-.program-section-stack { position: relative; z-index: 1; }
-.program-hero .title.has-text-white {
-  font-family: 'Lora', 'PT Serif', serif;
-}
-.program-hero.hero .title.is-2 {
-  font-size: clamp(1.5rem, 7vw, 2.5rem);
-  line-height: 1.2;
-}
-.program-hero .subtitle.has-text-white {
-  line-height: 1.5;
+.program-hero-subtitle {
   font-family: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  opacity: 0.95;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.program-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.program-hero-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .program-hero-cta {
-  border: 2px solid #0d47a1;
-  background: linear-gradient(135deg, #4fc3f7, #b39ddb);
-  color: #fff;
+  display: inline-block;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  border-radius: 4rem;
+  background: #fff;
+  border: none;
+  color: #2B4181;
+  font-family: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  height: auto;
+  text-decoration: none;
 }
+
 .program-hero-cta:hover {
-  opacity: 0.85;
-  color: #fff;
-  border-color: #0d47a1;
+  background: #e3edfa;
+  color: #2B4181;
+}
+
+.program-section-stack { position: relative; z-index: 1; }
+
+.program-hero-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 2rem;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  transform: translateY(-2rem);
+}
+
+.program-hero-slideshow .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.program-hero-slideshow .slide.is-active {
+  opacity: 1;
+  position: relative;
+}
+
+.program-hero-slideshow .slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .program-point {
@@ -351,52 +458,13 @@
   .program-roadmap-step:hover { transform: none; }
 }
 
-.program-slideshow-col {
-  align-self: flex-end;
-  margin-bottom: -3rem;
-  overflow: visible;
-  flex: 0 1 600px;
-  min-width: 0;
-}
 
-.program-slideshow {
-  position: relative;
-  z-index: 10;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  border-radius: 4rem;
-  border: 3px solid #fff;
-}
-
-.slide {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.8s ease-in-out;
-}
-.slide.is-active {
-  opacity: 1;
-  position: relative;
-}
-.slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 @media (max-width: 768px) {
   .program-roadmap-list { perspective: none; }
   .program-roadmap-step:hover,
   .program-roadmap-step:hover .program-roadmap-index,
   .program-roadmap-step:hover .program-roadmap-index::before { transform: none; }
-  .program-slideshow-col {
-    margin-bottom: -2rem;
-    margin-top: 1.5rem;
-  }
   .program-accordion-row { flex-direction: column; }
   .program-accordion-image {
     order: -1;

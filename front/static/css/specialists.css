@@ -164,6 +164,14 @@
     color: #2B4181;
 }
 
+.mobile-hero-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+}
+
 .specialist-hero {
     position: relative;
     overflow: hidden;

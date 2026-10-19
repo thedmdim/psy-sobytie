@@ -40,44 +40,46 @@
   </nav>
 
   {{/* HERO */}}
-  <section class="hero is-medium program-hero">
-    <div class="hero-body py-3">
-      <div class="container">
-        <div class="columns is-vcentered">
-          <div class="column">
-            {{ with .Params.status }}<span class="tag is-warning is-medium mb-4">{{ . }}</span>{{ end }}
-            <h1 class="title is-2 has-text-white">{{ .Title }}</h1>
-            <p class="subtitle is-6 has-text-white">{{ .Params.subtitle }}</p>
-            <div class="buttons mt-5">
-              <a class="button is-rounded program-hero-cta" href="#contact">Записаться</a>
-              <a class="button is-ghost has-text-white" href="#contact">Задать вопрос</a>
-              <a href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw">
-                <figure class="image is-48x48">
-                  <img src="/images/max.png" alt="">
-                </figure>
-              </a>
-              <a href="https://vk.ru/psy_sam">
-              <figure class="image is-48x48">
-                  <img src="/images/vk.png" alt="">
-                </figure>
-              </a>
-            </div>
-          </div>
-          <div class="column program-slideshow-col">
-            {{ with .Params.slideshow }}
-            <div class="program-slideshow" data-slideshow>
-              {{ range $i, $img := . }}
-              <figure class="image slide{{ if eq $i 0 }} is-active{{ end }}">
-                <img src="{{ $.RelPermalink }}{{ $img }}" alt="">
-              </figure>
-              {{ end }}
-            </div>
-            {{ end }}
-          </div>
-        </div>
+  <section class="program-hero">
+    {{ with .Params.status }}<span class="tag is-warning is-medium program-hero-status">{{ . }}</span>{{ end }}
+    <div class="program-hero-inner">
+      <img class="program-hero-logo" src="/images/logo.png" alt="СО-БЫТИЕ">
+      <h1 class="program-hero-title">{{ .Title }}</h1>
+      {{ with .Params.subtitle }}<p class="program-hero-subtitle">{{ . | markdownify }}</p>{{ end }}
+      <div class="program-hero-actions">
+        <a class="button program-hero-cta" href="#contact">Записаться</a>
+        {{ if .Params.ask_question_text }}
+        <a class="button is-ghost has-text-white" href="{{ .Params.ask_question_link | default "#signup" }}">{{ .Params.ask_question_text }}</a>
+        {{ else }}
+        <a class="button is-ghost has-text-white" href="#contact">Задать вопрос</a>
+        {{ end }}
+      </div>
+      <div class="program-hero-social">
+        <a href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw">
+          <figure class="image is-48x48">
+            <img src="/images/max.png" alt="">
+          </figure>
+        </a>
+        <a href="https://vk.ru/psy_sam">
+          <figure class="image is-48x48">
+            <img src="/images/vk.png" alt="">
+          </figure>
+        </a>
       </div>
     </div>
   </section>
+
+  {{ with .Params.slideshow }}
+  <section class="section p-0 has-background-white">
+    <div class="program-hero-slideshow" data-slideshow>
+      {{ range $i, $img := . }}
+      <figure class="image slide{{ if eq $i 0 }} is-active{{ end }}">
+        <img src="{{ $.RelPermalink }}{{ $img }}" alt="">
+      </figure>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
 
   {{/* WHY EFFECTIVE */}}
   {{ with .Params.why_effective }}
