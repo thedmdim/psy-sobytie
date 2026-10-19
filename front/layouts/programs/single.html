@@ -48,11 +48,6 @@
       {{ with .Params.subtitle }}<p class="program-hero-subtitle">{{ . | markdownify }}</p>{{ end }}
       <div class="program-hero-actions">
         <a class="button program-hero-cta" href="#contact">Записаться</a>
-        {{ if .Params.ask_question_text }}
-        <a class="button is-ghost has-text-white" href="{{ .Params.ask_question_link | default "#signup" }}">{{ .Params.ask_question_text }}</a>
-        {{ else }}
-        <a class="button is-ghost has-text-white" href="#contact">Задать вопрос</a>
-        {{ end }}
       </div>
       <div class="program-hero-social">
         <a href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw">

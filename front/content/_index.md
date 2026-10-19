@@ -116,7 +116,7 @@ sections:
             url: "/programs/organizational-integration/"
             photo: "gov.png"
     
-    delim1: "Помощь здесь. Выбирайте проект - сейчас"
+    delim1: "Проекты: здесь и сейчас"
     
     projects:
       - nav_label: "Психотерапия"
