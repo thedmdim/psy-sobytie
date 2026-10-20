@@ -3,7 +3,7 @@ title: "Исаева Анастасия Александровна"
 draft: false
 name: "Исаева Анастасия Александровна"
 since: 2012
-photo: "isaeva-anastasiya.png"
+photo: "AA1.png"
 detail_photo: "AA2.png"
 subtitle: "Семейный / перинатальный психолог"
 blocks:

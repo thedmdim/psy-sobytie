@@ -3,7 +3,7 @@ title: "Борисова Ольга Николаевна"
 draft: false
 name: "Борисова Ольга Николаевна"
 since: 2022
-photo: "borisova-olga-vladimirovna.png"
+photo: "ON1.png"
 detail_photo: "ON2.png"
 subtitle: "Психолог / детский психолог"
 blocks:

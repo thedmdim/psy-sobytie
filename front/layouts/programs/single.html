@@ -259,17 +259,18 @@
         <button class="program-carousel-nav program-carousel-nav-prev is-size-5" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
         <div class="program-carousel-track" data-carousel-track>
           {{ range $specialists }}
-          <a class="card program-specialist-card" href="{{ .RelPermalink }}">
+          <div class="card program-specialist-card">
             <div class="card-image">
-              <figure class="image is-4by5">
+              <figure class="image is-1by1 program-specialist-photo">
                 <img src="{{ .RelPermalink }}{{ .Params.photo }}" alt="{{ .Params.name }}" loading="lazy">
               </figure>
             </div>
-            <div class="card-content">
-              <p class="title is-6">{{ .Params.name }}</p>
-              <p class="has-text-grey">c {{ .Params.since }} года</p>
+            <div class="card-content has-text-centered">
+              <p class="title is-6 mb-4">{{ .Params.name }}</p>
+              <p class="has-text-grey mb-4">с {{ .Params.since }} года</p>
+              <a class="button program-specialist-detail-btn" href="{{ .RelPermalink }}">Подробнее</a>
             </div>
-          </a>
+          </div>
           {{ end }}
         </div>
         <button class="program-carousel-nav program-carousel-nav-next is-size-5" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
