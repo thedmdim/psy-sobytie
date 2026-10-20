@@ -3,7 +3,7 @@ title: "Ступченко Максим Вадимович"
 draft: false
 name: "Ступченко Максим Вадимович"
 since: 2019
-photo: "stupchenko-maksim.png"
+photo: "MV1.png"
 detail_photo: "MV2.png"
 subtitle: "Семейный перинатальный психолог / руководитель центра"
 blocks:

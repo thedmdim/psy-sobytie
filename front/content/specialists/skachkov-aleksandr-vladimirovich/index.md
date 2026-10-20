@@ -3,7 +3,7 @@ title: "Скачков Александр Владимирович"
 draft: false
 name: "Скачков Александр Владимирович"
 since: 2015
-photo: "skachkov-aleksandr-vladimirovich.png"
+photo: "AC1.png"
 detail_photo: "AC2.png"
 subtitle: "Психолог"
 blocks:

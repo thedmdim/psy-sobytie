@@ -1,3 +1,8 @@
+.specialists-grid .column {
+    flex: 0 0 280px;
+    max-width: 280px;
+}
+
 .specialists-grid .card-image .image img {
     object-fit: cover;
     height: 100%;

@@ -478,8 +478,24 @@
 
 /* card images */
 .card-image .image img { object-fit: cover; width: 100%; height: 100%; }
-.program-specialist-card .card-image img { object-fit: cover; }
+/* specialist cards */
 .program-specialist-card { width: 16rem; height: 100%; }
+.program-specialist-photo img {
+  border-radius: 4rem;
+  border: 3px solid #67b5e4;
+  object-fit: cover;
+}
+.program-specialist-detail-btn {
+  background-color: #fff;
+  border-color: #67b5e4;
+  color: #67b5e4;
+  border-radius: 4rem;
+}
+.program-specialist-detail-btn:hover {
+  background-color: #67b5e4;
+  border-color: #67b5e4;
+  color: #fff;
+}
 
 /* review card */
 .program-review-card { width: 20rem; margin: 0; border-left: 3px solid var(--bulma-info); }
