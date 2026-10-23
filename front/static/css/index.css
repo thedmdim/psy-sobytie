@@ -187,6 +187,11 @@
     margin-top: 1.25rem;
 }
 
+.mobile-hero-social .image {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
 #logo {
     padding-left: 25pt;
     font-family: 'Caveat', cursive;

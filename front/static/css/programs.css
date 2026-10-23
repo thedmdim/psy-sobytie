@@ -148,6 +148,11 @@
   gap: 0.5rem;
 }
 
+.program-hero-social .image {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .program-hero-cta {
   display: inline-block;
   padding-left: 2.5rem;

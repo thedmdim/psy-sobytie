@@ -177,6 +177,11 @@
     margin-top: 1.25rem;
 }
 
+.mobile-hero-social .image {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
 .specialist-hero {
     position: relative;
     overflow: hidden;
