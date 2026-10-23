@@ -25,7 +25,7 @@ groups:
         description: "Дети от 4 лет"
       - name: "Красивое детство"
         url: "beautiful-childhood"
-        photo: "kids.jpg"
+        photo: "yes426.jpg"
         description: "Дети 6–10 лет"
       - name: "Летний выездной лагерь"
         url: "summer-camp"

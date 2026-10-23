@@ -35,21 +35,14 @@
     <h2 class="title is-1">{{ .Title }}</h2>
     {{ range .Params.groups }}
       <h2 class="title is-3" id="{{ .slug }}">{{ .name }}</h2>
-      <div class="columns is-multiline program-group program-group-{{ .color }}">
+      <div class="program-circle-grid program-group-{{ .color }}">
         {{ range .sections }}
-          <div id="{{ .url }}" class="column is-one-sixth">
-            <a class="card is-block" href="{{ .url }}">
-              <div class="card-image">
-                <figure class="image is-3by4 program-card-glass">
-                  <img src="{{ .url }}/{{ .photo }}" alt="{{ .name }}">
-                </figure>
+          <div id="{{ .url }}" class="program-circle-item">
+            <a class="program-circle-link" href="{{ .url }}">
+              <div class="program-circle">
+                <img src="{{ .url }}/{{ .photo }}" alt="{{ .name }}">
               </div>
-              <div class="card-content">
-                <p class="title is-6 has-text-white has-text-centered">{{ .name }}</p>
-                {{ with .description }}
-                <p class="card-description has-text-white has-text-centered is-size-7">{{ . }}</p>
-                {{ end }}
-              </div>
+              <span class="program-circle-label">{{ .name }}</span>
             </a>
           </div>
         {{ end }}
