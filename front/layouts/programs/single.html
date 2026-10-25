@@ -11,7 +11,7 @@
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
           <figure class="image">
-            <img class="is-rounded" src="/images/logo.png" alt="СО-БЫТИЕ">
+            <img class="is-rounded" src="/images/logo.png" alt="СО-БЫТИЕ" loading="lazy" decoding="async">
           </figure>
           <span class="navbar-brand-text has-text-weight-bold is-size-5">СО-БЫТИЕ</span>
         </a>
@@ -43,7 +43,7 @@
   <section class="program-hero">
     {{ with .Params.status }}<span class="tag is-warning is-medium program-hero-status">{{ . }}</span>{{ end }}
     <div class="program-hero-inner">
-      <img class="program-hero-logo" src="/images/logo.png" alt="СО-БЫТИЕ">
+      <img class="program-hero-logo" src="/images/logo.png" alt="СО-БЫТИЕ" loading="lazy" decoding="async">
       <h1 class="program-hero-title">{{ .Title }}</h1>
       {{ with .Params.subtitle }}<p class="program-hero-subtitle">{{ . | markdownify }}</p>{{ end }}
       <div class="program-hero-actions">
@@ -52,12 +52,16 @@
       <div class="program-hero-social">
         <a href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw">
           <figure class="image is-48x48">
-            <img src="/images/max.png" alt="">
+            {{ with resources.Get "images/max.png" }}
+              {{ partial "responsive-image.html" (dict "img" . "alt" "" "width" 48) }}
+            {{ end }}
           </figure>
         </a>
         <a href="https://vk.ru/psy_sam">
           <figure class="image is-48x48">
-            <img src="/images/vk.png" alt="">
+            {{ with resources.Get "images/vk.png" }}
+              {{ partial "responsive-image.html" (dict "img" . "alt" "" "width" 48) }}
+            {{ end }}
           </figure>
         </a>
       </div>
@@ -69,7 +73,9 @@
     <div class="program-hero-slideshow" data-slideshow>
       {{ range $i, $img := . }}
       <figure class="image slide{{ if eq $i 0 }} is-active{{ end }}">
-        <img src="{{ $.RelPermalink }}{{ $img }}" alt="">
+        {{ with $.Resources.Get $img }}
+          {{ partial "responsive-image.html" (dict "img" . "alt" "" "width" 800) }}
+        {{ end }}
       </figure>
       {{ end }}
     </div>
@@ -109,7 +115,7 @@
           <details class="program-accordion-item">
             <summary class="program-accordion-trigger is-size-6">
               <span class="program-accordion-icon">
-                <img src="{{ .icon }}" alt="" width="20" height="20" aria-hidden="true">
+                <img src="{{ .icon }}" alt="" width="20" height="20" aria-hidden="true" loading="lazy" decoding="async">
               </span>
               <span class="program-accordion-label">{{ .name }}</span>
             </summary>
@@ -119,7 +125,9 @@
         </div>
         <div class="program-accordion-image">
           {{ with $.Params.topics_image }}
-          <img src="{{ $.RelPermalink }}{{ . }}" alt="">
+          {{ with $.Resources.Get . }}
+            {{ partial "responsive-image.html" (dict "img" . "alt" "" "width" 500) }}
+          {{ end }}
           {{ end }}
         </div>
       </div>
@@ -262,7 +270,10 @@
           <div class="card program-specialist-card">
             <div class="card-image">
               <figure class="image is-1by1 program-specialist-photo">
-                <img src="{{ .RelPermalink }}{{ .Params.photo }}" alt="{{ .Params.name }}" loading="lazy">
+                {{ $name := .Params.name }}
+                {{ with .Resources.Get .Params.photo }}
+                  {{ partial "responsive-image.html" (dict "img" . "alt" $name "width" 300) }}
+                {{ end }}
               </figure>
             </div>
             <div class="card-content has-text-centered">
@@ -290,7 +301,7 @@
           {{ range .items }}
           <blockquote class="box program-review-card">
             <div class="is-flex is-align-items-center mb-2" style="gap:0.5rem">
-              {{ with .image }}<img src="{{ . }}" alt="" style="height:1.25rem">{{ end }}
+              {{ with .image }}<img src="{{ . }}" alt="" style="height:1.25rem" loading="lazy" decoding="async">{{ end }}
               <cite class="has-text-weight-bold">{{ .author }}</cite>
             </div>
             <p class="program-review-text has-text-grey" data-review-text>{{ .text }}</p>

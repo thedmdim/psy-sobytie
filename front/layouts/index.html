@@ -94,13 +94,15 @@
 
 <section class="section p-0">
   <figure class="image is-hidden-mobile">
-    <img src="/plag1.png" alt="Main topic">
+    {{ with .Resources.Get "plag1.png" }}
+      {{ partial "responsive-image.html" (dict "img" . "alt" "Main topic" "width" 1200 "loading" "eager") }}
+    {{ end }}
   </figure>
 </section>
 
 <section class="mobile-hero is-hidden-tablet">
   <div class="mobile-hero-inner">
-    <img class="mobile-hero-logo" src="/images/logo.png" alt="СО-БЫТИЕ">
+    <img class="mobile-hero-logo" src="/images/logo.png" alt="СО-БЫТИЕ" loading="lazy" decoding="async">
     <h1 class="mobile-hero-title">СО-БЫТИЕ</h1>
     <p class="mobile-hero-subtitle">Семейный психологический центр</p>
     <p class="mobile-hero-tagline">Место, где ты больше чем один</p>
@@ -108,12 +110,16 @@
     <div class="mobile-hero-social">
       <a href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw">
         <figure class="image is-48x48">
-          <img src="/images/max.png" alt="">
+          {{ with resources.Get "images/max.png" }}
+            {{ partial "responsive-image.html" (dict "img" . "alt" "" "width" 48) }}
+          {{ end }}
         </figure>
       </a>
       <a href="https://vk.ru/psy_sam">
         <figure class="image is-48x48">
-          <img src="/images/vk.png" alt="">
+          {{ with resources.Get "images/vk.png" }}
+            {{ partial "responsive-image.html" (dict "img" . "alt" "" "width" 48) }}
+          {{ end }}
         </figure>
       </a>
     </div>
@@ -136,7 +142,13 @@
             <a class="card is-block" href="{{ .url | relURL }}">
                 <div class="card-image">
                     <figure class="image is-16by9">
-                        <img src="/{{ .photo }}" alt="{{ .title }}">
+                        {{ $alt := .title }}
+                        {{ $photo := .photo }}
+                        {{ with $.Resources.Get $photo }}
+                          {{ partial "responsive-image.html" (dict "img" . "alt" $alt "width" 600) }}
+                        {{ else }}
+                          <img src="/{{ $photo }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+                        {{ end }}
                     </figure>
                 </div>
             </a>
@@ -168,7 +180,13 @@
           <a class="card is-block" href="{{ $card.url | relURL }}">
             <div class="card-image">
               <figure class="image is-3by4">
-                <img src="/{{ $card.photo }}" alt="{{ $card.title }}">
+                {{ $alt := $card.title }}
+                {{ $photo := $card.photo }}
+                {{ with $.Resources.Get $photo }}
+                  {{ partial "responsive-image.html" (dict "img" . "alt" $alt "width" 400) }}
+                {{ else }}
+                  <img src="/{{ $photo }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+                {{ end }}
               </figure>
             </div>
             <div class="card-content">
@@ -189,12 +207,16 @@
   <div class="carousel-track" id="carousel-track">
     {{ range $i := seq 1 15 }}
     <div class="carousel-item">
-      <img src="/images/p{{ $i }}.png" alt="" class="carousel-img">
+      {{ with resources.Get (printf "images/p%d.png" $i) }}
+        {{ partial "responsive-image.html" (dict "img" . "alt" "" "class" "carousel-img" "width" 200) }}
+      {{ end }}
     </div>
     {{ end }}
     {{ range $i := seq 1 15 }}
     <div class="carousel-item">
-      <img src="/images/p{{ $i }}.png" alt="" class="carousel-img">
+      {{ with resources.Get (printf "images/p%d.png" $i) }}
+        {{ partial "responsive-image.html" (dict "img" . "alt" "" "class" "carousel-img" "width" 200) }}
+      {{ end }}
     </div>
     {{ end }}
   </div>

@@ -1,0 +1,21 @@
+{{ $img := .img }}
+{{ $alt := .alt | default "" }}
+{{ $class := .class | default "" }}
+{{ $width := .width | default 800 }}
+{{ $loading := .loading | default "lazy" }}
+
+{{ $resizedWebp := $img.Resize (printf "%dx webp q80" $width) }}
+{{ $resizedOrig := $img.Resize (printf "%dx q80" $width) }}
+
+<picture>
+  <source srcset="{{ $resizedWebp.RelPermalink }}" type="image/webp">
+  <img
+    src="{{ $resizedOrig.RelPermalink }}"
+    alt="{{ $alt }}"
+    class="{{ $class }}"
+    loading="{{ $loading }}"
+    width="{{ $resizedOrig.Width }}"
+    height="{{ $resizedOrig.Height }}"
+    decoding="async"
+  >
+</picture>
