@@ -7,14 +7,16 @@
 <section class="section pt-3 pb-0 is-hidden-mobile">
   <div class="container">
     <figure class="image">
-      <img src="specialists.png" alt="Команда специалистов">
+      {{ with .Resources.Get "specialists.png" }}
+        {{ partial "responsive-image.html" (dict "img" . "alt" "Команда специалистов" "width" 800) }}
+      {{ end }}
     </figure>
   </div>
 </section>
 
 <section class="mobile-hero is-hidden-tablet">
   <div class="mobile-hero-inner">
-    <img class="mobile-hero-logo" src="/images/logo.png" alt="СО-БЫТИЕ">
+    <img class="mobile-hero-logo" src="/images/logo.png" alt="СО-БЫТИЕ" loading="lazy" decoding="async">
     <h1 class="mobile-hero-title">СО-БЫТИЕ</h1>
     <p class="mobile-hero-subtitle">СПЕЦИАЛИСТЫ ЦЕНТРА</p>
     <p class="mobile-hero-tagline">Мы создали СО-БЫТИЕ, чтобы вы могли просто быть.</p>
@@ -22,12 +24,16 @@
     <div class="mobile-hero-social">
       <a href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw">
         <figure class="image is-48x48">
-          <img src="/images/max.png" alt="">
+          {{ with resources.Get "images/max.png" }}
+            {{ partial "responsive-image.html" (dict "img" . "alt" "" "width" 48) }}
+          {{ end }}
         </figure>
       </a>
       <a href="https://vk.ru/psy_sam">
         <figure class="image is-48x48">
-          <img src="/images/vk.png" alt="">
+          {{ with resources.Get "images/vk.png" }}
+            {{ partial "responsive-image.html" (dict "img" . "alt" "" "width" 48) }}
+          {{ end }}
         </figure>
       </a>
     </div>
@@ -40,7 +46,7 @@
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <figure class="image">
-        <img class="is-rounded" src="/images/logo.png" alt="СО-БЫТИЕ">
+        <img class="is-rounded" src="/images/logo.png" alt="СО-БЫТИЕ" loading="lazy" decoding="async">
       </figure>
       <span class="navbar-brand-text has-text-weight-bold is-size-5">СО-БЫТИЕ</span>
     </a>
@@ -60,7 +66,7 @@
         <div class="card">
           <div class="card-image">
             <figure class="image is-1by1">
-              <img src="{{ .slug }}/{{ .photo }}" alt="">
+              <img src="{{ .slug }}/{{ .photo }}" alt="" loading="lazy" decoding="async">
             </figure>
           </div>
           <div class="card-content has-text-centered">

@@ -9,7 +9,7 @@
   <div class="navbar-brand">
     <a class="navbar-item" href="/" id="logo">
       <figure class="image">
-        <img class="is-rounded" src="/images/logo.png">
+        <img class="is-rounded" src="/images/logo.png" loading="lazy" decoding="async">
       </figure>
     </a>
   </div>
@@ -23,7 +23,9 @@
   <div class="container">
     <div class="specialist-hero">
       <figure class="image">
-        <img src="{{ .Params.detail_photo }}" alt="{{ .Title }}">
+        {{ with .Resources.Get .Params.detail_photo }}
+          {{ partial "responsive-image.html" (dict "img" . "alt" $.Title "width" 600) }}
+        {{ end }}
       </figure>
       <div class="specialist-overlay">
         <h1 class="specialist-title">{{ .Title }}</h1>
@@ -33,7 +35,7 @@
     <div class="specialist-blocks">
       {{ range $i, $block := .Params.blocks }}
       <div class="specialist-block">
-        <img class="block-icon" src="{{ $block.icon }}" alt="">
+        <img class="block-icon" src="{{ $block.icon }}" alt="" loading="lazy" decoding="async">
         <div class="block-content">
           <span class="block-label is-size-7">{{ $block.label }}</span>
           <span class="block-text is-size-6">{{ $block.text }}</span>
