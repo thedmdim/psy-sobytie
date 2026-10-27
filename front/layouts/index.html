@@ -94,9 +94,7 @@
 
 <section class="section p-0">
   <figure class="image is-hidden-mobile">
-    {{ with .Resources.Get "plag1.png" }}
-      {{ partial "responsive-image.html" (dict "img" . "alt" "Main topic" "width" 1200 "loading" "eager") }}
-    {{ end }}
+    <img src="/plag1.png" alt="Main topic" loading="eager" decoding="async">
   </figure>
 </section>
 
