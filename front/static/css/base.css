@@ -56,3 +56,31 @@ html {
     border-color: #5aa5d4;
     color: #fff;
 }
+
+.form-success {
+    background-color: #23d160;
+    color: #fff;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    max-width: 32rem;
+}
+
+.form-success-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: #fff;
+    color: #23d160;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.form-success p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
