@@ -1,5 +1,10 @@
 <footer class="footer">
   <div class="content has-text-centered">
     <p>&copy; {{ now.Year }} {{ .Site.Title }}</p>
+    <p>
+      <a href="{{ "offer" | relURL }}">Договор-оферта</a>
+      &middot;
+      <a href="{{ "privacy-policy" | relURL }}">Политика конфиденциальности</a>
+    </p>
   </div>
 </footer>

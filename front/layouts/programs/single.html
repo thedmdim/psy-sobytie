@@ -388,6 +388,12 @@
             <textarea class="textarea" id="comment" name="comment" rows="3"></textarea>
           </div>
         </div>
+        <div class="field has-text-dark">
+          <label class="checkbox">
+            <input type="checkbox" name="consent" required>
+            Я соглашаюсь с <a href="{{ "offer" | relURL }}" target="_blank" rel="noopener">договором-офертой</a> и <a href="{{ "privacy-policy" | relURL }}" target="_blank" rel="noopener">политикой конфиденциальности</a>
+          </label>
+        </div>
         <div class="control has-text-centered">
           <button type="submit" class="button js-signup-btn">Отправить заявку</button>
         </div>
