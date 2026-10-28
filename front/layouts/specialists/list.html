@@ -7,9 +7,7 @@
 <section class="section pt-3 pb-0 is-hidden-mobile">
   <div class="container">
     <figure class="image">
-      {{ with .Resources.Get "specialists.png" }}
-        {{ partial "responsive-image.html" (dict "img" . "alt" "Команда специалистов" "width" 800) }}
-      {{ end }}
+      <img src="specialists.png" alt="Команда специалистов" loading="lazy" decoding="async">
     </figure>
   </div>
 </section>
