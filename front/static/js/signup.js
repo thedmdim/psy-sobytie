@@ -1,4 +1,13 @@
 (function () {
+  function showAlert(container, message) {
+    var old = container.querySelector('.form-alert');
+    if (old) old.remove();
+    var div = document.createElement('div');
+    div.className = 'form-alert';
+    div.textContent = message;
+    container.insertBefore(div, container.firstChild);
+  }
+
   function showSuccess(form) {
     var box = document.createElement('div');
     box.className = 'form-success';
@@ -20,6 +29,14 @@
   document.addEventListener('submit', function (e) {
     var form = e.target.closest('.signup-form');
     if (!form) return;
+
+    var consent = form.querySelector('[name="consent"]');
+    if (consent && !consent.checked) {
+      e.preventDefault();
+      showAlert(form, 'Необходимо согласие с договором-офертой и политикой конфиденциальности.');
+      return;
+    }
+
     e.preventDefault();
 
     var btn = form.querySelector('.js-signup-btn');
@@ -33,7 +50,7 @@
       body: new FormData(form)
     })
       .then(function (res) {
-        if (!res.ok) throw new Error('Request failed');
+        if (!res.ok) throw new Error('Status ' + res.status);
         showSuccess(form);
       })
       .catch(function () {
@@ -41,6 +58,7 @@
           btn.classList.remove('is-loading');
           btn.disabled = false;
         }
+        showAlert(form, 'Ошибка при отправке. Пожалуйста, попробуйте ещё раз.');
       });
   });
 })();
