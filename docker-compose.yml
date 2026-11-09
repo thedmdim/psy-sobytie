@@ -15,5 +15,5 @@ services:
     image: ghcr.io/thedmdim/new.psy-sobytie/back:latest
     restart: unless-stopped
     environment:
-      - TG_BOT_TOKEN=${TG_BOT_TOKEN}
-      - TG_GROUP_ID=${TG_GROUP_ID}
+      - VK_TOKEN=${VK_TOKEN}
+      - VK_CHAT_ID=${VK_CHAT_ID}
