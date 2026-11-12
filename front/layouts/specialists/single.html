@@ -49,42 +49,7 @@
 <section class="section" id="contact">
   <div class="container">
     <h2 class="title is-3 mb-5">Форма для записи</h2>
-    <form class="signup-form" method="POST" action="/submit">
-      <input type="hidden" name="from" value="{{ .Title }}">
-      <div class="field">
-        <label class="label" for="name">Имя</label>
-        <div class="control">
-          <input class="input" type="text" id="name" name="name" placeholder="Имя" required>
-        </div>
-      </div>
-      <div class="field">
-        <label class="label" for="phone">Телефон</label>
-        <div class="control">
-          <input class="input" type="tel" id="phone" name="phone" placeholder="+7" required>
-        </div>
-      </div>
-      <div class="field">
-        <label class="label" for="specialist">Специалист</label>
-        <div class="control">
-          <input class="input" type="text" id="specialist" name="specialist" value="{{ .Title }}" readonly>
-        </div>
-      </div>
-      <div class="field">
-        <label class="label" for="comment">Комментарий</label>
-        <div class="control">
-          <textarea class="textarea" id="comment" name="comment" rows="3"></textarea>
-        </div>
-      </div>
-      <div class="field">
-        <label class="checkbox">
-          <input type="checkbox" name="consent" required>
-          Я соглашаюсь с <a href="{{ "offer" | relURL }}" target="_blank" rel="noopener">договором-офертой</a> и <a href="{{ "privacy-policy" | relURL }}" target="_blank" rel="noopener">политикой конфиденциальности</a>
-        </label>
-      </div>
-      <div class="control">
-        <button type="submit" class="button js-signup-btn">Отправить заявку</button>
-      </div>
-    </form>
+    <script data-b24-form="inline/1/dfqtog" data-b24-form-telemetry-sign="v1:1:site.66207a40e4b9288a9d878d7e884aa7ce76cc4da05c90da3421efaaba94d2b03c" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_1.js');</script>
   </div>
 </section>
 
