@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="program-page has-background-white-ter">
+<div class="program-page has-background-white-ter{{ if in .File.Dir "beautiful-growing-up" }} program-page--cards{{ end }}">
 
   {{/* NAVBAR */}}
   <nav class="navbar is-sticky" role="navigation" aria-label="page sections">
@@ -46,6 +46,16 @@
       <img class="program-hero-logo" src="/images/logo.png" alt="СО-БЫТИЕ" loading="lazy" decoding="async">
       <h1 class="program-hero-title">{{ .Title }}</h1>
       {{ with .Params.subtitle }}<p class="program-hero-subtitle">{{ . | markdownify }}</p>{{ end }}
+      {{ with .Params.audience }}
+      <div class="program-hero-audience">
+        <div class="program-hero-audience-item">
+          {{ with .title }}<p class="program-hero-audience-title">{{ . }}</p>{{ end }}
+          {{ range .items }}
+          <p class="program-hero-audience-text">{{ . }}</p>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
       <div class="program-hero-actions">
         <a class="button program-hero-cta" href="#contact">Записаться</a>
       </div>
@@ -114,9 +124,11 @@
           {{ range .items }}
           <details class="program-accordion-item">
             <summary class="program-accordion-trigger is-size-6">
+              {{ with .icon }}
               <span class="program-accordion-icon">
-                <img src="{{ .icon }}" alt="" width="20" height="20" aria-hidden="true" loading="lazy" decoding="async">
+                <img src="{{ . }}" alt="" width="20" height="20" aria-hidden="true" loading="lazy" decoding="async">
               </span>
+              {{ end }}
               <span class="program-accordion-label">{{ .name }}</span>
             </summary>
             {{ with .description }}<p class="program-accordion-content has-text-grey">{{ . }}</p>{{ end }}
@@ -141,6 +153,22 @@
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       {{ with .intro }}<p class="has-text-grey mb-5">{{ . }}</p>{{ end }}
+      {{ with .categories }}
+      <div class="columns is-multiline">
+        {{ range . }}
+        <div class="column is-half">
+          <div class="box">
+            <h3 class="title is-6">{{ .name }}</h3>
+            {{ with .items }}
+            <ul>
+              {{ range . }}<li class="has-text-grey">{{ . }}</li>{{ end }}
+            </ul>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      {{ else }}
       {{ with .images }}
       <div class="program-carousel" data-carousel>
         <button class="program-carousel-nav program-carousel-nav-prev is-size-5" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
@@ -154,6 +182,7 @@
         </div>
         <button class="program-carousel-nav program-carousel-nav-next is-size-5" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
       </div>
+      {{ end }}
       {{ end }}
     </div>
   </section>
@@ -339,19 +368,106 @@
         </div>
         {{ end }}
       </div>
+      {{ with .note }}<p class="has-text-grey mb-5">{{ . }}</p>{{ end }}
+      {{ with .includes }}
+      <div class="box">
+        <h3 class="title is-5">{{ .title }}</h3>
+        <div class="columns is-multiline">
+          {{ range .items }}
+          <div class="column is-half">
+            <div class="program-point">
+              <span class="program-point-icon">
+                <img src="/icons2/{{ .icon }}" alt="" width="24" height="24" aria-hidden="true" loading="lazy" decoding="async">
+              </span>
+              <p class="has-text-grey">{{ .text }}</p>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
     </div>
   </section>
   {{ end }}
 
   {{/* SIGNUP */}}
   {{ $form := .Params.signup_form }}
-  {{ $isBeauty := or (in .File.Dir "beautiful-childhood") (in .File.Dir "beautiful-growing-up") }}
+  {{ $isChildhood := in .File.Dir "beautiful-childhood" }}
+  {{ $isGrowingUp := in .File.Dir "beautiful-growing-up" }}
+  {{ $isParents := in .File.Dir "parents" }}
+  {{ $isCamp := in .File.Dir "summer-camp" }}
+  {{ $isChildPsychologist := in .File.Dir "child-psychologist" }}
+  {{ $isTeenPsychologist := in .File.Dir "teen-psychologist" }}
+  {{ $isCareerGuidance := in .File.Dir "career-guidance" }}
+  {{ $isIndividualTherapy := in .File.Dir "individual-therapy" }}
+  {{ $isFamilyConsultation := in .File.Dir "family-consultation" }}
+  {{ $isAdultTherapy := in .File.Dir "adult-therapy-group" }}
+  {{ $isEducationTraining := in .File.Dir "education-and-training" }}
+  {{ $isBecomePartner := in .File.Dir "become-a-partner" }}
+  {{ $isSupervision := in .File.Dir "supervision" }}
+  {{ $isAssociation := in .File.Dir "association" }}
+  {{ $isPsychotherapyPsychologists := in .File.Dir "psychotherapy-for-psychologists" }}
+  {{ $isPsychologyIntegration := in .File.Dir "psychology-integration" }}
+  {{ $isEducation := in .File.Dir "education" }}
+  {{ $isInviteSchool := in .File.Dir "invite-us-to-school" }}
+  {{ $isTeamEngagement := in .File.Dir "team-engagement" }}
+  {{ $isMediation := in .File.Dir "mediation" }}
+  {{ $isCorporateTraining := in .File.Dir "corporate-training" }}
+  {{ $isOrgIntegration := in .File.Dir "organizational-integration" }}
+  {{ $isForLeaders := in .File.Dir "for-leaders" }}
+  {{ $isForEmployees := in .File.Dir "for-employees" }}
   <section class="section contact-hero" id="contact">
     <div class="container is-flex is-justify-content-center">
       <div class="contact-form-box">
       <h2 class="title is-3 mb-5 has-text-dark">{{ with $form }}{{ .title }}{{ else }}Форма для записи{{ end }}</h2>
-      {{ if $isBeauty }}
+      {{ if $isChildhood }}
+      <script data-b24-form="inline/13/mklv6r" data-b24-form-telemetry-sign="v1:13:site.8af770cd8d271da873a422e09785509ac766fee1ee4447748695bfaaefc8048a" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_13.js');</script>
+      {{ else if $isGrowingUp }}
       <script data-b24-form="inline/3/2eeuup" data-b24-form-telemetry-sign="v1:3:site.427cd71f33da73c9141bed953ce9a709a89eea8dfc64900bf5623e7a2b7eb65c" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_3.js');</script>
+      {{ else if $isParents }}
+      <script data-b24-form="inline/15/x9jbao" data-b24-form-telemetry-sign="v1:15:site.861250732be38366d7d908924a573277410fab63bc4de24f2d7357228e1f1aac" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_15.js');</script>
+      {{ else if $isCamp }}
+      <script data-b24-form="inline/17/29gqwz" data-b24-form-telemetry-sign="v1:17:site.01fb6ef8157f9a849ec9b0b561022aafc78a69a8a04d723cb164efc2b51282ac" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_17.js');</script>
+      {{ else if $isChildPsychologist }}
+      <script data-b24-form="inline/19/vh6osw" data-b24-form-telemetry-sign="v1:19:site.126d576392199cd2167922264078c282264bbd0b727f11b54be0833746040bac" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_19.js');</script>
+      {{ else if $isTeenPsychologist }}
+      <script data-b24-form="inline/21/w6giw0" data-b24-form-telemetry-sign="v1:21:site.8b9b11cc0deaacdb0f48b3b660a8841bc83bd8d1726563245f6a8ca233cb814a" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_21.js');</script>
+      {{ else if $isCareerGuidance }}
+      <script data-b24-form="inline/23/jt9gxj" data-b24-form-telemetry-sign="v1:23:site.f4b37ee63ac7b4368c7e9f3ffd6ca79d6fb4cc7509021479381ff6dc7386a91f" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_23.js');</script>
+      {{ else if $isIndividualTherapy }}
+      <script data-b24-form="inline/25/lamfn7" data-b24-form-telemetry-sign="v1:25:site.ba512e1a714e8ed5ab2a3146a8cc4962b58bc1c7f27dda22a7cafe77ee614e5d" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_25.js');</script>
+      {{ else if $isFamilyConsultation }}
+      <script data-b24-form="inline/27/vkhliw" data-b24-form-telemetry-sign="v1:27:site.0426951503a8a7398bc712d1c269b66c9d30d372872a5a8a211fab4eb3cbe62f" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_27.js');</script>
+      {{ else if $isAdultTherapy }}
+      <script data-b24-form="inline/29/q2spa8" data-b24-form-telemetry-sign="v1:29:site.f2cc13d84b34505bbe1ba9cc844b66d0deb6f255d8dcb735b19cb693a681d525" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_29.js');</script>
+      {{ else if $isEducationTraining }}
+      <script data-b24-form="inline/31/2tc60y" data-b24-form-telemetry-sign="v1:31:site.78f5e8239e4ab80684280bac9451f3c6436ee6971b1166025c810cbfb0f34cde" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_31.js');</script>
+      {{ else if $isBecomePartner }}
+      <script data-b24-form="inline/33/rcxj3a" data-b24-form-telemetry-sign="v1:33:site.e7ad67466b9b3c523bc280c1a64355b2b6d4e07dcc51c115db4f321c3ce8f11d" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_33.js');</script>
+      {{ else if $isSupervision }}
+      <script data-b24-form="inline/35/283sso" data-b24-form-telemetry-sign="v1:35:site.52ddc5ac0f8e9780fd313b2ae3af952dd6ece68560819934f7932f09726e2186" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_35.js');</script>
+      {{ else if $isAssociation }}
+      <script data-b24-form="inline/37/zfuhsa" data-b24-form-telemetry-sign="v1:37:site.ef91d802cdd5f554e413ac87f3fd4e7c452864a9b0ae6fe288a3cd427194663b" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_37.js');</script>
+      {{ else if $isPsychotherapyPsychologists }}
+      <script data-b24-form="inline/39/7sjdzr" data-b24-form-telemetry-sign="v1:39:site.55a5877482839ab1fc4ed586e98b7869b70c397f95a7ce8c2209d0dbc08b00a7" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_39.js');</script>
+      {{ else if $isPsychologyIntegration }}
+      <script data-b24-form="inline/41/i7ksfd" data-b24-form-telemetry-sign="v1:41:site.7f4880414dfc7f23dbd64cc7ae35455bb29d723116753c6cbece19c197122872" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_41.js');</script>
+      {{ else if $isEducation }}
+      <script data-b24-form="inline/43/ag2htr" data-b24-form-telemetry-sign="v1:43:site.58ed4b3d843c9ca4aceac93596bae9f2a3f8dac0c0440836436671202344342e" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_43.js');</script>
+      {{ else if $isInviteSchool }}
+      <script data-b24-form="inline/45/4nj0e3" data-b24-form-telemetry-sign="v1:45:site.d061880829c77853ef94446528b8c4668953688279585408f45e07529d3f6484" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_45.js');</script>
+      {{ else if $isTeamEngagement }}
+      <script data-b24-form="inline/47/uk0zy0" data-b24-form-telemetry-sign="v1:47:site.1790eedb7eb62465c9575a8c90ef390dc171302813e9031f29db26eff9d03448" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_47.js');</script>
+      {{ else if $isMediation }}
+      <script data-b24-form="inline/49/d8oulz" data-b24-form-telemetry-sign="v1:49:site.7cb31b7c1cffcca55244b8deca02dfaa36f008860d2cc3b85efc6b76268f8f83" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_49.js');</script>
+      {{ else if $isCorporateTraining }}
+      <script data-b24-form="inline/51/rb7b6y" data-b24-form-telemetry-sign="v1:51:site.9b692a38b8bdd15a97f2451850b697c706d7a4efd6d3f27099962afb9bba523c" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_51.js');</script>
+      {{ else if $isOrgIntegration }}
+      <script data-b24-form="inline/53/jq7yeu" data-b24-form-telemetry-sign="v1:53:site.0adfbe69c390c436451f6be5f59262cf7f5bc83c8a5ec07883602a288d1eeee5" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_53.js');</script>
+      {{ else if $isForLeaders }}
+      <script data-b24-form="inline/55/kmh82b" data-b24-form-telemetry-sign="v1:55:site.6897c69b8698f252d75319b96fffe20a23ce9a210f9e72c95cf86ff0e7e38ff0" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_55.js');</script>
+      {{ else if $isForEmployees }}
+      <script data-b24-form="inline/57/h3xecl" data-b24-form-telemetry-sign="v1:57:site.6b4563e98c7052f98e69650462e0a33862e0d1e288f0bfbb880fb8a93ad7d2e0" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_57.js');</script>
       {{ else }}
       <script data-b24-form="inline/1/dfqtog" data-b24-form-telemetry-sign="v1:1:site.66207a40e4b9288a9d878d7e884aa7ce76cc4da05c90da3421efaaba94d2b03c" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b39234292/crm/form/loader_1.js');</script>
       {{ end }}
