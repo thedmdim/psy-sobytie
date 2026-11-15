@@ -26,11 +26,6 @@ jobs:
       - name: Build
         run: hugo --minify --gc
  
-  deploy:
-    needs: build
-    name: deploy image
-    runs-on: ubuntu-latest
-    steps:
       - name: prepare ssh
         run: |
           mkdir -p ~/.ssh
