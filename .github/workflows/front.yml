@@ -1,38 +1,31 @@
-name: build and deploy frontend
+name: build and deploy
 
 on:
   push:
     branches:
       - master
-    paths:
-      - 'front/**'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v4
- 
-      - uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
- 
-      - uses: docker/build-push-action@v6
-        with:
-          context: ./front
-          push: true
-          tags: ghcr.io/thedmdim/new.psy-sobytie/front:latest
- 
   deploy:
-    needs: build
-    name: deploy image
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.139.0"
+          extended: true
+
+      - name: Build
+        run: hugo --minify --gc
+ 
       - name: prepare ssh
         run: |
           mkdir -p ~/.ssh
@@ -43,10 +36,8 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SERVER_IP: ${{ secrets.SERVER_IP }}
  
-      - name: update front on the server
+      - name: rsync to vps
         run: |
-          ssh deploy@$SERVER_IP \
-          "docker compose -f /home/deploy/docker-compose.yml up --pull always -d front && docker image prune -f"
+          rsync -avz --delete public/ "root@$SERVER_IP:/root/server/psysobytie"
         env:
           SERVER_IP: ${{ secrets.SERVER_IP }}
- 
