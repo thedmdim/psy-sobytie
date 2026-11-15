@@ -1,10 +1,6 @@
-# Frontend
 ## Stack
 - framework: hugo
 - styles: bulma css
-
-## Location
-- ./front
 
 ## Where things live (KNOW before making file lookups!)
 - Usual hugo site dir structure
