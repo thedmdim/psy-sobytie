@@ -600,3 +600,133 @@
 .program-group-blue   .program-circle  { border-color: rgba(60, 150, 230, 0.75);  }
 .program-group-teal   .program-circle  { border-color: rgba(30, 170, 170, 0.75);  }
 .program-group-red    .program-circle  { border-color: rgba(220, 70, 70, 0.75);   }
+
+/* --- Красивое взросление: мини-блок "К нам обращаются" --- */
+.program-hero-audience {
+  max-width: 34rem;
+  margin: 0 auto 1.5rem;
+}
+
+.program-hero-audience-item {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  color: #fff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.program-hero-audience-title {
+  font-family: 'Lora', 'PT Serif', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.program-hero-audience-text {
+  font-family: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+/* --- Красивое взросление: блоки-карточки --- */
+.program-page--cards section:not(.program-hero):not(.contact-hero):not(.p-0) {
+  background: transparent !important;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.program-page--cards section:not(.program-hero):not(.contact-hero) > .container {
+  background: #fff;
+  border-radius: 1.75rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 6px 24px rgba(43, 65, 129, 0.08);
+}
+
+@media (max-width: 768px) {
+  .program-page--cards section:not(.program-hero):not(.contact-hero) > .container {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* градиентные карточки, как в первом блоке */
+.program-page--cards #groups > .container,
+.program-page--cards #schedule > .container,
+.program-page--cards #reviews > .container {
+  background: linear-gradient(160deg, #67b5e4 0%, #4fc3f7 50%, #b39ddb 100%);
+  color: #fff;
+}
+
+.program-page--cards #groups .title,
+.program-page--cards #schedule .title,
+.program-page--cards #reviews .title {
+  color: #fff;
+}
+
+.program-page--cards #schedule .has-text-grey {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Расписание: белые карточки с тенью на градиенте */
+.program-page--cards #schedule .program-schedule-item {
+  background: #fff;
+  color: var(--bulma-text);
+  box-shadow: 0 4px 16px rgba(43, 65, 129, 0.14);
+}
+
+.program-page--cards #schedule .program-schedule-age,
+.program-page--cards #schedule .program-schedule-time {
+  opacity: 1;
+  color: var(--bulma-text);
+}
+
+.program-page--cards #schedule .program-schedule-name--1 {
+  background-image: linear-gradient(135deg, #2B4181, #67b5e4);
+}
+.program-page--cards #schedule .program-schedule-name--2 {
+  background-image: linear-gradient(135deg, #67b5e4, #b39ddb);
+}
+.program-page--cards #schedule .program-schedule-name--3 {
+  background-image: linear-gradient(135deg, #b39ddb, #2B4181);
+}
+
+/* Результаты: градиентные карточки категорий + галочки */
+.program-page--cards #results .box {
+  background: linear-gradient(160deg, #67b5e4 0%, #4fc3f7 50%, #b39ddb 100%);
+  color: #fff;
+}
+
+.program-page--cards #results .box .title {
+  color: #fff;
+}
+
+.program-page--cards #results .box .has-text-grey {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.program-page--cards #results .box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.program-page--cards #results .box li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.program-page--cards #results .box li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  color: #fff;
+}
