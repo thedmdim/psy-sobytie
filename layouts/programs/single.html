@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="program-page has-background-white-ter">
+<div class="program-page has-background-white-ter{{ if or (in .File.Dir "beautiful-growing-up") (in .File.Dir "beautiful-childhood") }} program-page--cards{{ end }}">
 
   {{/* NAVBAR */}}
   <nav class="navbar is-sticky" role="navigation" aria-label="page sections">
@@ -46,6 +46,16 @@
       <img class="program-hero-logo" src="/images/logo.png" alt="СО-БЫТИЕ" loading="lazy" decoding="async">
       <h1 class="program-hero-title">{{ .Title }}</h1>
       {{ with .Params.subtitle }}<p class="program-hero-subtitle">{{ . | markdownify }}</p>{{ end }}
+      {{ with .Params.audience }}
+      <div class="program-hero-audience">
+        <div class="program-hero-audience-item">
+          {{ with .title }}<p class="program-hero-audience-title">{{ . }}</p>{{ end }}
+          {{ range .items }}
+          <p class="program-hero-audience-text">{{ . }}</p>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
       <div class="program-hero-actions">
         <a class="button program-hero-cta" href="#contact">Записаться</a>
       </div>
@@ -114,9 +124,11 @@
           {{ range .items }}
           <details class="program-accordion-item">
             <summary class="program-accordion-trigger is-size-6">
+              {{ with .icon }}
               <span class="program-accordion-icon">
-                <img src="{{ .icon }}" alt="" width="20" height="20" aria-hidden="true" loading="lazy" decoding="async">
+                <img src="{{ . }}" alt="" width="20" height="20" aria-hidden="true" loading="lazy" decoding="async">
               </span>
+              {{ end }}
               <span class="program-accordion-label">{{ .name }}</span>
             </summary>
             {{ with .description }}<p class="program-accordion-content has-text-grey">{{ . }}</p>{{ end }}
@@ -141,6 +153,22 @@
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       {{ with .intro }}<p class="has-text-grey mb-5">{{ . }}</p>{{ end }}
+      {{ with .categories }}
+      <div class="columns is-multiline">
+        {{ range . }}
+        <div class="column is-half">
+          <div class="box">
+            <h3 class="title is-6">{{ .name }}</h3>
+            {{ with .items }}
+            <ul>
+              {{ range . }}<li class="has-text-grey">{{ . }}</li>{{ end }}
+            </ul>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      {{ else }}
       {{ with .images }}
       <div class="program-carousel" data-carousel>
         <button class="program-carousel-nav program-carousel-nav-prev is-size-5" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
@@ -154,6 +182,7 @@
         </div>
         <button class="program-carousel-nav program-carousel-nav-next is-size-5" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
       </div>
+      {{ end }}
       {{ end }}
     </div>
   </section>
@@ -339,6 +368,24 @@
         </div>
         {{ end }}
       </div>
+      {{ with .note }}<p class="has-text-grey mb-5">{{ . }}</p>{{ end }}
+      {{ with .includes }}
+      <div class="box">
+        <h3 class="title is-5">{{ .title }}</h3>
+        <div class="columns is-multiline">
+          {{ range .items }}
+          <div class="column is-half">
+            <div class="program-point">
+              <span class="program-point-icon">
+                <img src="/icons2/{{ .icon }}" alt="" width="24" height="24" aria-hidden="true" loading="lazy" decoding="async">
+              </span>
+              <p class="has-text-grey">{{ .text }}</p>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
     </div>
   </section>
   {{ end }}
