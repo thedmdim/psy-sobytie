@@ -201,7 +201,6 @@
 
 .program-hero-slideshow .slide.is-active {
   opacity: 1;
-  position: relative;
 }
 
 .program-hero-slideshow .slide img {
@@ -279,10 +278,13 @@
 .program-accordion-image {
   flex: 1 1 50%;
   min-width: 0;
+  position: relative;
   border-radius: var(--bulma-radius, 0.5rem);
   overflow: hidden;
 }
 .program-accordion-image img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -729,4 +731,30 @@
   top: 0;
   font-weight: 700;
   color: #fff;
+}
+
+/* --- пункты с эмодзи (почему эффективна) --- */
+.program-point-emoji {
+  flex: 0 0 auto;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  align-self: flex-start;
+  margin-top: 0.1rem;
+}
+
+/* --- специалисты: сетка --- */
+.program-specialists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+.program-specialists-grid .program-specialist-card {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- отзывы: аватарка-эмодзи --- */
+.program-review-avatar {
+  font-size: 1.5rem;
+  line-height: 1;
 }
