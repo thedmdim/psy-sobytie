@@ -240,13 +240,15 @@
 
 /* accordion */
 .program-accordion-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
   align-items: stretch;
 }
-.program-accordion {
+.program-accordion.box {
   flex: 1 1 50%;
   min-width: 0;
+  margin-bottom: 0;
 }
 .program-accordion-item {
   border-bottom: 1px solid var(--bulma-border);
@@ -279,7 +281,7 @@
   flex: 1 1 50%;
   min-width: 0;
   position: relative;
-  border-radius: var(--bulma-radius, 0.5rem);
+  border-radius: var(--bulma-box-radius, 0.75rem);
   overflow: hidden;
 }
 .program-accordion-image img {
@@ -472,9 +474,10 @@
   .program-roadmap-step:hover,
   .program-roadmap-step:hover .program-roadmap-index,
   .program-roadmap-step:hover .program-roadmap-index::before { transform: none; }
-  .program-accordion-row { flex-direction: column; }
+  .program-accordion-row { grid-template-columns: 1fr; }
   .program-accordion-image {
     order: -1;
+    aspect-ratio: 16 / 9;
     max-height: 220px;
   }
   .program-accordion-image img {

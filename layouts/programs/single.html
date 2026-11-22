@@ -200,6 +200,7 @@
             <h3 class="title is-4">{{ .name }}</h3>
             <p class="program-pricing-price is-size-4">{{ .price }}</p>
             {{ with .group_size }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+            {{ with .description }}<p class="has-text-grey mb-2">{{ . }}</p>{{ end }}
             {{ with .features }}
             <ul>
               {{ range . }}<li>{{ . }}</li>{{ end }}
