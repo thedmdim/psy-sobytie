@@ -25,6 +25,7 @@
       </div>
       <div class="navbar-menu" id="programNavbar">
         <div class="navbar-start program-navbar-items">
+          {{ with .Params.why_effective }}<a class="navbar-item" href="#format">Формат</a>{{ end }}
           {{ with .Params.topics }}<a class="navbar-item" href="#groups">С чем работаем</a>{{ end }}
           {{ with .Params.specialists }}<a class="navbar-item" href="#specialists">Специалисты</a>{{ end }}
           {{ with .Params.pricing }}<a class="navbar-item" href="#pricing">Стоимость</a>{{ end }}
@@ -93,7 +94,7 @@
   {{/* WHY EFFECTIVE */}}
   {{ with .Params.why_effective }}
   {{ $icons := slice "connection.png" "point.png" "Star.png" "check.png" "lighthouse.png" "iteam.png" "award2.png" "download.png" "list.png" "pluse.png" "road.png" "rocket.png" "watch.png" "world.png" }}
-  <section class="section has-background-white program-section-stack">
+  <section class="section has-background-white program-section-stack" id="format">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
       <div class="columns is-multiline">
@@ -102,7 +103,7 @@
           {{ if reflect.IsMap $p }}
           <div class="program-point">
             <span class="program-point-emoji">{{ $p.emoji }}</span>
-            <p class="has-text-grey"><strong class="has-text-dark">{{ $p.lead }}</strong> {{ $p.text }}</p>
+            <p class="has-text-grey"><strong class="has-text-dark">{{ $p.lead }}</strong><br>{{ $p.text }}</p>
           </div>
           {{ else }}
           <div class="program-point">
@@ -166,23 +167,27 @@
   <section class="section" id="specialists">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <div class="program-specialists-grid">
-        {{ range $specialists }}
-        <div class="card program-specialist-card">
-          <div class="card-image">
-            <figure class="image is-1by1 program-specialist-photo">
-              {{ $name := .Params.name }}
-              {{ with .Resources.Get .Params.photo }}
-                {{ partial "responsive-image.html" (dict "img" . "alt" $name "width" 300) }}
-              {{ end }}
-            </figure>
+      <div class="program-carousel" data-carousel>
+        <button class="program-carousel-nav program-carousel-nav-prev is-size-5" type="button" aria-label="Назад" data-carousel-prev>&#8249;</button>
+        <div class="program-carousel-track" data-carousel-track>
+          {{ range $specialists }}
+          <div class="card program-specialist-card">
+            <div class="card-image">
+              <figure class="image is-1by1 program-specialist-photo">
+                {{ $name := .Params.name }}
+                {{ with .Resources.Get .Params.photo }}
+                  {{ partial "responsive-image.html" (dict "img" . "alt" $name "width" 300) }}
+                {{ end }}
+              </figure>
+            </div>
+            <div class="card-content has-text-centered">
+              <p class="title is-6 mb-4">{{ .Params.name }}</p>
+              <a class="button program-specialist-detail-btn" href="{{ .RelPermalink }}">Подробнее</a>
+            </div>
           </div>
-          <div class="card-content has-text-centered">
-            <p class="title is-6 mb-4">{{ .Params.name }}</p>
-            <a class="button program-specialist-detail-btn" href="{{ .RelPermalink }}">Подробнее</a>
-          </div>
+          {{ end }}
         </div>
-        {{ end }}
+        <button class="program-carousel-nav program-carousel-nav-next is-size-5" type="button" aria-label="Вперёд" data-carousel-next>&#8250;</button>
       </div>
     </div>
   </section>
@@ -193,44 +198,41 @@
   <section class="section" id="pricing">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      <div class="columns is-multiline">
-        {{ range .plans }}
-        <div class="column is-half">
-          <div class="box">
-            <h3 class="title is-4">{{ .name }}</h3>
-            <p class="program-pricing-price is-size-4">{{ .price }}</p>
-            {{ with .group_size }}<p class="has-text-grey">{{ . }}</p>{{ end }}
-            {{ with .description }}<p class="has-text-grey mb-2">{{ . }}</p>{{ end }}
-            {{ with .features }}
-            <ul>
-              {{ range . }}<li>{{ . }}</li>{{ end }}
-            </ul>
-            {{ end }}
-            {{ with $.Params.cta_text }}
-            <a class="button is-info is-outlined is-fullwidth" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
-            {{ end }}
-          </div>
+      {{ range .plans }}
+      <div class="box program-pricing-plan{{ if eq .name "Основной курс" }} program-pricing-plan--main{{ end }}">
+        <h3 class="title is-4">{{ .name }}</h3>
+        <p class="program-pricing-price is-size-4">{{ .price }}</p>
+        {{ with .installment }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+        {{ with .group_size }}<p class="has-text-grey">{{ . }}</p>{{ end }}
+        {{ with .description }}<p class="has-text-grey mb-2">{{ . }}</p>{{ end }}
+        {{ with .features }}
+        <ul>
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ end }}
+        {{ if and (eq .name "Основной курс") $.Params.pricing.includes }}
+        {{ with $.Params.pricing.includes }}
+        <h3 class="title is-5">{{ .title }}</h3>
+        {{ range .items }}
+        <div class="program-point mb-3">
+          {{ with .emoji }}
+          <span class="program-point-emoji">{{ . }}</span>
+          {{ else }}
+          <span class="program-point-icon">
+            <img src="/icons2/{{ .icon }}" alt="" width="24" height="24" aria-hidden="true" loading="lazy" decoding="async">
+          </span>
+          {{ end }}
+          <p class="has-text-grey">{{ .text }}</p>
         </div>
         {{ end }}
-      </div>
-      {{ with .note }}<p class="has-text-grey mb-5">{{ . }}</p>{{ end }}
-      {{ with .includes }}
-      <div class="box">
-        <h3 class="title is-5">{{ .title }}</h3>
-        <div class="columns is-multiline">
-          {{ range .items }}
-          <div class="column is-half">
-            <div class="program-point">
-              <span class="program-point-icon">
-                <img src="/icons2/{{ .icon }}" alt="" width="24" height="24" aria-hidden="true" loading="lazy" decoding="async">
-              </span>
-              <p class="has-text-grey">{{ .text }}</p>
-            </div>
-          </div>
-          {{ end }}
-        </div>
+        {{ end }}
+        {{ end }}
+        {{ with $.Params.cta_text }}
+        <a class="button is-info is-outlined is-fullwidth" href="{{ $.Params.cta_link | default "#signup" }}">{{ . }}</a>
+        {{ end }}
       </div>
       {{ end }}
+      {{ with .note }}<p class="has-text-grey mb-5">{{ . }}</p>{{ end }}
     </div>
   </section>
   {{ end }}
@@ -240,7 +242,7 @@
   <section class="section" id="schedule">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey mb-2">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="has-text-grey-dark mb-2">{{ . }}</p>{{ end }}
       {{ with .address }}<p class="has-text-weight-bold mt-5 mb-5">{{ . }}</p>{{ end }}
 
       {{ with .groups }}
@@ -254,7 +256,7 @@
       {{ end }}
 
       {{ with .notes }}
-      <ul class="program-schedule-notes has-text-grey">
+      <ul class="program-schedule-notes has-text-grey-dark">
         {{ range . }}<li>{{ . }}</li>{{ end }}
       </ul>
       {{ end }}
@@ -267,7 +269,7 @@
   <section class="section has-background-white" id="results">
     <div class="container">
       <h2 class="title is-3">{{ .title }}</h2>
-      {{ with .intro }}<p class="has-text-grey mb-5">{{ . }}</p>{{ end }}
+      {{ with .intro }}<p class="has-text-grey-dark mb-5">{{ . }}</p>{{ end }}
       {{ with .categories }}
       <div class="columns is-multiline">
         {{ range . }}
@@ -276,7 +278,7 @@
             <h3 class="title is-6">{{ .name }}</h3>
             {{ with .items }}
             <ul>
-              {{ range . }}<li class="has-text-grey">{{ . }}</li>{{ end }}
+              {{ range . }}<li>{{ . }}</li>{{ end }}
             </ul>
             {{ end }}
           </div>
