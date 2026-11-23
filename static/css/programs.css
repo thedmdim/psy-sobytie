@@ -121,6 +121,7 @@
   line-height: 1.2;
   margin-bottom: 0.75rem;
   color: #fff;
+  white-space: pre-line;
 }
 
 .program-hero-subtitle {
@@ -517,6 +518,18 @@
 /* pricing */
 .program-pricing-price { font-weight: 600; color: var(--bulma-info-dark); }
 
+.program-pricing-plan {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, #1e88e5 0%, #4fc3f7 100%) border-box;
+}
+.program-pricing-plan--main {
+  background:
+    linear-gradient(180deg, #d9f3e2 0%, #ffffff 100%) padding-box,
+    linear-gradient(135deg, #43a047 0%, #a5d6a7 100%) border-box;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .program-page * { scroll-behavior: auto !important; transition: none !important; }
 }
@@ -709,10 +722,6 @@
 
 .program-page--cards #results .box .title {
   color: #fff;
-}
-
-.program-page--cards #results .box .has-text-grey {
-  color: rgba(255, 255, 255, 0.92);
 }
 
 .program-page--cards #results .box ul {
