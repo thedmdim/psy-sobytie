@@ -57,6 +57,9 @@
       {{ end }}
       <div class="program-hero-actions">
         <a class="button program-hero-cta" href="#contact">Записаться</a>
+        {{ if in .File.Dir "beautiful-growing-up" }}
+        <a class="button program-hero-cta-secondary" href="/programs/beautiful-childhood/">Детям до 12 лет</a>
+        {{ end }}
       </div>
       <div class="program-hero-social">
         <a href="https://max.ru/u/f9LHodD0cOIr6aupZrWx1mgJsrWmwwvg1N88_p7ub2uqwVCqJakClXFBXPw">
